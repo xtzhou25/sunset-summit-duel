@@ -1,0 +1,9 @@
+{
+  "root_motion": false,
+  "actor_scale": 1.2,
+  "run_speed_m_s_at_playback_1": 2.674428,
+  "backstep_guard_speed_m_s_at_playback_1": 0.620124,
+  "source": "Verified Qi v03 baseline; Tao retains body, feet, skeleton dimensions and exact common animation buffers.",
+  "runtime_rule": "playback_speed = abs(actor_vx) / calibrated_speed; Run backwards uses negative playback per existing engine.",
+  "validation": "EXPORTED-SKIN-QA and tao_surface_curves.json"
+}

@@ -1,0 +1,441 @@
+Existing source combat motions: Open Motion Project, ACCAD / The Ohio State University.
+https://accad.osu.edu/research/motion-lab/mocap-system-and-data
+Creative Commons Attribution 3.0 Unported:
+https://creativecommons.org/licenses/by/3.0/
+Existing adaptations include retiming, anthropometric reach reduction, root motion removal, and original takeoff/landing phases. See original source-use.json and ADAPTATION.json retained in each package. No endorsement implied. This does not grant a license over the character geometry.
+
+NEW LIVEHOUSE ADDITIONS: Guard, HitReact, Knockdown, Recover and Victory are original procedural/keyframed additions for this game, derived from the existing character rig and conservative guard pose. They are NOT newly captured human motion and are not claimed to be full-body mocap retargets. Victory is a modest stage bow. Knockdown/Recover are stylized whole-skeleton recline/return, not anatomical ragdoll simulation. Original appearance and 13 previous actions are preserved.
+
+V2 GAME ADDITIONS: FightIdle (2s loop) and HitReactStrong (.4s) are original keyed derivatives of the existing rig. Staggered planted feet, modest bent knees, low costume-safe guard and subtle breathing; no new mocap or finger-bone/fist claim. All19 previous clips and character geometry retained.
+
+V3 camera-facing and knockdown revision (2026-10-25): 15 paired _R/_L gameplay animation bases were authored as game-specific pose adaptations, retaining all21 earlier animation records and original character geometry. Chest/head camera opening, support/catch/recovery staging and selected auxiliary-roll continuity corrections are original editing work, not a claim of newly captured motion. Feet/root and measured original attack paths remain in the combat plane. No independent finger rig was added. Local concealed garment contacts and stylized skin-volume limitations remain documented in ANIMATION-V3-LIMITATIONS.txt.
+
+V4 varied-punch additions (2026-10-25): Jab_R/L, Straight_R/L and HeavyPunch_R/L are original keyed actions appended to the frozen 51-clip baseline. All earlier animation records and appearance remain preserved. Actual hand mesh reach curves at game scale 1.2 bound collision fronts; no new mocap or articulated finger-fist claim. Source/runtime archives are pinned in ASSETS.json. See ANIMATION-V4-LIMITATIONS.txt for localized garment contacts and near-opponent hand occlusion.
+
+V5 grounded roundhouse addition (2026-10-25): RoundhouseKick_R/L are original keyed rig animations appended to all57 preserved previous clips, making59 actions per character. A fixed actor root, planted left support-ball pivot, hip-driven right-leg transverse sweep and return to FightIdle are authored; this is not newly captured motion or a ragdoll. Actual imported foot-skin XYZ curves provide measured contact depth, height and forward reach. Local garment contacts remain disclosed; no blanket collision-free or articulated-finger claim.
+
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: noto-cjk
+Upstream-Contact: https://github.com/notofonts/noto-cjk/issues
+Source: https://github.com/notofonts/noto-cjk
+Files-Excluded:
+ .gitattributes
+ .gitignore
+ Sans/Mono/NotoSansMonoCJKhk-Bold.otf
+ Sans/Mono/NotoSansMonoCJKhk-Regular.otf
+ Sans/Mono/NotoSansMonoCJKjp-Bold.otf
+ Sans/Mono/NotoSansMonoCJKjp-Regular.otf
+ Sans/Mono/NotoSansMonoCJKkr-Bold.otf
+ Sans/Mono/NotoSansMonoCJKkr-Regular.otf
+ Sans/Mono/NotoSansMonoCJKsc-Bold.otf
+ Sans/Mono/NotoSansMonoCJKsc-Regular.otf
+ Sans/Mono/NotoSansMonoCJKtc-Bold.otf
+ Sans/Mono/NotoSansMonoCJKtc-Regular.otf
+ Sans/OTF/Japanese/NotoSansCJKjp-Black.otf
+ Sans/OTF/Japanese/NotoSansCJKjp-Bold.otf
+ Sans/OTF/Japanese/NotoSansCJKjp-DemiLight.otf
+ Sans/OTF/Japanese/NotoSansCJKjp-Light.otf
+ Sans/OTF/Japanese/NotoSansCJKjp-Medium.otf
+ Sans/OTF/Japanese/NotoSansCJKjp-Regular.otf
+ Sans/OTF/Japanese/NotoSansCJKjp-Thin.otf
+ Sans/OTF/Korean/NotoSansCJKkr-Black.otf
+ Sans/OTF/Korean/NotoSansCJKkr-Bold.otf
+ Sans/OTF/Korean/NotoSansCJKkr-DemiLight.otf
+ Sans/OTF/Korean/NotoSansCJKkr-Light.otf
+ Sans/OTF/Korean/NotoSansCJKkr-Medium.otf
+ Sans/OTF/Korean/NotoSansCJKkr-Regular.otf
+ Sans/OTF/Korean/NotoSansCJKkr-Thin.otf
+ Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Black.otf
+ Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Bold.otf
+ Sans/OTF/SimplifiedChinese/NotoSansCJKsc-DemiLight.otf
+ Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Light.otf
+ Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Medium.otf
+ Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Regular.otf
+ Sans/OTF/SimplifiedChinese/NotoSansCJKsc-Thin.otf
+ Sans/OTF/TraditionalChinese/NotoSansCJKtc-Black.otf
+ Sans/OTF/TraditionalChinese/NotoSansCJKtc-Bold.otf
+ Sans/OTF/TraditionalChinese/NotoSansCJKtc-DemiLight.otf
+ Sans/OTF/TraditionalChinese/NotoSansCJKtc-Light.otf
+ Sans/OTF/TraditionalChinese/NotoSansCJKtc-Medium.otf
+ Sans/OTF/TraditionalChinese/NotoSansCJKtc-Regular.otf
+ Sans/OTF/TraditionalChinese/NotoSansCJKtc-Thin.otf
+ Sans/OTF/TraditionalChineseHK/NotoSansCJKhk-Black.otf
+ Sans/OTF/TraditionalChineseHK/NotoSansCJKhk-Bold.otf
+ Sans/OTF/TraditionalChineseHK/NotoSansCJKhk-DemiLight.otf
+ Sans/OTF/TraditionalChineseHK/NotoSansCJKhk-Light.otf
+ Sans/OTF/TraditionalChineseHK/NotoSansCJKhk-Medium.otf
+ Sans/OTF/TraditionalChineseHK/NotoSansCJKhk-Regular.otf
+ Sans/OTF/TraditionalChineseHK/NotoSansCJKhk-Thin.otf
+ Sans/SubsetOTF/HK/NotoSansHK-Black.otf
+ Sans/SubsetOTF/HK/NotoSansHK-Bold.otf
+ Sans/SubsetOTF/HK/NotoSansHK-DemiLight.otf
+ Sans/SubsetOTF/HK/NotoSansHK-Light.otf
+ Sans/SubsetOTF/HK/NotoSansHK-Medium.otf
+ Sans/SubsetOTF/HK/NotoSansHK-Regular.otf
+ Sans/SubsetOTF/HK/NotoSansHK-Thin.otf
+ Sans/SubsetOTF/JP/NotoSansJP-Black.otf
+ Sans/SubsetOTF/JP/NotoSansJP-Bold.otf
+ Sans/SubsetOTF/JP/NotoSansJP-DemiLight.otf
+ Sans/SubsetOTF/JP/NotoSansJP-Light.otf
+ Sans/SubsetOTF/JP/NotoSansJP-Medium.otf
+ Sans/SubsetOTF/JP/NotoSansJP-Regular.otf
+ Sans/SubsetOTF/JP/NotoSansJP-Thin.otf
+ Sans/SubsetOTF/KR/NotoSansKR-Black.otf
+ Sans/SubsetOTF/KR/NotoSansKR-Bold.otf
+ Sans/SubsetOTF/KR/NotoSansKR-DemiLight.otf
+ Sans/SubsetOTF/KR/NotoSansKR-Light.otf
+ Sans/SubsetOTF/KR/NotoSansKR-Medium.otf
+ Sans/SubsetOTF/KR/NotoSansKR-Regular.otf
+ Sans/SubsetOTF/KR/NotoSansKR-Thin.otf
+ Sans/SubsetOTF/SC/NotoSansSC-Black.otf
+ Sans/SubsetOTF/SC/NotoSansSC-Bold.otf
+ Sans/SubsetOTF/SC/NotoSansSC-DemiLight.otf
+ Sans/SubsetOTF/SC/NotoSansSC-Light.otf
+ Sans/SubsetOTF/SC/NotoSansSC-Medium.otf
+ Sans/SubsetOTF/SC/NotoSansSC-Regular.otf
+ Sans/SubsetOTF/SC/NotoSansSC-Thin.otf
+ Sans/SubsetOTF/TC/NotoSansTC-Black.otf
+ Sans/SubsetOTF/TC/NotoSansTC-Bold.otf
+ Sans/SubsetOTF/TC/NotoSansTC-DemiLight.otf
+ Sans/SubsetOTF/TC/NotoSansTC-Light.otf
+ Sans/SubsetOTF/TC/NotoSansTC-Medium.otf
+ Sans/SubsetOTF/TC/NotoSansTC-Regular.otf
+ Sans/SubsetOTF/TC/NotoSansTC-Thin.otf
+ Sans/SuperOTC/NotoSansCJK.ttc.zip
+ Sans/Variable/OTC/NotoSansCJK-VF.ttf.ttc
+ Sans/Variable/OTC/NotoSansMonoCJK-VF.ttf.ttc
+ Sans/Variable/OTF/Mono/NotoSansMonoCJKhk-VF.otf
+ Sans/Variable/OTF/Mono/NotoSansMonoCJKjp-VF.otf
+ Sans/Variable/OTF/Mono/NotoSansMonoCJKkr-VF.otf
+ Sans/Variable/OTF/Mono/NotoSansMonoCJKsc-VF.otf
+ Sans/Variable/OTF/Mono/NotoSansMonoCJKtc-VF.otf
+ Sans/Variable/OTF/NotoSansCJKhk-VF.otf
+ Sans/Variable/OTF/NotoSansCJKjp-VF.otf
+ Sans/Variable/OTF/NotoSansCJKkr-VF.otf
+ Sans/Variable/OTF/NotoSansCJKsc-VF.otf
+ Sans/Variable/OTF/NotoSansCJKtc-VF.otf
+ Sans/Variable/OTF/Subset/NotoSansHK-VF.otf
+ Sans/Variable/OTF/Subset/NotoSansJP-VF.otf
+ Sans/Variable/OTF/Subset/NotoSansKR-VF.otf
+ Sans/Variable/OTF/Subset/NotoSansSC-VF.otf
+ Sans/Variable/OTF/Subset/NotoSansTC-VF.otf
+ Sans/Variable/TTF/Mono/NotoSansMonoCJKhk-VF.ttf
+ Sans/Variable/TTF/Mono/NotoSansMonoCJKjp-VF.ttf
+ Sans/Variable/TTF/Mono/NotoSansMonoCJKkr-VF.ttf
+ Sans/Variable/TTF/Mono/NotoSansMonoCJKsc-VF.ttf
+ Sans/Variable/TTF/Mono/NotoSansMonoCJKtc-VF.ttf
+ Sans/Variable/TTF/NotoSansCJKhk-VF.ttf
+ Sans/Variable/TTF/NotoSansCJKjp-VF.ttf
+ Sans/Variable/TTF/NotoSansCJKkr-VF.ttf
+ Sans/Variable/TTF/NotoSansCJKsc-VF.ttf
+ Sans/Variable/TTF/NotoSansCJKtc-VF.ttf
+ Sans/Variable/TTF/Subset/NotoSansHK-VF.ttf
+ Sans/Variable/TTF/Subset/NotoSansJP-VF.ttf
+ Sans/Variable/TTF/Subset/NotoSansKR-VF.ttf
+ Sans/Variable/TTF/Subset/NotoSansSC-VF.ttf
+ Sans/Variable/TTF/Subset/NotoSansTC-VF.ttf
+ Serif/OTF/Japanese/NotoSerifCJKjp-Black.otf
+ Serif/OTF/Japanese/NotoSerifCJKjp-Bold.otf
+ Serif/OTF/Japanese/NotoSerifCJKjp-ExtraLight.otf
+ Serif/OTF/Japanese/NotoSerifCJKjp-Light.otf
+ Serif/OTF/Japanese/NotoSerifCJKjp-Medium.otf
+ Serif/OTF/Japanese/NotoSerifCJKjp-Regular.otf
+ Serif/OTF/Japanese/NotoSerifCJKjp-SemiBold.otf
+ Serif/OTF/Korean/NotoSerifCJKkr-Black.otf
+ Serif/OTF/Korean/NotoSerifCJKkr-Bold.otf
+ Serif/OTF/Korean/NotoSerifCJKkr-ExtraLight.otf
+ Serif/OTF/Korean/NotoSerifCJKkr-Light.otf
+ Serif/OTF/Korean/NotoSerifCJKkr-Medium.otf
+ Serif/OTF/Korean/NotoSerifCJKkr-Regular.otf
+ Serif/OTF/Korean/NotoSerifCJKkr-SemiBold.otf
+ Serif/OTF/SimplifiedChinese/NotoSerifCJKsc-Black.otf
+ Serif/OTF/SimplifiedChinese/NotoSerifCJKsc-Bold.otf
+ Serif/OTF/SimplifiedChinese/NotoSerifCJKsc-ExtraLight.otf
+ Serif/OTF/SimplifiedChinese/NotoSerifCJKsc-Light.otf
+ Serif/OTF/SimplifiedChinese/NotoSerifCJKsc-Medium.otf
+ Serif/OTF/SimplifiedChinese/NotoSerifCJKsc-Regular.otf
+ Serif/OTF/SimplifiedChinese/NotoSerifCJKsc-SemiBold.otf
+ Serif/OTF/TraditionalChinese/NotoSerifCJKtc-Black.otf
+ Serif/OTF/TraditionalChinese/NotoSerifCJKtc-Bold.otf
+ Serif/OTF/TraditionalChinese/NotoSerifCJKtc-ExtraLight.otf
+ Serif/OTF/TraditionalChinese/NotoSerifCJKtc-Light.otf
+ Serif/OTF/TraditionalChinese/NotoSerifCJKtc-Medium.otf
+ Serif/OTF/TraditionalChinese/NotoSerifCJKtc-Regular.otf
+ Serif/OTF/TraditionalChinese/NotoSerifCJKtc-SemiBold.otf
+ Serif/OTF/TraditionalChineseHK/NotoSerifCJKhk-Black.otf
+ Serif/OTF/TraditionalChineseHK/NotoSerifCJKhk-Bold.otf
+ Serif/OTF/TraditionalChineseHK/NotoSerifCJKhk-ExtraLight.otf
+ Serif/OTF/TraditionalChineseHK/NotoSerifCJKhk-Light.otf
+ Serif/OTF/TraditionalChineseHK/NotoSerifCJKhk-Medium.otf
+ Serif/OTF/TraditionalChineseHK/NotoSerifCJKhk-Regular.otf
+ Serif/OTF/TraditionalChineseHK/NotoSerifCJKhk-SemiBold.otf
+ Serif/SubsetOTF/HK/NotoSerifHK-Black.otf
+ Serif/SubsetOTF/HK/NotoSerifHK-Bold.otf
+ Serif/SubsetOTF/HK/NotoSerifHK-ExtraLight.otf
+ Serif/SubsetOTF/HK/NotoSerifHK-Light.otf
+ Serif/SubsetOTF/HK/NotoSerifHK-Medium.otf
+ Serif/SubsetOTF/HK/NotoSerifHK-Regular.otf
+ Serif/SubsetOTF/HK/NotoSerifHK-SemiBold.otf
+ Serif/SubsetOTF/JP/NotoSerifJP-Black.otf
+ Serif/SubsetOTF/JP/NotoSerifJP-Bold.otf
+ Serif/SubsetOTF/JP/NotoSerifJP-ExtraLight.otf
+ Serif/SubsetOTF/JP/NotoSerifJP-Light.otf
+ Serif/SubsetOTF/JP/NotoSerifJP-Medium.otf
+ Serif/SubsetOTF/JP/NotoSerifJP-Regular.otf
+ Serif/SubsetOTF/JP/NotoSerifJP-SemiBold.otf
+ Serif/SubsetOTF/KR/NotoSerifKR-Black.otf
+ Serif/SubsetOTF/KR/NotoSerifKR-Bold.otf
+ Serif/SubsetOTF/KR/NotoSerifKR-ExtraLight.otf
+ Serif/SubsetOTF/KR/NotoSerifKR-Light.otf
+ Serif/SubsetOTF/KR/NotoSerifKR-Medium.otf
+ Serif/SubsetOTF/KR/NotoSerifKR-Regular.otf
+ Serif/SubsetOTF/KR/NotoSerifKR-SemiBold.otf
+ Serif/SubsetOTF/SC/NotoSerifSC-Black.otf
+ Serif/SubsetOTF/SC/NotoSerifSC-Bold.otf
+ Serif/SubsetOTF/SC/NotoSerifSC-ExtraLight.otf
+ Serif/SubsetOTF/SC/NotoSerifSC-Light.otf
+ Serif/SubsetOTF/SC/NotoSerifSC-Medium.otf
+ Serif/SubsetOTF/SC/NotoSerifSC-Regular.otf
+ Serif/SubsetOTF/SC/NotoSerifSC-SemiBold.otf
+ Serif/SubsetOTF/TC/NotoSerifTC-Black.otf
+ Serif/SubsetOTF/TC/NotoSerifTC-Bold.otf
+ Serif/SubsetOTF/TC/NotoSerifTC-ExtraLight.otf
+ Serif/SubsetOTF/TC/NotoSerifTC-Light.otf
+ Serif/SubsetOTF/TC/NotoSerifTC-Medium.otf
+ Serif/SubsetOTF/TC/NotoSerifTC-Regular.otf
+ Serif/SubsetOTF/TC/NotoSerifTC-SemiBold.otf
+ Serif/Variable/OTC/NotoSerifCJK-VF.ttf.ttc
+ Serif/Variable/OTF/NotoSerifCJKhk-VF.otf
+ Serif/Variable/OTF/NotoSerifCJKjp-VF.otf
+ Serif/Variable/OTF/NotoSerifCJKkr-VF.otf
+ Serif/Variable/OTF/NotoSerifCJKsc-VF.otf
+ Serif/Variable/OTF/NotoSerifCJKtc-VF.otf
+ Serif/Variable/OTF/Subset/NotoSerifHK-VF.otf
+ Serif/Variable/OTF/Subset/NotoSerifJP-VF.otf
+ Serif/Variable/OTF/Subset/NotoSerifKR-VF.otf
+ Serif/Variable/OTF/Subset/NotoSerifSC-VF.otf
+ Serif/Variable/OTF/Subset/NotoSerifTC-VF.otf
+ Serif/Variable/TTF/NotoSerifCJKhk-VF.ttf
+ Serif/Variable/TTF/NotoSerifCJKjp-VF.ttf
+ Serif/Variable/TTF/NotoSerifCJKkr-VF.ttf
+ Serif/Variable/TTF/NotoSerifCJKsc-VF.ttf
+ Serif/Variable/TTF/NotoSerifCJKtc-VF.ttf
+ Serif/Variable/TTF/Subset/NotoSerifHK-VF.ttf
+ Serif/Variable/TTF/Subset/NotoSerifJP-VF.ttf
+ Serif/Variable/TTF/Subset/NotoSerifKR-VF.ttf
+ Serif/Variable/TTF/Subset/NotoSerifSC-VF.ttf
+ Serif/Variable/TTF/Subset/NotoSerifTC-VF.ttf
+
+Files: *
+Copyright: 2010-2012, Google Corporation
+License: SIL-1.1
+
+Files: debian/*
+Copyright: 2013, Vasudev Kamath <kamathvasudev@gmail.com>
+           2013-2015, Jonas Smedegaard <dr@jones.dk>
+           2015-2022, ChangZhuo Chen (陳昌倬) <czchen@debian.org>
+License: GPL-3+
+
+License: SIL-1.1
+ -----------------------------------------------------------
+ SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+ -----------------------------------------------------------
+ .
+ PREAMBLE
+ .
+ The goals of the Open Font License (OFL) are to stimulate worldwide
+ development of collaborative font projects, to support the font
+ creation efforts of academic and linguistic communities, and to provide
+ a free and open framework in which fonts may be shared and improved in
+ partnership with others.
+ .
+ The OFL allows the licensed fonts to be used, studied, modified and
+ redistributed freely as long as they are not sold by themselves. The
+ fonts, including any derivative works, can be bundled, embedded,
+ redistributed and/or sold with any software provided that any reserved
+ names are not used by derivative works. The fonts and derivatives,
+ however, cannot be released under any other type of license. The
+ requirement for fonts to remain under this license does not apply to
+ any document created using the fonts or their derivatives.
+ .
+ DEFINITIONS
+ .
+ "Font Software" refers to the set of files released by the Copyright
+ Holder(s) under this license and clearly marked as such. This may
+ include source files, build scripts and documentation.
+ .
+ "Reserved Font Name" refers to any names specified as such after the
+ copyright statement(s).
+ .
+ "Original Version" refers to the collection of Font Software components
+ as distributed by the Copyright Holder(s).
+ .
+ "Modified Version" refers to any derivative made by adding to,
+ deleting, or substituting -- in part or in whole -- any of the
+ components of the Original Version, by changing formats or by porting
+ the Font Software to a new environment.
+ .
+ "Author" refers to any designer, engineer, programmer, technical writer
+ or other person who contributed to the Font Software.
+ .
+ PERMISSION & CONDITIONS
+ .
+ Permission is hereby granted, free of charge, to any person obtaining a
+ copy of the Font Software, to use, study, copy, merge, embed, modify,
+ redistribute, and sell modified and unmodified copies of the Font
+ Software, subject to the following conditions:
+ .
+ 1) Neither the Font Software nor any of its individual components, in
+ Original or Modified Versions, may be sold by itself.
+ .
+ 2) Original or Modified Versions of the Font Software may be bundled,
+ redistributed and/or sold with any software, provided that each copy
+ contains the above copyright notice and this license. These can be
+ included either as stand-alone text files, human-readable headers or
+ in the appropriate machine-readable metadata fields within text or
+ binary files as long as those fields can be easily viewed by the user.
+ .
+ 3) No Modified Version of the Font Software may use the Reserved Font
+ Name(s) unless explicit written permission is granted by the
+ corresponding Copyright Holder. This restriction only applies to the
+ primary font name as presented to the users.
+ .
+ 4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+ Software shall not be used to promote, endorse or advertise any
+ Modified Version, except to acknowledge the contribution(s) of the
+ Copyright Holder(s) and the Author(s) or with their explicit written
+ permission.
+ .
+ 5) The Font Software, modified or unmodified, in part or in whole, must
+ be distributed entirely under this license, and must not be distributed
+ under any other license. The requirement for fonts to remain under this
+ license does not apply to any document created using the Font Software.
+ .
+ TERMINATION
+ .
+ This license becomes null and void if any of the above conditions are
+ not met.
+ .
+ DISCLAIMER
+ .
+ THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+ MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+ OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+ COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+ DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+ OTHER DEALINGS IN THE FONT SOFTWARE.
+
+License: GPL-3+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
+
+Godot Engine 4.6.3, MIT license: https://godotengine.org/license/
+Game scene, UI and sound effects were created for this project. Character geometry remains owned by its original rights holder; no blanket redistribution license is granted.
+
+Copyright (c) 2014-present Godot Engine contributors (see AUTHORS.md).
+Copyright (c) 2007-2014 Juan Linietsky, Ariel Manzur.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Engine third-party notices: ENGINE-THIRD-PARTY.json
+
+
+CAT MEOW AUDIO: SOURCE, LICENSE, AND TECHNICAL CHECKS
+
+Game asset: assets/audio/meow.wav
+Source recording: "Little Meow of a Cat #1" (sound number 0494)
+Creator: Joseph SARDIN / BigSoundBank.com
+Official source page:
+https://bigsoundbank.com/little-meow-of-a-cat-s0494.html
+Direct source download, copied from the source page's encoding metadata:
+https://bigsoundbank.com/UPLOAD/bwf-en/0494.wav
+Source downloaded and license checked: 2026-10-25 (UTC)
+
+LICENSE
+Creative Commons CC0 1.0 Universal / public-domain dedication.
+The source page explicitly labels the recording CC0 (public domain), permits
+editing and redistribution, including games and commercial projects, and states
+that attribution is optional. The source BWF file also includes the copyright
+tag "CC0 / WTFPL / Public domain".
+Official site license statement: https://bigsoundbank.com/licenses.html
+CC0 deed: https://creativecommons.org/publicdomain/zero/1.0/
+CC0 legal text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Optional credit included for provenance:
+Cat sound: "Little Meow of a Cat #1" by Joseph SARDIN, BigSoundBank.com (CC0).
+No endorsement by the creator is implied.
+
+PRESERVED ORIGINAL
+assets/audio/originals/bigsoundbank_0494_original.wav
+This is the unmodified downloaded BWF/WAV source. Its .gdignore prevents an
+unnecessary Godot import but does not remove the source from the project.
+SHA-256: a3af64f8c9dd921343f076d7ed3bcfc9d0f7db49b84e6a81c84fae72d1c8b38d
+
+GAME VERSION
+assets/audio/meow.wav
+The complete source vocalization is retained at its original pitch and speed.
+Processing: metadata stripped; amplitude multiplied by 0.854 (approximately
+-1.37 dB); 3 ms leading and 5 ms trailing fades; encoded as mono 48 kHz,
+16-bit PCM WAV. No synthesized tone, bell, pitch shift, or imitation was added.
+Duration: 0.479604 seconds (23021 samples)
+Channels: 1
+Sample rate: 48000 Hz
+Sample width: 16 bits
+Peak: -1.996 dBFS
+RMS: -18.310 dBFS
+SHA-256: 551cc7c8a4c90e6a120de466707ba36670f05dc8e0d96223a8a355b47cfd3eb2
+
+VALIDATION SCOPE
+The official source identifies the sound as a single small cat meow. The WAV
+was decoded successfully and its waveform and spectrogram inspected: audible-
+range energy is present, with a natural nonuniform envelope and harmonic
+structure. The file is non-silent and not clipped.
+
+Auditory validation was NOT possible in the asset-preparation session: the
+available audio-output path explicitly reported that audio input is unsupported.
+Waveform inspection and source descriptions do not establish that a listener
+will recognize the sound. A human or audio-capable playtest should verify the
+meow and its balance against music, voices, and combat effects before claiming
+that subjective requirement is tested.
+
+P2 combat sound effects: original deterministic synthesis created for this game, no sampled third-party music. 28 mono PCM variations. Generator, provenance and SHA manifest preserved in source docs/P2-AUDIO-ASSETS.md and assets/audio/p2/. Original CC0 cat credit above is unchanged.
+
+七：原创角色模型 v03；数字合成街机步枪音效（2条），无商业游戏音源。源与验收见完整备份包。
+
+Motion source: Open Motion Project by ACCAD / The Ohio State University.
+Source: https://accad.osu.edu/research/motion-lab/mocap-system-and-data
+License: Creative Commons Attribution 3.0 Unported (CC BY 3.0).
+License link: https://creativecommons.org/licenses/by/3.0/
+Selected source: Male2_E8_Bounce.bvh, frames 30–210 (zero-based).
+Adaptations: measured BVH joint trajectories retargeted to five existing flat runtime skeletons; Gaussian smoothing sigma 1.1 frames; trimmed to 6 seconds; quintic endpoint drift removal and 0.30-second edge smoothing; hips/neck/head/elbow/wrist amplitudes reduced; two-bone limb IK with planted foot targets; authored handguard offset (+8.5 cm vertical peak) added independently from capture, with 0.8-second quintic pickup/settle to preserve original idle entry/exit pose; original rig, mesh, materials and all non-idle animation tracks preserved. No endorsement by ACCAD or The Ohio State University is implied.
+
+FUNCTIONAL V18 AUDIO REFINEMENT: original deterministic synthesis authored for this game, no external recordings or new performer voice. Dedicated heart impact, peach emission/impact, cake warning/drop/landing, and softened single rifle emission, each two fixed variants. Original CC0 meow and prior P2 assets are preserved. Generator and exact amplitude/pool limits are retained in the source package: scripts/generate_refined_audio.py and docs/AUDIO-SELECTION-REFINEMENT.md. No endorsement implied.

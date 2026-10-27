@@ -1,0 +1,282 @@
+{
+  "revision": "Only full metal eyeglass rims changed to lower black half rims. Top lens edge rimless; temple/bridge black. All69 animation sampler arrays unchanged.",
+  "clips": [
+    {
+      "clip": "CakeCast_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "CakeCast_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Idle",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Walk",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Run",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "SitDown",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "SitIdle",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "StandUp",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "JumpStart",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "JumpLoop",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "JumpLand",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Punch",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "FlyingKickStart",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "FlyingKickLoop",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "FlyingKickLand",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Guard",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "HitReact",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Knockdown",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Recover",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Victory",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Victory_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Victory_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "BackstepGuard",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "FightIdle",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "HitReactStrong",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "FightIdle_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "FightIdle_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Guard_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Guard_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "BackstepGuard_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "BackstepGuard_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Walk_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Walk_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Run_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Run_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "FlyingKickLoop_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "FlyingKickLoop_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "HitReactStrong_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "HitReactStrong_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Punch_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "FlyingKickStart_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "FlyingKickStart_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "FlyingKickLand_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "FlyingKickLand_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "JumpStart_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "JumpStart_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "JumpLoop_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "JumpLoop_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "JumpLand_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "JumpLand_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Punch_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Knockdown_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Knockdown_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Recover_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Recover_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Jab_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Jab_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Straight_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "Straight_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "HeavyPunch_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "HeavyPunch_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "RoundhouseKick_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "RoundhouseKick_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "CrouchStart_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "CrouchStart_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "CrouchLoop_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "CrouchLoop_L",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "CrouchEnd_R",
+      "identical_sampler_arrays": true
+    },
+    {
+      "clip": "CrouchEnd_L",
+      "identical_sampler_arrays": true
+    }
+  ],
+  "runtime_sha256": "2e00652ef39e9d04536f564eacbcdb7fe76a55bcfbdd2b00285cda4eb9f3c1f6"
+}

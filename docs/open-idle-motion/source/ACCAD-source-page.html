@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+  <head>
+          <script
+        src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js"
+        type="text/javascript"
+        charset="UTF-8"
+        data-domain-script="62c28da0-8c42-4e98-a1c1-699f82295b2f"
+      ></script>
+      <script type="text/javascript">
+        function OptanonWrapper() { }
+      </script>
+        <script>
+      document.documentElement.classList.add('bux-theme-light');try{localStorage.setItem('bux-theme','light');}catch(e){}
+    </script>
+    <meta charset="utf-8" />
+<script>window.dataLayer = window.dataLayer || [];window.dataLayer.push({initCookieBanner: 'full'});</script>
+<noscript><style>form.antibot > * { display: none !important; } form.antibot noscript { display: block !important; }</style>
+</noscript><meta name="description" content="Hardware12 Vicon Valkyrie camera system3-24mm retroreflective markersVideo documentation equipmentiPhone-based face captureStretchsense glovesVive Pro system with wireless adapterVive trackersSoftwareVicon ShogunAutodesk Motionbuilder and MayaUnity 3DUnreal EngineMatlabHand EngineiClone Reallusion SuiteFile FormatsThe area below contains sample motion capture data to download plus useful scripts." />
+<link rel="canonical" href="https://accad.osu.edu/research/motion-lab/mocap-system-and-data" />
+<meta name="google-site-verification" content="qQngLYR63Cx_a8LwrP4cgi0DLkFbVsqpyvywAMcSz5k" />
+<meta name="Generator" content="Drupal 11 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="alternate" hreflang="en" href="https://accad.osu.edu/research/motion-lab/mocap-system-and-data" />
+<link rel="icon" href="/themes/custom/asc_bux/favicon.ico" type="image/vnd.microsoft.icon" />
+
+    <title>
+      MoCap System and Data | Advanced Computing Center for the Arts and Design
+    </title>
+    <link rel="stylesheet" media="all" href="https://assets.bux.osu.edu/bux-icons/bux-icons.css" />
+<link rel="stylesheet" media="all" href="https://s3.amazonaws.com/assets.bux.osu.edu/bux-webfonts2/bux-webfonts2.css" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_pyRVGGhHAC-0XY35lbip8xUIRVcEa8ASc0cc2R8fO28.css?delta=2&amp;language=en&amp;theme=asc_bux&amp;include=eJx1UVtywyAMvJAxXz0PI0DB1IA8EqTJ7au0nUyb4j_YXa0eC7Hm5uiKzDmi2FTIQzHS7yW3tIAE58fNXqh1Ax8oVPEJvmhfIJQl7BhzJ35zRxlJ-xwQdpdbxNadLxR2-_uzBGK0gepBTUFZ1dEYzwgx8Kj-hB-9U5tzm5Yiz7lcIeGc0nVOhqnYxpwhGabB1cNJO0HgsJkLcT0R6P21-mHyLYg8DigrvMPtDxAzFEqLUNCHq3picI-J5Suln5DWp_1M-B9a-4YardylY7UeBD8BYzbPIQ" />
+<link rel="stylesheet" media="all" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_mkczF3Ha4wzkmWDV287mRYypmPYYK-BLkAgBX88bVoU.css?delta=4&amp;language=en&amp;theme=asc_bux&amp;include=eJx1UVtywyAMvJAxXz0PI0DB1IA8EqTJ7au0nUyb4j_YXa0eC7Hm5uiKzDmi2FTIQzHS7yW3tIAE58fNXqh1Ax8oVPEJvmhfIJQl7BhzJ35zRxlJ-xwQdpdbxNadLxR2-_uzBGK0gepBTUFZ1dEYzwgx8Kj-hB-9U5tzm5Yiz7lcIeGc0nVOhqnYxpwhGabB1cNJO0HgsJkLcT0R6P21-mHyLYg8DigrvMPtDxAzFEqLUNCHq3picI-J5Suln5DWp_1M-B9a-4YardylY7UeBD8BYzbPIQ" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_HhHqien4iSVr908ZQrC2HpUT8l_9oqMsbqxwWPhr6uQ.css?delta=5&amp;language=en&amp;theme=asc_bux&amp;include=eJx1UVtywyAMvJAxXz0PI0DB1IA8EqTJ7au0nUyb4j_YXa0eC7Hm5uiKzDmi2FTIQzHS7yW3tIAE58fNXqh1Ax8oVPEJvmhfIJQl7BhzJ35zRxlJ-xwQdpdbxNadLxR2-_uzBGK0gepBTUFZ1dEYzwgx8Kj-hB-9U5tzm5Yiz7lcIeGc0nVOhqnYxpwhGabB1cNJO0HgsJkLcT0R6P21-mHyLYg8DigrvMPtDxAzFEqLUNCHq3picI-J5Suln5DWp_1M-B9a-4YardylY7UeBD8BYzbPIQ" />
+<link rel="stylesheet" media="all" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+<link rel="stylesheet" media="all" href="/sites/default/files/css/css_oeJRAH-8kWC-FpVtEQ6CLSYXcmRmgZ81C67TFbgnaMw.css?delta=7&amp;language=en&amp;theme=asc_bux&amp;include=eJx1UVtywyAMvJAxXz0PI0DB1IA8EqTJ7au0nUyb4j_YXa0eC7Hm5uiKzDmi2FTIQzHS7yW3tIAE58fNXqh1Ax8oVPEJvmhfIJQl7BhzJ35zRxlJ-xwQdpdbxNadLxR2-_uzBGK0gepBTUFZ1dEYzwgx8Kj-hB-9U5tzm5Yiz7lcIeGc0nVOhqnYxpwhGabB1cNJO0HgsJkLcT0R6P21-mHyLYg8DigrvMPtDxAzFEqLUNCHq3picI-J5Suln5DWp_1M-B9a-4YardylY7UeBD8BYzbPIQ" />
+
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"node\/1256","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"eJx1klFuxCAMRC8UwlfPgwx4CRvACJvt7u3LVlVapeQHyfOMGWsAn2Mx9MDWokfWIZGFpFheKZawADtj-1NbImFpUBW7FqvwQW5URMEnMmU8xNOUk4S8uB19FGofpqYehoMKbjexeCxibCK367_F4qihdpQrlSHyOiYqZRuCd61ne8G7CJU528ZVbHMWMwSco7HOhZmMpc9JgcccEPc3tHDhgxGa29SNWr5oGJGN278v-NYrpNVHSBRWuMNzCUQhoREIOozjXE-a8sLkxgSTR0Zg3ivzd8w_Ka-HjVnjf2mVDcff4BcLZm2B8QuWTvIH","theme":"asc_bux","theme_token":null},"ajaxTrustedUrl":[],"gtag":{"tagId":"G-2L9G2DVP8C","consentMode":false,"otherIds":[],"events":[],"additionalConfigInfo":[]},"gtm":{"tagId":null,"settings":{"data_layer":"dataLayer","include_classes":false,"allowlist_classes":"google\nnonGooglePixels\nnonGoogleScripts\nnonGoogleIframes","blocklist_classes":"customScripts\ncustomPixels","include_environment":false,"environment_id":"","environment_token":""},"tagIds":["GTM-P8MKDW6"]},"mercuryEditor":{"rolloverPaddingBlock":10},"user":{"uid":0,"permissionsHash":"6864016e25f00da2d499735aa76161b25b2a18c0148a19554c06ceac7057cc69"}}</script>
+<script src="/sites/default/files/js/js_klo9SY1KHQLUCALMbNnFy7B1otdA5RW6Rw2vU5KVkKE.js?scope=header&amp;delta=0&amp;language=en&amp;theme=asc_bux&amp;include=eJx1jtEOwyAIRX-otp_UoDLqpmIAl-7v57I9LfaFhJxz4YKG3fdz88ymJtCcBknNdIEfocweslN75VRpCSy4BS6NK1bTdSjOeUGIQXrxF7ybcZ2zY0RR5iwVIJyjUeYxJwVrnxPW7io8PVy8UwQJh7uxlAshRRzpz5GvEKU3yGtMkJlWuMO5EDNl3A1oozH-94lU3nddlBE"></script>
+<script src="/modules/contrib/google_tag/js/gtag.js?tndnkj"></script>
+<script src="/modules/contrib/google_tag/js/gtm.js?tndnkj"></script>
+
+  </head>
+  <body class="path-node page-node-type-page">
+    <a href="#main-content" id="skip" class="visually-hidden focusable skip-link">Skip to main content</a>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P8MKDW6"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<a href="#main-content" id="skip" class="visually-hidden focusable skip-link">Skip to main content</a>
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="print-only-header">
+  <p>
+    <small>The Ohio State University Advanced Computing Center for the Arts and Design </small>
+  </p>
+</div>
+
+<div class="layout-container">
+  <header role="banner">
+    
+<nav id="osu-navbar" class="bux-osu-navbar bux-osu-nav" aria-label="Ohio State links">
+  <div class="bux-osu-nav__overlay"></div>
+  <div class="bux-osu-nav__wrapper">
+    <div class="bux-container">
+      
+
+
+
+
+
+  
+  
+
+
+
+<a            class="bux-osu-nav__osu-logo-link"
+                href="https://osu.edu"
+                                rel="noopener"
+      >
+            <span class="bux-osu-nav__logos">
+            
+
+
+
+<figure             class="bux-image logo-light"
+      >
+  <img
+    
+    src="/modules/contrib/bux/dist/images/osu-logos/navbar/osu-navbar.svg"
+    alt="The Ohio State University Homepage"
+    height="50"
+    width=""
+  />
+  </figure>
+
+
+            
+
+
+
+<figure             class="bux-image logo-dark"
+      >
+  <img
+    
+    src="/modules/contrib/bux/dist/images/osu-logos/navbar/osu-navbar-white.svg"
+    alt=""
+    height="50"
+    width=""
+  />
+  </figure>
+
+          </span>
+        </a>
+      <div id="osu-navlinks-block">
+        <button type="button" id="osu-nav-trigger" aria-controls="osu-navlinks" aria-expanded="false">
+          <span class="visually-hidden">Show Links</span>
+        </button>
+        <ul id="osu-navlinks" aria-labelledby="osu-nav-trigger" class="bux-osu-nav__links">
+                                <li class="bux-osu-nav__link">
+              
+
+
+
+
+
+  
+  
+
+
+
+<a            class="bux-base__link"
+                href="https://maps.osu.edu"
+                                rel="noopener"
+      >
+  <span class="bux-base__link__text">Map</span></a>
+
+            </li>
+                      <li class="bux-osu-nav__link">
+              
+
+
+
+
+
+  
+  
+
+
+
+<a            class="bux-base__link"
+                href="https://buckeyelink.osu.edu"
+                                rel="noopener"
+      >
+  <span class="bux-base__link__text">Buckeye Link</span></a>
+
+            </li>
+                      <li class="bux-osu-nav__link">
+              
+
+
+
+
+
+  
+  
+
+
+
+<a            class="bux-base__link"
+                href="https://email.osu.edu"
+                                rel="noopener"
+      >
+  <span class="bux-base__link__text">Webmail</span></a>
+
+            </li>
+                      <li class="bux-osu-nav__link">
+              
+
+
+
+
+
+  
+  
+
+
+
+<a            class="bux-base__link"
+                href="https://www.osu.edu/search"
+                                rel="noopener"
+      >
+  <span class="bux-base__link__text">Search Ohio State</span></a>
+
+            </li>
+                  </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<div id="masthead" class="bux-header">
+  <div class="bux-container bux-grid">
+    <div
+      class="bux-header__col bux-header__col--left bux-grid__cell bux-grid__cell--12 bux-grid__cell--8@md bux-grid__cell--9@xl"
+    >
+      <div class="bux-header__site-name-container">
+                              
+
+
+
+
+
+  
+  
+
+
+
+<a            class="bux-header__site-name-parent"
+                href="https://asc.osu.edu"
+                                rel="noopener"
+      >
+  <span class="bux-header__site-name-parent__text">College of Arts and Sciences</span></a>
+
+                          <div class="bux-header__site-name">
+                      
+
+
+
+
+
+  
+  
+
+
+
+<a            class="bux-header__site-name__link"
+                href="/"
+                                rel="noopener"
+      >
+  <span class="bux-header__site-name__link__text">Advanced Computing Center for the Arts and Design </span></a>
+
+                            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  </div>
+  </header>
+
+  <div
+    id="main-nav"
+    class="site-advanced-computing-center-for-the-arts-and-design-"
+  >
+        <div class="region region-navigation">
+        
+  
+
+<div class="bux-menu-wrapper">
+  <div class="bux-container bux-container__menu bux-container__menu--with-search">
+    <nav id="bux-main-menu" aria-label="Main" class="disclosure-nav disclosure-nav-orientation-horizontal">
+              <ul class="bux-menu">
+                      <li class="bux-menu__item">
+                            
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More About pages"
+                class="bux-menu__link disclosure-nav-item-with-submenu"
+                href="/about"
+                                rel="noopener"
+      >
+        About
+    </a>
+
+                                            <ul class="disclosure-nav-submenu disclosure-nav-submenu-closed">
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Learn more pages"
+                class="bux-menu__link"
+                href="/about"
+                                rel="noopener"
+      >
+        Learn more
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Position Listings for ACCAD pages"
+                class="bux-menu__link"
+                href="/about/position-listings"
+                                rel="noopener"
+      >
+        Position Listings for ACCAD
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More ACCAD History pages"
+                class="bux-menu__link"
+                href="/about/accad-history"
+                                rel="noopener"
+      >
+        ACCAD History
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Corporate Partners pages"
+                class="bux-menu__link"
+                href="/about/corporate-partners"
+                                rel="noopener"
+      >
+        Corporate Partners
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Research Labs and Facilities pages"
+                class="bux-menu__link"
+                href="/about/facilities"
+                                rel="noopener"
+      >
+        Research Labs and Facilities
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Sustainability pages"
+                class="bux-menu__link"
+                href="/about/sustainability"
+                                rel="noopener"
+      >
+        Sustainability
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More ACCAD Wiki Page pages"
+                class="bux-menu__link"
+                href="https://wiki.accad.ohio-state.edu/"
+                                rel="noopener"
+      >
+        ACCAD Wiki Page
+    </a>
+
+                  </li>
+          </ul>
+  
+                          </li>
+                      <li class="bux-menu__item">
+                            
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More Research pages"
+                class="bux-menu__link disclosure-nav-item-with-submenu"
+                href="/research/project-gallery"
+                                rel="noopener"
+      >
+        Research
+    </a>
+
+                                            <ul class="disclosure-nav-submenu disclosure-nav-submenu-closed">
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Research Gallery pages"
+                class="bux-menu__link"
+                href="/research-gallery"
+                                rel="noopener"
+      >
+        Research Gallery
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Awards, Screenings and Performances pages"
+                class="bux-menu__link"
+                href="/news/awards-screenings-and-performances"
+                                rel="noopener"
+      >
+        Awards, Screenings and Performances
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Lectures and Publications pages"
+                class="bux-menu__link"
+                href="/news/lectures-and-publications"
+                                rel="noopener"
+      >
+        Lectures and Publications
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                        
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More Motion Lab pages"
+                class="bux-menu__link disclosure-nav-item-with-submenu"
+                href="/research/motion-lab"
+                                rel="noopener"
+      >
+        Motion Lab
+    </a>
+
+                                    <ul class="disclosure-nav-submenu disclosure-nav-submenu-closed">
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Research in Motion Lab pages"
+                class="bux-menu__link"
+                href="https://accad.osu.edu/research-gallery?field_research_other_target_id[91]=91"
+                                rel="noopener"
+      >
+        Research in Motion Lab
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                        
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More MoCap System and Data pages"
+                class="bux-menu__link bux-menu__link--active"
+                href="/research/motion-lab/mocap-system-and-data"
+                                rel="noopener"
+      >
+        MoCap System and Data
+    </a>
+
+                  </li>
+          </ul>
+  
+                  </li>
+              <li class="bux-menu__item">
+                        
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More SIM Lab pages"
+                class="bux-menu__link disclosure-nav-item-with-submenu"
+                href="/research/sim-lab"
+                                rel="noopener"
+      >
+        SIM Lab
+    </a>
+
+                                    <ul class="disclosure-nav-submenu disclosure-nav-submenu-closed">
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Research pages"
+                class="bux-menu__link"
+                href="/research/sim-lab/research"
+                                rel="noopener"
+      >
+        Research
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More SIM Lab System pages"
+                class="bux-menu__link"
+                href="/research/sim-lab/sim-lab-system"
+                                rel="noopener"
+      >
+        SIM Lab System
+    </a>
+
+                  </li>
+          </ul>
+  
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Sonic Arts Lab pages"
+                class="bux-menu__link"
+                href="/research/sonic-arts-lab"
+                                rel="noopener"
+      >
+        Sonic Arts Lab
+    </a>
+
+                  </li>
+          </ul>
+  
+                          </li>
+                      <li class="bux-menu__item">
+                            
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More Academics pages"
+                class="bux-menu__link disclosure-nav-item-with-submenu"
+                href="/academics"
+                                rel="noopener"
+      >
+        Academics
+    </a>
+
+                                            <ul class="disclosure-nav-submenu disclosure-nav-submenu-closed">
+              <li class="bux-menu__item">
+                        
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More Courses pages"
+                class="bux-menu__link disclosure-nav-item-with-submenu"
+                href="/academics"
+                                rel="noopener"
+      >
+        Courses
+    </a>
+
+                                    <ul class="disclosure-nav-submenu disclosure-nav-submenu-closed">
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Spring 2027 pages"
+                class="bux-menu__link"
+                href="/academics/spring-2027"
+                                rel="noopener"
+      >
+        Spring 2027
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Autumn 2026 pages"
+                class="bux-menu__link"
+                href="/academics/autumn-2026"
+                                rel="noopener"
+      >
+        Autumn 2026
+    </a>
+
+                  </li>
+          </ul>
+  
+                  </li>
+              <li class="bux-menu__item">
+                        
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More Studying at ACCAD pages"
+                class="bux-menu__link disclosure-nav-item-with-submenu"
+                href="/academics/studying-accad"
+                                rel="noopener"
+      >
+        Studying at ACCAD
+    </a>
+
+                                    <ul class="disclosure-nav-submenu disclosure-nav-submenu-closed">
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Affiliated Graduate Programs pages"
+                class="bux-menu__link"
+                href="/academics/studying-accad/affiliated-graduate-programs"
+                                rel="noopener"
+      >
+        Affiliated Graduate Programs
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Affiliated Undergraduate Programs pages"
+                class="bux-menu__link"
+                href="/academics/studying-accad/affiliated-undergraduate-programs"
+                                rel="noopener"
+      >
+        Affiliated Undergraduate Programs
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Frequently Asked Questions pages"
+                class="bux-menu__link"
+                href="/academics/studying-accad/frequently-asked-questions"
+                                rel="noopener"
+      >
+        Frequently Asked Questions
+    </a>
+
+                  </li>
+          </ul>
+  
+                  </li>
+          </ul>
+  
+                          </li>
+                      <li class="bux-menu__item">
+                            
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More People pages"
+                class="bux-menu__link disclosure-nav-item-with-submenu"
+                href="/people"
+                                rel="noopener"
+      >
+        People
+    </a>
+
+                                            <ul class="disclosure-nav-submenu disclosure-nav-submenu-closed">
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Faculty and Staff pages"
+                class="bux-menu__link"
+                href="/people"
+                                rel="noopener"
+      >
+        Faculty and Staff
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Affiliated Faculty pages"
+                class="bux-menu__link"
+                href="/people/affiliated-faculty"
+                                rel="noopener"
+      >
+        Affiliated Faculty
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Affiliated Graduate Students pages"
+                class="bux-menu__link"
+                href="/people/affiliated-graduate-students"
+                                rel="noopener"
+      >
+        Affiliated Graduate Students
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Alumni pages"
+                class="bux-menu__link"
+                href="/people/alumni"
+                                rel="noopener"
+      >
+        Alumni
+    </a>
+
+                  </li>
+          </ul>
+  
+                          </li>
+                      <li class="bux-menu__item">
+                            
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More Outreach pages"
+                class="bux-menu__link disclosure-nav-item-with-submenu"
+                href="/outreach"
+                                rel="noopener"
+      >
+        Outreach
+    </a>
+
+                                            <ul class="disclosure-nav-submenu disclosure-nav-submenu-closed">
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More ACCAD Open House pages"
+                class="bux-menu__link"
+                href="https://accad.osu.edu/events/accad-open-house-2026"
+                                rel="noopener"
+      >
+        ACCAD Open House
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Digital Animation: A Technology Mentoring Program for Young Women pages"
+                class="bux-menu__link"
+                href="https://accad.osu.edu/digital-animation-technology-mentoring-program-young-women"
+                                rel="noopener"
+      >
+        Digital Animation: A Technology Mentoring Program for Young Women
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More The OSU Animation Club pages"
+                class="bux-menu__link"
+                href="/outreach-0/osu-animation-club"
+                                rel="noopener"
+      >
+        The OSU Animation Club
+    </a>
+
+                  </li>
+          </ul>
+  
+                          </li>
+                      <li class="bux-menu__item">
+                            
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More News pages"
+                class="bux-menu__link disclosure-nav-item-with-submenu"
+                href="/news"
+                                rel="noopener"
+      >
+        News
+    </a>
+
+                                            <ul class="disclosure-nav-submenu disclosure-nav-submenu-closed">
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Upcoming Events pages"
+                class="bux-menu__link"
+                href="https://accad.osu.edu/events"
+                                rel="noopener"
+      >
+        Upcoming Events
+    </a>
+
+                  </li>
+              <li class="bux-menu__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Past Events pages"
+                class="bux-menu__link"
+                href="https://accad.osu.edu/past-events"
+                                rel="noopener"
+      >
+        Past Events
+    </a>
+
+                  </li>
+          </ul>
+  
+                          </li>
+                      <li class="bux-menu__item">
+                      
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Give to ACCAD pages"
+                class="bux-menu__link"
+                href="https://accad.osu.edu/about/give-accad"
+                                rel="noopener"
+      >
+        Give to ACCAD
+    </a>
+
+                          </li>
+                      <li class="bux-menu__item">
+                      
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Contact pages"
+                class="bux-menu__link"
+                href="/contact"
+                                rel="noopener"
+      >
+        Contact
+    </a>
+
+                          </li>
+                  </ul>
+          </nav>
+                      <search class="bux-menu__search">
+        <div
+          class="bux-form__text-field--menu-search__wrapper"
+          role="dialog"
+          aria-modal="true"
+          aria-label="search dialog"
+        >
+          
+
+
+
+
+
+<form
+  id="search-block-form"
+  action="/search/node"
+  method="get"
+  class="bux-search-form bux-search"
+  
+    
+>
+  <label class="bux-search__label visually-hidden" for="edit-keys">Search</label>
+  <input
+    id="edit-keys"
+    class="bux-search__input bux-form__text-field--menu-search"
+    type="search"
+    placeholder="Search"
+                tabindex="-1"
+                name="keys"
+      
+  />
+  
+
+
+
+
+
+<button
+  type="submit"
+  class="bux-reset__button bux-search__submit is-hidden"
+  
+              tabindex="-1"
+      
+>
+  
+      <span class="visually-hidden">Submit search</span>
+  </button>
+
+</form>
+
+        </div>
+        <button id="menu-search-btn" type="button" aria-expanded="false" aria-controls="search-block-form">
+          <span class="visually-hidden">Toggle search dialog</span>
+          <span id="search-icon" class="icon icon-search" aria-hidden="true"></span>
+        </button>
+      </search>
+      </div>
+</div>
+
+
+
+    </div>
+
+  </div>
+  <div id="breadcrumb-container">
+    <div class="bux-container">
+      <nav aria-label="Breadcrumb">
+            <div class="region region-breadcrumb">
+        <div id="block-asc-bux-breadcrumbs">
+  
+    
+      
+<div class="bux-mar-tb-sp-12">
+  
+<nav aria-label="Breadcrumb" class="bux-breadcrumb">
+  <ol class="bux-breadcrumb__list">
+                                                                                                                                    <li class="bux-breadcrumb__item">
+                          
+
+
+
+
+
+  
+  
+
+
+
+<a            class="bux-breadcrumb__link"
+                href="/"
+                                rel="noopener"
+      >
+  <span class="bux-base__link bux-breadcrumb__link__text bux-link__text--underline">Home</span></a>
+
+                      </li>
+                                <li class="bux-breadcrumb__item">
+                          
+
+
+
+
+
+  
+  
+
+
+
+<a            class="bux-breadcrumb__link"
+                href="/research"
+                                rel="noopener"
+      >
+  <span class="bux-base__link bux-breadcrumb__link__text bux-link__text--underline">Research</span></a>
+
+                      </li>
+                                <li class="bux-breadcrumb__item">
+                          
+
+
+
+
+
+  
+  
+
+
+
+<a            class="bux-breadcrumb__link"
+                href="/research/motion-lab"
+                                rel="noopener"
+      >
+  <span class="bux-base__link bux-breadcrumb__link__text bux-link__text--underline">Motion Lab</span></a>
+
+                      </li>
+                                <li class="bux-breadcrumb__item bux-breadcrumb__item--current" aria-current="page">MoCap System and Data</li>
+                    </ol>
+</nav>
+
+</div>
+
+  </div>
+
+    </div>
+
+      </nav>
+    </div>
+  </div>
+
+        <main class="main-container  js-quickedit-main-content">
+      <div class="bux-container">
+        <div class="row">
+                              <section class="col-sm-9">
+                                      <a id="main-content"></a>
+                  <div class="region region-content">
+        <div data-drupal-messages-fallback class="hidden"></div><div id="block-asc-bux-page-title">
+  
+    
+        <h1 class="page-header"><span>MoCap System and Data</span>
+</h1>
+
+  </div>
+<div id="block-asc-bux-content">
+  
+    
+      
+<article class="page full clearfix">
+      <h1 class="basic-page-title"><span>MoCap System and Data</span>
+</h1>
+  
+  
+    
+
+  
+  <div class="content">
+    
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><h2>Hardware</h2><ul><li>12 Vicon Valkyrie camera system</li><li>3-24mm retroreflective markers</li><li>Video documentation equipment</li><li>iPhone-based face capture</li><li>Stretchsense gloves</li><li>Vive Pro system with wireless adapter</li><li>Vive trackers</li></ul><h2>Software</h2><ul><li>Vicon Shogun</li><li>Autodesk Motionbuilder&nbsp;and Maya</li><li>Unity 3D</li><li>Unreal Engine</li><li>Matlab</li><li>Hand Engine</li><li>iClone Reallusion Suite</li></ul><hr><h2>File Formats</h2><p>The area below contains sample motion capture data to download plus useful scripts. The data is provided in three different formats. They are *.amc/*.asf, *.c3d, *.tvd, *.txt. All files are stored zipped. Sample movies are 320x260.</p><p><strong>c3d:&nbsp;</strong>Reconstructed 3D data from the Vicon IQ. Can be used in MotionBuilder, Maya or any 3D program to drive skeletal or other data.</p><p><strong>FBX:&nbsp;</strong>The main export option for bringing the mocap data into MotionBuilder, Maya, Unity 3D, etc. This format allows saving mocap data or markers and/or sleleton (translation and rotation). FBX can also carry a mesh with image based textures or color per vertex, as well as virtual cameras.</p><p><strong>bvh:&nbsp;</strong>Skeletal motion files created by attaching the c3d data to a bvh format skeleton in MotionBuilder. The bvh file defines both the skeleton and the motion data all in one file.</p><p><strong>amc:&nbsp;</strong>Same as bvh except it is a different skeletal format</p><p><strong>txt:&nbsp;</strong>Comma or space delimited files that are basically x,y,z translation data derived directly from the c3d data from the Vicon Blade software.</p><hr><h2>Motion Capture Data</h2><ul><li>Break Dancer 1: <a href="/sites/accad.osu.edu/files/mocapData_Eric1.MOV">mov</a> | <a href="/sites/accad.osu.edu/files/camper04_C3D.ZIP">c3d</a> | <a href="/sites/accad.osu.edu/files/camper04_TVD.ZIP">tvd</a> | <a href="/sites/accad.osu.edu/files/camper04_TXT.ZIP">txt</a></li><li>Dance Motion 1: <a href="/sites/accad.osu.edu/files/mocapData_Kareena.MOV">mov</a> | <a href="/sites/accad.osu.edu/files/dance_KB3_C3D.ZIP">c3d</a> | <a href="/sites/accad.osu.edu/files/dance_KB3_TXT.ZIP">txt</a></li><li>Female 1 (81 files): <a href="/sites/accad.osu.edu/files/Female1_bvh.zip">bvh</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Female_1.pdf">pdf</a></li><li>Female 1 General (18 files, subject calibration): <a href="/sites/accad.osu.edu/files/Female1General_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Female_1_General.pdf">pdf</a></li><li>Female 1 Gestures (6 files, subject calibration): <a href="/sites/accad.osu.edu/files/Female1Gestures_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Female_1_Gestures.pdf">pdf</a></li><li>Female 1 Running (27 files): <a href="/sites/accad.osu.edu/files/Female1Running_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Female_1_Running.pdf">pdf</a></li><li>Female 1 Walking (30 files): <a href="/sites/accad.osu.edu/files/Female1Walking_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Female_1_Walking.pdf">pdf</a></li><li>Figure "Dog Walk": <a href="/sites/accad.osu.edu/files/mocapData_dogwalk.mov">mov</a> | <a href="/sites/accad.osu.edu/files/walkdog_BVH.ZIP">bvh</a> | <a href="/sites/accad.osu.edu/files/walkdog_AMC.ZIP">amc</a> | <a href="/sites/accad.osu.edu/files/walkdogC3D.ZIP">c3d</a> | <a href="/sites/accad.osu.edu/files/walkdogTVD.ZIP">tvd</a> | <a href="/sites/accad.osu.edu/files/dogwalkTXT.ZIP">txt</a></li><li>Figure Handspring 1: <a href="/sites/accad.osu.edu/files/mocapData_handspring.mov">mov</a> | <a href="/sites/accad.osu.edu/files/handspring_BVH.ZIP">bvh</a> | <a href="/sites/accad.osu.edu/files/handspring_AMC.ZIP">amc</a> | <a href="/sites/accad.osu.edu/files/handspringC3D.ZIP">c3d</a> | <a href="/sites/accad.osu.edu/files/handspringTVD.ZIP">tvd</a> | <a href="/sites/accad.osu.edu/files/handspring1TXT.ZIP">txt</a></li><li>Figure Quick Walk: <a href="/sites/accad.osu.edu/files/mocapData_quickwalk.mov">mov</a> | <a href="/sites/accad.osu.edu/files/quickwalk_BVH.ZIP">bvh</a> | <a href="/sites/accad.osu.edu/files/quickwalk_AMC.ZIP">amc</a> | <a href="/sites/accad.osu.edu/files/quickwalkC3D.ZIP">c3d</a> | <a href="/sites/accad.osu.edu/files/quickwalkTVD.ZIP">tvd</a> | <a href="/sites/accad.osu.edu/files/quickwalkTXT.ZIP">txt</a></li><li>Figure Spring: <a href="/sites/accad.osu.edu/files/mocapData_sprint.mov">mov</a> | <a href="/sites/accad.osu.edu/files/sprint_BVH.ZIP">bvh</a> | <a href="/sites/accad.osu.edu/files/sprint_AMC.ZIP">amc</a> | <a href="/sites/accad.osu.edu/files/sprint1C3D.ZIP">c3d</a> | <a href="/sites/accad.osu.edu/files/sprint1TVD.ZIP">tvd</a> | <a href="/sites/accad.osu.edu/files/sprintTXT.ZIP">txt</a></li><li>Figure Swagger 1: <a href="/sites/accad.osu.edu/files/mocapData_swagger.mov">mov</a> | <a href="/sites/accad.osu.edu/files/swagger_BVH.ZIP">bvh</a> | <a href="/sites/accad.osu.edu/files/swagger_AMC.ZIP">amc</a> | <a href="/sites/accad.osu.edu/files/swaggerC3D.ZIP">c3d</a> | <a href="/sites/accad.osu.edu/files/swaggerTVD.ZIP">tvd</a> | <a href="/sites/accad.osu.edu/files/swagger1TXT.ZIP">txt</a></li><li>Male 1 (69 files): <a href="/sites/accad.osu.edu/files/Male1_bvh.zip">bvh</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Male_1.pdf">pdf</a></li><li>Male 1 General (17 files, subject calibration): <a href="/sites/accad.osu.edu/files/Male1General_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Male_1_General.pdf">pdf</a></li><li>Male 1 Running (27 files): <a href="/sites/accad.osu.edu/files/Male1Running_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Male_1_Running.pdf">pdf</a></li><li>Male 1 Walking (27 files, subject calibration): <a href="/sites/accad.osu.edu/files/Male1Walking_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Male_1_Walking.pdf">pdf</a></li><li>Male 2 (149 files): <a href="/sites/accad.osu.edu/files/Male2_bvh.zip">bvh</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Male_2.pdf">pdf</a></li><li>Male 2 General (15 files, subject calibration): <a href="/sites/accad.osu.edu/files/Male2General_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Male_2_General.pdf">pdf</a></li><li>Male 2 Martial Arts Extended: <a href="/sites/accad.osu.edu/files/Male2MartialArtsExtended_c3d.zip">c3d</a></li><li>Male 2 Martial Arts Kicks (21 files, subject calibration): <a href="/sites/accad.osu.edu/files/Male2MartialArtsKicks_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Male2_MartialArtsKicks.pdf">pdf</a></li><li>Male 2 Martial Arts Punches (15 files): <a href="/sites/accad.osu.edu/files/Male2MartialArtsPunches_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Male2_MartialArtsPunches.pdf">pdf</a></li><li>Male 2 Martial Arts Stances (15 files): <a href="/sites/accad.osu.edu/files/Male2MartialArtsStances_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Male2_MartialArtsStances.pdf">pdf</a></li><li>Male 2 Martial Arts Walks/Turns (22 files): <a href="/sites/accad.osu.edu/files/MartialArtsWalksTurns_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Male2_MartialArtsWalksTurns.pdf">pdf</a></li><li>Male 2 Running: <a href="/sites/accad.osu.edu/files/Male2Running_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Male2_Running.pdf">pdf</a></li><li>Male 2 Walking: <a href="/sites/accad.osu.edu/files/Male2Walking_c3d.zip">c3d</a> | <a href="/sites/accad.osu.edu/files/ACCAD_mocap_Data_Male2_Walking.pdf">pdf</a></li><li>Performance 1: <a href="/sites/accad.osu.edu/files/per20_TXT.ZIP">txt</a></li><li>Performance 2: <a href="/sites/accad.osu.edu/files/perTWO07_TXT.ZIP">txt</a></li><li>Performance 3: <a href="/sites/accad.osu.edu/files/perTWO13_TXT.ZIP">txt</a></li><li>Performance 4: <a href="/sites/accad.osu.edu/files/perTWO14_TXT.ZIP">txt</a></li><li>Performance 5: <a href="/sites/accad.osu.edu/files/perTWO15_TXT.ZIP">txt</a></li><li>Performance 6: <a href="/sites/accad.osu.edu/files/perTWO16_TXT.ZIP">txt</a></li></ul><p><a href="https://creativecommons.org/licenses/by/3.0/"><img src="https://licensebuttons.net/l/by/3.0/88x31.png" alt="Creative Commons License"></a></p><p>Open Motion Project by <a href="https://accad.osu.edu/" title="ACCAD website">ACCAD/The Ohio State University</a> is licensed under a <a href="https://creativecommons.org/licenses/by/3.0/" title="Creative Commons 3.0 Unported License text, on the Creative Commons website">Creative Commons Attribution 3.0 Unported License</a>.</p></div>
+      
+  </div>
+
+</article>
+
+  </div>
+
+    </div>
+
+            
+                        
+                        
+                        
+                                  </section>
+
+                      <aside class="col-sm-3" role="complementary">
+                                                                  <div class="region region-sidebar-menu">
+        <nav role="navigation" aria-labelledby="block-asc-bux-mainnavigation-2-menu" id="block-asc-bux-mainnavigation-2">
+      
+  <h2 id="block-asc-bux-mainnavigation-2-menu"><a href="/research/project-gallery" title="Gallery of research projects conducted by ACCAD" class="menu-item--active-trail">Research</a></h2>
+  
+
+        
+
+<div
+  class="bux-container bux-container--sidebar-nav "
+  data-expand-active-submenu="true"
+>
+  <button
+    id="sidebar-nav-toggle"
+    type="button"
+    class="bux-sidebar-nav__toggle"
+    aria-controls="sidebar-nav-panel"
+    aria-expanded="true"
+  >
+    <span class="bux-sidebar-nav__toggle-label">Expand sidebar</span>
+  </button>
+  <div id="sidebar-nav-panel" class="bux-sidebar-nav__panel">
+    <div class="bux-sidebar-nav__panel-inner">
+            <nav id="sidebar-nav" aria-label="Sidebar" class="disclosure-nav disclosure-nav-orientation-vertical">
+                  <ul class="bux-sidebar-nav">
+                          <li class="bux-sidebar-nav__item">
+                        
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Research Gallery pages"
+                class="bux-sidebar-nav__link"
+                href="/research-gallery"
+                                rel="noopener"
+      >
+        Research Gallery
+    </a>
+
+                              </li>
+                          <li class="bux-sidebar-nav__item">
+                        
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Awards, Screenings and Performances pages"
+                class="bux-sidebar-nav__link"
+                href="/news/awards-screenings-and-performances"
+                                rel="noopener"
+      >
+        Awards, Screenings and Performances
+    </a>
+
+                              </li>
+                          <li class="bux-sidebar-nav__item">
+                        
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Lectures and Publications pages"
+                class="bux-sidebar-nav__link"
+                href="/news/lectures-and-publications"
+                                rel="noopener"
+      >
+        Lectures and Publications
+    </a>
+
+                              </li>
+                          <li class="bux-sidebar-nav__item">
+                              
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More Motion Lab pages"
+                class="bux-sidebar-nav__link disclosure-nav-item-with-submenu"
+                href="/research/motion-lab"
+                                rel="noopener"
+      >
+        Motion Lab
+    </a>
+
+                                                <ul class="disclosure-nav-submenu disclosure-nav-submenu-closed">
+              <li class="bux-sidebar-nav__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Research in Motion Lab pages"
+                class="bux-sidebar-nav__link"
+                href="https://accad.osu.edu/research-gallery?field_research_other_target_id[91]=91"
+                                rel="noopener"
+      >
+        Research in Motion Lab
+    </a>
+
+                  </li>
+              <li class="bux-sidebar-nav__item">
+                        
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More MoCap System and Data pages"
+                class="bux-sidebar-nav__link bux-sidebar-nav__link--active"
+                href="/research/motion-lab/mocap-system-and-data"
+                                rel="noopener"
+      >
+        MoCap System and Data
+    </a>
+
+                  </li>
+          </ul>
+  
+                              </li>
+                          <li class="bux-sidebar-nav__item">
+                              
+  
+
+
+
+
+
+  
+    
+
+
+
+<a            data-button-aria-label="More SIM Lab pages"
+                class="bux-sidebar-nav__link disclosure-nav-item-with-submenu"
+                href="/research/sim-lab"
+                                rel="noopener"
+      >
+        SIM Lab
+    </a>
+
+                                                <ul class="disclosure-nav-submenu disclosure-nav-submenu-closed">
+              <li class="bux-sidebar-nav__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Research pages"
+                class="bux-sidebar-nav__link"
+                href="/research/sim-lab/research"
+                                rel="noopener"
+      >
+        Research
+    </a>
+
+                  </li>
+              <li class="bux-sidebar-nav__item">
+                  
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More SIM Lab System pages"
+                class="bux-sidebar-nav__link"
+                href="/research/sim-lab/sim-lab-system"
+                                rel="noopener"
+      >
+        SIM Lab System
+    </a>
+
+                  </li>
+          </ul>
+  
+                              </li>
+                          <li class="bux-sidebar-nav__item">
+                        
+  
+
+
+
+
+
+  
+  
+
+
+
+<a            data-button-aria-label="More Sonic Arts Lab pages"
+                class="bux-sidebar-nav__link"
+                href="/research/sonic-arts-lab"
+                                rel="noopener"
+      >
+        Sonic Arts Lab
+    </a>
+
+                              </li>
+                      </ul>
+              </nav>
+    </div>
+  </div>
+</div>
+
+
+  </nav>
+
+    </div>
+
+                              
+                                        </aside>
+                  </div>
+      </div>
+    </main>
+  
+  <footer class="footer " role="contentinfo">
+
+  <div class="bux-container">
+
+    <div id="footer1-container" class="col-xs-12 col-md-4">
+                  <a href="https://asc.osu.edu/">
+          <img src="/themes/custom/asc_bux/images/logos/asc-logo-white.svg" id="footer-osu-logo" alt="The Ohio State University College of Arts and Sciences logo" />
+              </a>
+              
+                <div class="region region-footer-one">
+        
+<div class="footer-address">
+  <p class="contact-heading"><a href="/contact">Advanced Computing Center for the Arts and Design </a></p>
+  <p>
+          331 Sullivant Hall<br/>
+    
+          1813 N High St<br/>
+    
+          Columbus,
+    
+          OH
+    
+          43210
+      </p>
+</div>
+
+<div class="footer-email">
+  <p>E-Mail:
+      <a href="mailto:accad-info@osu.edu" title="Email Advanced Computing Center for the Arts and Design ">
+          accad-info@osu.edu
+      </a>
+  </p>
+</div>
+
+<div class="footer-phone">
+  <p>
+          Phone: 614-292-3416
+              <br/>
+      Fax: 614-292-7776
+      </p>
+</div>
+<div id="block-asc-bux-blank">
+  
+    
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><p><a href="https://accad.osu.edu/faculty-staff-resources">Faculty and Staff Resources</a></p><p>&nbsp;</p></div>
+      
+  </div>
+
+    </div>
+
+
+                  </div>
+
+
+    <div id="footer2-container" class="col-xs-12 col-md-4">
+          </div>
+
+
+    <div id="footer3-container" class="col-xs-12 col-md-4">
+              
+                <div class="region region-footer-three">
+        <div id="block-asc-bux-socialmedialinks" class="block-social-media-links">
+  
+    
+      
+
+<ul class="social-media-links--platforms platforms inline horizontal">
+      <li>
+      <a class="social-media-link-icon--instagram" href="https://www.instagram.com/accadatosu"  aria-label="Follow us on Instagram" title="Follow us on Instagram" >
+        <span class='fab fa-instagram fa-2x' aria-hidden='true'></span>
+        <span class="sr-only">Instagram</span>
+      </a>
+
+          </li>
+      <li>
+      <a class="social-media-link-icon--facebook" href="https://www.facebook.com/ACCADatOSU"  aria-label="Find us on Facebook" title="Find us on Facebook" >
+        <span class='fab fa-facebook fa-2x' aria-hidden='true'></span>
+        <span class="sr-only">Facebook</span>
+      </a>
+
+          </li>
+      <li>
+      <a class="social-media-link-icon--youtube" href="https://www.youtube.com/user/accadosu"  aria-label="Find us on YouTube" title="Find us on YouTube" >
+        <span class='fab fa-youtube fa-2x' aria-hidden='true'></span>
+        <span class="sr-only">Youtube</span>
+      </a>
+
+          </li>
+      <li>
+      <a class="social-media-link-icon--rss" href="/rss.xml"  aria-label="Follow us on RSS" title="Follow us on RSS" >
+        <span class='fa fa-rss fa-2x' aria-hidden='true'></span>
+        <span class="sr-only">RSS</span>
+      </a>
+
+          </li>
+  </ul>
+
+  </div>
+<div id="block-asc-bux-givetoaccad">
+  
+    
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><p class="text-align-right"><a href="https://www.giveto.osu.edu/makeagift/OnlineGivingDonation.aspx?Source_Code=WA&amp;Fund=309285" title="Make an online gift to ACCAD">Give to ACCAD</a></p></div>
+      
+  </div>
+
+    </div>
+
+
+              
+      <div id="subfoot">
+        <p>
+          If you have a disability and experience difficulty
+          accessing this site, please contact us for assistance via email
+          at <a href="mailto:asc-accessibility@osu.edu" class="email-link" title="Email for accessibility assistance">asc-accessibility@osu.edu</a>.
+        </p>
+        <p>
+        <a
+          id="ot-sdk-btn"
+          class="ot-sdk-show-settings bux-link"
+          rel="noopener"
+        ></a>
+        </p>
+        <p>
+          <a href="https://go.osu.edu/privacy">
+            Privacy Statement
+          </a>
+        </p>
+        <p>
+                            <a href="/saml/login?destination=/research/motion-lab/mocap-system-and-data" rel="nofollow">LOGIN</a>
+                    </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="bux-container clear-float">
+  <div class="col-xs-12 col-md-6 sf-col1">
+      <p><small>&copy; 2026. The Ohio State University</small></p>
+    </div>
+
+    <div class="col-xs-12 col-md-6 sf-col2 built-by">
+      <p><small><i>Designed and built by <a href="https://asctech.osu.edu/services/web-services" class="email-link">ASCTech Web Services</a></i></small></p>
+    </div>
+    </div>
+</footer>
+</div>
+
+  </div>
+
+    
+    <script src="/core/assets/vendor/jquery/jquery.min.js?v=4.0.0"></script>
+<script src="/sites/default/files/js/js_HLSDiaFKGFBCtI3Gm5h_9GNfQKLmh14n8GG51a76JNg.js?scope=footer&amp;delta=1&amp;language=en&amp;theme=asc_bux&amp;include=eJx1jtEOwyAIRX-otp_UoDLqpmIAl-7v57I9LfaFhJxz4YKG3fdz88ymJtCcBknNdIEfocweslN75VRpCSy4BS6NK1bTdSjOeUGIQXrxF7ybcZ2zY0RR5iwVIJyjUeYxJwVrnxPW7io8PVy8UwQJh7uxlAshRRzpz5GvEKU3yGtMkJlWuMO5EDNl3A1oozH-94lU3nddlBE"></script>
+
+  </body>
+</html>

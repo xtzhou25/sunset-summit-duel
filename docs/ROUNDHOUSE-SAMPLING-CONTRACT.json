@@ -1,0 +1,64 @@
+{
+  "status": "actual-imported-GLB-calibrated",
+  "source": "ROUNDHOUSE-ACTIVE-SURFACE-CURVES.json",
+  "source_sha256": "00f24cdf13302925c8d1e171cef5739aea5fb5e7484af1c05c0bf7d35e62ebdc",
+  "character_kind": {
+    "0": "Lavender",
+    "1": "YellowWhite"
+  },
+  "game_model_scale": 1.2,
+  "axes": {
+    "X": "lateral depth",
+    "Y": "height",
+    "Z": "forward"
+  },
+  "samples": {
+    "start_seconds": 0.28,
+    "end_seconds": 0.42,
+    "step_seconds": 0.01,
+    "count_per_character": 15,
+    "interpolation": "linear independently over all six min/max bounds; endpoint reads clamp; negative/default time uses fighter.clock"
+  },
+  "facing": "R and L source arrays verified byte-value-identical for each character; both combat facings use the same local bounds",
+  "runtime_embedded_rows": "scripts/combat.gd ROUNDHOUSE_SURFACE_CURVES: depth minimum, depth maximum, height minimum, height maximum, forward minimum, forward maximum",
+  "contact_geometry": {
+    "reach": "min(1.40, interpolated maximum forward + 0.04)",
+    "low": "interpolated minimum height - 0.06",
+    "high": "interpolated maximum height + 0.06",
+    "depth_overlap": "interpolated depth minimum <= +0.25 and interpolated depth maximum >= -0.25"
+  },
+  "target_hurtbox": {
+    "horizontal_half_extent": 0.26,
+    "vertical_low": 0.15,
+    "vertical_high": 1.92,
+    "note": "Target hurtbox is separately applied by the existing collector, never included in returned reach or foot bounds."
+  },
+  "phase": "Nominal active [0.28, 0.42); physical depth overlap is additionally required. Sampled overlaps are 0.33 through 0.40; interpolation determines sub-sample crossings, not a second hardcoded time window.",
+  "unchanged": "Both character durations .90/.96; damage 13, guard 30, stun .28, push .30; facing-forward only; one contact per attack; no down targets; prior punch curves and flying kick unchanged.",
+  "limitations": "Interpolated foot-surface AABB plus allowances and existing target hurtbox, not full mesh collision, continuous swept-volume collision or a 360-degree area attack.",
+  "interpolated_depth_overlap_seconds": {
+    "Lavender": [
+      0.3273459694122989,
+      0.40685556838494097
+    ],
+    "YellowWhite": [
+      0.32731483050522364,
+      0.4079481265077911
+    ]
+  },
+  "peak_reach_before_target_hurtbox": {
+    "Lavender": 1.4,
+    "YellowWhite": 1.4
+  },
+  "contact_event_height": {
+    "events": [
+      "hit",
+      "block",
+      "break"
+    ],
+    "field": "impact_y",
+    "space": "absolute world Y",
+    "formula": "source.y + (contact_geometry.low + contact_geometry.high) / 2",
+    "capture": "Saved alongside contact kind/config before applying any simultaneous trade, so later attack/clock mutation cannot change it. Main presentation consumes it for roundhouse only."
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "status": "frozen-exported-candidate-native-game-gate-pending",
+  "baseline": "v5 frozen57, unchanged",
+  "new_clips": [
+    "RoundhouseKick_R",
+    "RoundhouseKick_L"
+  ],
+  "total": 59,
+  "duration_seconds": {
+    "Lavender": 0.9,
+    "YellowWhite": 0.96
+  },
+  "active_seconds": [
+    0.28,
+    0.42
+  ],
+  "peak_seconds": 0.35,
+  "support": "Left foot planted ball/toe pivot, right leg hip-driven transverse sweep, retract to exact paired FightIdle.",
+  "root": "Static actor root, no translation/jump. Body turn may show back briefly, natural head/neck, no extra runtime torso twist.",
+  "controls": "Separate I / \u56de\u65cb\u8e22 button, grounded only. Single frontal sector strike, no combo/no 360 AOE/no down hit.",
+  "damage": "Engineering provisional13, ordinary hit reaction; balance only after actual foot reach/plane measurement.",
+  "qa": "Actual model keys and support first, then dense exported GLB, native gameplay and actual Library readback.",
+  "runtime_sha256": {
+    "Lavender": "3ddaca0b3b1bdbce9df5d3a420e8b8c18a002660739b5300e066e8001e562c06",
+    "YellowWhite": "1ccc3e58084c019c54876ac11b4e439fb79355e0dbe253daf8794e067b912470"
+  },
+  "exported_qa": {
+    "samples": 450,
+    "hz": 120,
+    "all_old57_preserved": true,
+    "max_whole_body_floor_penetration_m": 6.41862e-05,
+    "support_floor_min_range_native_m": [
+      -5.045e-06,
+      0.000139975
+    ],
+    "idle_join_max_translation_m": 2.98023224e-08,
+    "idle_join_max_quaternion_numeric_deg": 0.039565,
+    "local_contacts": "disclosed in dense reports, no zero-contact claim"
+  },
+  "actual_surface_contract": {
+    "data": "ROUNDHOUSE-ACTIVE-SURFACE-CURVES.json",
+    "sampling_seconds": 0.01,
+    "axes": "game-scale1.2 local glTF X depth, Y up, Z forward",
+    "depth_band": [
+      -0.25,
+      0.25
+    ],
+    "sampled_overlap_times": [
+      0.33,
+      0.34,
+      0.35,
+      0.36,
+      0.37,
+      0.38,
+      0.39,
+      0.4
+    ],
+    "peak_forward_tip_game_m": {
+      "Lavender": 1.36544981,
+      "YellowWhite": 1.36058807
+    },
+    "note": "No collision padding included. R/L foot paths identical. Gate by actual foot surface depth overlap, not nominal active tick alone."
+  }
+}

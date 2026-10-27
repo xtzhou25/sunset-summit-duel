@@ -1,0 +1,206 @@
+{
+  "checks": 18020,
+  "failures": 0,
+  "rows": [
+    {
+      "camera_x": 0.0,
+      "minimum_px": 23.3436279296875,
+      "positions": [
+        -2.9,
+        2.9
+      ],
+      "standing_2m_px": 234.14634690974,
+      "viewport": "(960, 600)",
+      "width": 8.19999980926514
+    },
+    {
+      "camera_x": -1.29999995231628,
+      "minimum_px": 23.3436279296875,
+      "positions": [
+        -4.2,
+        1.6
+      ],
+      "standing_2m_px": 234.14634690974,
+      "viewport": "(960, 600)",
+      "width": 8.19999980926514
+    },
+    {
+      "camera_x": 1.29999995231628,
+      "minimum_px": 23.3436279296875,
+      "positions": [
+        -1.6,
+        4.2
+      ],
+      "standing_2m_px": 234.14634690974,
+      "viewport": "(960, 600)",
+      "width": 8.19999980926514
+    },
+    {
+      "camera_x": -2.63636374473572,
+      "minimum_px": 15.2002944946289,
+      "positions": [
+        -4.2,
+        -2.2
+      ],
+      "standing_2m_px": 255.072464649478,
+      "viewport": "(960, 600)",
+      "width": 7.52727270126343
+    },
+    {
+      "camera_x": 2.63636374473572,
+      "minimum_px": 15.2002944946289,
+      "positions": [
+        2.2,
+        4.2
+      ],
+      "standing_2m_px": 255.072464649478,
+      "viewport": "(960, 600)",
+      "width": 7.52727270126343
+    },
+    {
+      "camera_x": 0.0,
+      "minimum_px": 15.2002944946289,
+      "positions": [
+        -1.3,
+        1.3
+      ],
+      "standing_2m_px": 255.072464649478,
+      "viewport": "(960, 600)",
+      "width": 7.52727270126343
+    },
+    {
+      "camera_x": 0.0,
+      "minimum_px": 22.4581298828125,
+      "positions": [
+        -2.9,
+        2.9
+      ],
+      "standing_2m_px": 312.195129212987,
+      "viewport": "(1280, 800)",
+      "width": 8.19999980926514
+    },
+    {
+      "camera_x": -1.29999995231628,
+      "minimum_px": 22.4581298828125,
+      "positions": [
+        -4.2,
+        1.6
+      ],
+      "standing_2m_px": 312.195129212987,
+      "viewport": "(1280, 800)",
+      "width": 8.19999980926514
+    },
+    {
+      "camera_x": 1.29999995231628,
+      "minimum_px": 22.4581298828125,
+      "positions": [
+        -1.6,
+        4.2
+      ],
+      "standing_2m_px": 312.195129212987,
+      "viewport": "(1280, 800)",
+      "width": 8.19999980926514
+    },
+    {
+      "camera_x": -2.79999995231628,
+      "minimum_px": 21.96630859375,
+      "positions": [
+        -4.2,
+        -2.2
+      ],
+      "standing_2m_px": 355.555564974561,
+      "viewport": "(1280, 800)",
+      "width": 7.19999980926514
+    },
+    {
+      "camera_x": 2.79999995231628,
+      "minimum_px": 21.96630859375,
+      "positions": [
+        2.2,
+        4.2
+      ],
+      "standing_2m_px": 355.555564974561,
+      "viewport": "(1280, 800)",
+      "width": 7.19999980926514
+    },
+    {
+      "camera_x": 0.0,
+      "minimum_px": 21.96630859375,
+      "positions": [
+        -1.3,
+        1.3
+      ],
+      "standing_2m_px": 355.555564974561,
+      "viewport": "(1280, 800)",
+      "width": 7.19999980926514
+    },
+    {
+      "camera_x": 0.0,
+      "minimum_px": 20.6873168945312,
+      "positions": [
+        -2.9,
+        2.9
+      ],
+      "standing_2m_px": 468.292693819481,
+      "viewport": "(1920, 1080)",
+      "width": 8.19999980926514
+    },
+    {
+      "camera_x": -1.29999995231628,
+      "minimum_px": 20.6873168945312,
+      "positions": [
+        -4.2,
+        1.6
+      ],
+      "standing_2m_px": 468.292693819481,
+      "viewport": "(1920, 1080)",
+      "width": 8.19999980926514
+    },
+    {
+      "camera_x": 1.29999995231628,
+      "minimum_px": 20.6873168945312,
+      "positions": [
+        -1.6,
+        4.2
+      ],
+      "standing_2m_px": 468.292693819481,
+      "viewport": "(1920, 1080)",
+      "width": 8.19999980926514
+    },
+    {
+      "camera_x": -2.79999995231628,
+      "minimum_px": 19.9494018554688,
+      "positions": [
+        -4.2,
+        -2.2
+      ],
+      "standing_2m_px": 533.333347461842,
+      "viewport": "(1920, 1080)",
+      "width": 7.19999980926514
+    },
+    {
+      "camera_x": 2.79999995231628,
+      "minimum_px": 19.9494018554688,
+      "positions": [
+        2.2,
+        4.2
+      ],
+      "standing_2m_px": 533.333347461842,
+      "viewport": "(1920, 1080)",
+      "width": 7.19999980926514
+    },
+    {
+      "camera_x": 0.0,
+      "minimum_px": 19.9494018554688,
+      "positions": [
+        -1.3,
+        1.3
+      ],
+      "standing_2m_px": 533.333347461842,
+      "viewport": "(1920, 1080)",
+      "width": 7.19999980926514
+    }
+  ],
+  "scope": "Headless actual weighted skin projection, not native pixel/browser/device proof",
+  "skin_samples": 50
+}

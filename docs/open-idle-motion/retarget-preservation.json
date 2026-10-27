@@ -1,0 +1,697 @@
+{
+  "purple": {
+    "sha256": "d51b6b148eb5fa957acbc65a3c32be8298a771a72a24906143d33c76e28a1891",
+    "base_sha256": "5c2ed804c069cafa42e06ef91d6e48cf5ee4a3cb204d6cf4b58bb4a90ac21b96",
+    "modified_clips": [
+      "FightIdle",
+      "FightIdle_R",
+      "FightIdle_L"
+    ],
+    "other_animation_json_and_binary_unchanged": true,
+    "geometry_rig_materials_unchanged": true,
+    "metrics": {
+      "FightIdle": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576384782077953,
+            0.033219503431084485,
+            0.024435477394515678
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.08412669997715003,
+            0.10822876889403688,
+            0.05922658570634595
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.05769338713941205,
+            0.14151066312157456,
+            0.049505673053630544
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      },
+      "FightIdle_R": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576384782077953,
+            0.033219503431084485,
+            0.024435477394515678
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.08412669997715003,
+            0.10822876889403688,
+            0.05922658570634595
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.05769338713941205,
+            0.14151066312157456,
+            0.049505673053630544
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      },
+      "FightIdle_L": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576384782077953,
+            0.033219503431084485,
+            0.024435477394515678
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.07177766191230561,
+            0.10822876889403688,
+            0.05922658570634595
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.05810574679237546,
+            0.14151066312157456,
+            0.049505673053630544
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      }
+    }
+  },
+  "yellow": {
+    "sha256": "6ab22b34e640648dc6a233f42401723fa3fb8a316f4d7c78f6519fb7240488cf",
+    "base_sha256": "9e9f86d56f38aae161251608e8a0ba5078c749311f1aa5feb7fe64a7af147821",
+    "modified_clips": [
+      "FightIdle",
+      "FightIdle_R",
+      "FightIdle_L"
+    ],
+    "other_animation_json_and_binary_unchanged": true,
+    "geometry_rig_materials_unchanged": true,
+    "metrics": {
+      "FightIdle": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576386575371647,
+            0.03321950567263565,
+            0.024435479043347443
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.08412670396684008,
+            0.10822877046144352,
+            0.05922658801585198
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.057693389809716666,
+            0.1415106671383186,
+            0.04950567723758495
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      },
+      "FightIdle_R": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576386575371647,
+            0.03321950567263565,
+            0.024435479043347443
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.08412670396684008,
+            0.10822877046144352,
+            0.05922658801585198
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.057693389809716666,
+            0.1415106671383186,
+            0.04950567723758495
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      },
+      "FightIdle_L": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576386575371647,
+            0.03321950567263565,
+            0.024435479043347443
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.07177766701244703,
+            0.10822877046144352,
+            0.05922658801585198
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.05810574928305362,
+            0.1415106671383186,
+            0.04950567723758495
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      }
+    }
+  },
+  "qi": {
+    "sha256": "23c9c5b03cecf9c9a9a0141201f76921dbd56c2d8d418ecb2a1a439afc5ced24",
+    "base_sha256": "416692839d5266dc2797f9245b5176e74b0dc48dc4cbe3be33333dd292d0803d",
+    "modified_clips": [
+      "FightIdle",
+      "FightIdle_R",
+      "FightIdle_L"
+    ],
+    "other_animation_json_and_binary_unchanged": true,
+    "geometry_rig_materials_unchanged": true,
+    "metrics": {
+      "FightIdle": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576386575371647,
+            0.03321950567263565,
+            0.024435479043347443
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.08412670396684008,
+            0.10822877046144352,
+            0.05922658801585198
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.057693389809716666,
+            0.1415106671383186,
+            0.04950567723758495
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      },
+      "FightIdle_R": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576386575371647,
+            0.03321950567263565,
+            0.024435479043347443
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.08412670396684008,
+            0.10822877046144352,
+            0.05922658801585198
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.057693389809716666,
+            0.1415106671383186,
+            0.04950567723758495
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      },
+      "FightIdle_L": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576386575371647,
+            0.03321950567263565,
+            0.024435479043347443
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.07177766701244703,
+            0.10822877046144352,
+            0.05922658801585198
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.05810574928305362,
+            0.1415106671383186,
+            0.04950567723758495
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      }
+    }
+  },
+  "tao": {
+    "sha256": "f49c96c3c6172fc11ad1a635969800b28010b1ba26da2649934d90b0d2745305",
+    "base_sha256": "bd5966efc02efb4c1f0cbc2abe43962899602cf773e761853204a3d93e21c772",
+    "modified_clips": [
+      "FightIdle",
+      "FightIdle_R",
+      "FightIdle_L"
+    ],
+    "other_animation_json_and_binary_unchanged": true,
+    "geometry_rig_materials_unchanged": true,
+    "metrics": {
+      "FightIdle": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576386575371647,
+            0.03321950567263565,
+            0.024435479043347443
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.08412670396684008,
+            0.10822877046144352,
+            0.05922658801585198
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.057693389809716666,
+            0.1415106671383186,
+            0.04950567723758495
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      },
+      "FightIdle_R": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576386575371647,
+            0.03321950567263565,
+            0.024435479043347443
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.08412670396684008,
+            0.10822877046144352,
+            0.05922658801585198
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.057693389809716666,
+            0.1415106671383186,
+            0.04950567723758495
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      },
+      "FightIdle_L": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576386575371647,
+            0.03321950567263565,
+            0.024435479043347443
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.07177766701244703,
+            0.10822877046144352,
+            0.05922658801585198
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.05810574928305362,
+            0.1415106671383186,
+            0.04950567723758495
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      }
+    }
+  },
+  "ha": {
+    "sha256": "a5cbbc41b8d6598d65d809f76603bb6d5b136118011faee73dd3d2c27d21cbef",
+    "base_sha256": "878208598954fb818d71d0fa46c4d9d7585825e4eb493d1ea7b21d0785502241",
+    "modified_clips": [
+      "FightIdle",
+      "FightIdle_R",
+      "FightIdle_L"
+    ],
+    "other_animation_json_and_binary_unchanged": true,
+    "geometry_rig_materials_unchanged": true,
+    "metrics": {
+      "FightIdle": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576386575371647,
+            0.03321950567263565,
+            0.024435479043347443
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.08412670396684008,
+            0.10822877046144352,
+            0.05922658801585198
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.057693389809716666,
+            0.1415106671383186,
+            0.04950567723758495
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      },
+      "FightIdle_R": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576386575371647,
+            0.03321950567263565,
+            0.024435479043347443
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.08412670396684008,
+            0.10822877046144352,
+            0.05922658801585198
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.057693389809716666,
+            0.1415106671383186,
+            0.04950567723758495
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      },
+      "FightIdle_L": {
+        "DEF-spine": {
+          "range_m": [
+            0.026576386575371647,
+            0.03321950567263565,
+            0.024435479043347443
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.L": {
+          "range_m": [
+            0.07177766701244703,
+            0.10822877046144352,
+            0.05922658801585198
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-hand.R": {
+          "range_m": [
+            0.05810574928305362,
+            0.1415106671383186,
+            0.04950567723758495
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.L": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        },
+        "DEF-foot.R": {
+          "range_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "endpoint_m": 0.0
+        }
+      }
+    }
+  }
+}

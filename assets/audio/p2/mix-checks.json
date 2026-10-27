@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "method": "Offline decoded PCM; no hardware or subjective listening claim.",
+  "group_caps": {
+    "combat": {
+      "voices": 6,
+      "gain_cap_linear": 0.24,
+      "max_source_peak_linear": 0.298522949,
+      "phase_independent_peak_contribution": 0.429873047
+    },
+    "voice": {
+      "voices": 2,
+      "gain_cap_linear": 0.11,
+      "max_source_peak_linear": 0.79473877,
+      "phase_independent_peak_contribution": 0.174842529
+    },
+    "ui": {
+      "voices": 2,
+      "gain_cap_linear": 0.12,
+      "max_source_peak_linear": 0.298522949,
+      "phase_independent_peak_contribution": 0.071645508
+    }
+  },
+  "master_gain_linear": 1.0,
+  "phase_independent_sum_peak_bound_linear": 0.676361084,
+  "phase_independent_sum_peak_bound_dbfs": -3.396428,
+  "eightfold_fft_sum_peak_estimate_bound_dbfs": -3.009026,
+  "reconstruction_note": "Eightfold FFT interpolation is an additional conservative numerical estimate, not a certified intersample/analog peak measurement.",
+  "bound_scope": "Any timing, phase and variant, only while the stated group counts and linear gains are enforced; no added music/FX/boosts.",
+  "peak_aligned_10_voice_stress": {
+    "sample_peak_linear": 0.676361084,
+    "sample_peak_dbfs": -3.396428,
+    "deliberately_aligns_and_inverts_polarity": true
+  },
+  "twelve_second_burst": {
+    "events": 351,
+    "peak_linear": 0.129355164,
+    "peak_dbfs": -17.764325,
+    "rms_dbfs": -32.235584
+  },
+  "jab_straight_waveform_correlation": -0.037737,
+  "checks": {
+    "worst_bound_below_minus_3_dbfs": true,
+    "peak_aligned_below_bound": true,
+    "eightfold_estimate_below_minus_3_dbfs": true,
+    "burst_below_bound": true,
+    "jab_straight_not_same_waveform": true
+  }
+}

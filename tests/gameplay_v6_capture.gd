@@ -1,0 +1,54 @@
+extends SceneTree
+var output:="res://exports/qa-v6/gameplay-purple"
+var character:=0
+var seconds:=20.0
+var early_cross:=false
+func _init(): call_deferred("run")
+func run():
+ for arg in OS.get_cmdline_user_args():
+  if arg.begins_with("--frames="):output=arg.trim_prefix("--frames=")
+  if arg=="--yellow":character=1
+  if arg=="--early-cross":early_cross=true
+  if arg.begins_with("--seconds="):seconds=float(arg.trim_prefix("--seconds="))
+ DirAccess.make_dir_recursive_absolute(output)
+ var viewport:=SubViewport.new();viewport.size=Vector2i(960,600);viewport.render_target_update_mode=SubViewport.UPDATE_ALWAYS;viewport.own_world_3d=true;root.add_child(viewport)
+ var scene=load("res://main.tscn").instantiate();viewport.add_child(scene);scene.set_physics_process(false)
+ await process_frame
+ scene.hud._choose(character);scene.hud.mute_requested.emit()
+ var telemetry:Array=[]
+ var cross_direction:=1
+ var action_count:=0
+ var last_press:=-60
+ var attacks:=["special","punch","roundhouse","heavy","kick"]
+ for frame in range(int(seconds*60.0)):
+  var f:Dictionary=scene.sim.fighters[0];var o:Dictionary=scene.sim.fighters[1]
+  var cycle:int=(frame+(400 if early_cross else 0))%600
+  if cycle==440:cross_direction=1 if o.x>f.x else -1
+  var next_attack:String=attacks[action_count%attacks.size()]
+  if next_attack=="special" and float(f.get("special_cooldown",0.0))>0.0:
+   action_count+=1; next_attack=attacks[action_count%attacks.size()]
+  var reach_goal:float=2.8 if next_attack=="special" else (1.15 if next_attack=="roundhouse" else 0.78)
+  var move:float=0.0
+  if cycle>=400 and cycle<440:move=-float(f.face)
+  elif cycle>=440 and cycle<495:move=float(cross_direction)
+  elif absf(o.x-f.x)>reach_goal:move=1.0 if o.x>f.x else -1.0
+  scene.on_command("left",move<0)
+  scene.on_command("right",move>0)
+  var followup:bool=f.attack=="punch" and f.duration-f.clock<=0.09 and f.duration-f.clock>0.06
+  var start:bool=(cycle<400 or cycle>=495) and f.attack=="" and f.stun<=0.0 and not f.down and f.y<=0.001 and f.land_lock<=0.0 and absf(o.x-f.x)<=reach_goal+0.03 and frame-last_press>20
+  for action in attacks:
+   scene.on_command(action,(start and action==next_attack) or (followup and action=="punch"))
+  if start:
+   action_count+=1;last_press=frame
+  scene.on_command("jump",cycle==445)
+  scene._physics_process(1.0/60.0)
+  if frame%4==0:
+   if DisplayServer.get_name()!="headless":
+    await RenderingServer.frame_post_draw
+    viewport.get_texture().get_image().save_png(output+"/"+("%04d"%int(frame/4))+".png")
+   telemetry.append({"frame":frame,"time":scene.sim.time_left,"wins":scene.wins.duplicate(),"player":scene.sim.fighters[0].duplicate(),"ai":scene.sim.fighters[1].duplicate(),"clips":scene.current_clips.duplicate(),"projectiles":scene.sim.projectiles.duplicate(true),"events":scene.sim.events.duplicate(true),"emitters":scene.emitter_positions.duplicate(true)})
+  if not scene.playing:break
+  await process_frame
+ var file=FileAccess.open(output+"/telemetry.json",FileAccess.WRITE);file.store_string(JSON.stringify(telemetry));file.close()
+ print("REAL GAMEPLAY ",output," frames ",telemetry.size()," real AI; no HP/position/state fixtures")
+ scene.sound.stop();viewport.queue_free();await process_frame;quit()

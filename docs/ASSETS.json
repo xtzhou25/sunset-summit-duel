@@ -1,0 +1,49 @@
+{
+  "purple": {
+    "runtime": "assets/purple.glb",
+    "sha256": "5c2ed804c069cafa42e06ef91d6e48cf5ee4a3cb204d6cf4b58bb4a90ac21b96",
+    "clip_count": 67,
+    "library_version": 7,
+    "runtime_library_id": "[private-archive-reference-omitted]",
+    "source_library_id": "[private-archive-reference-omitted]",
+    "source_library_version": 7,
+    "source_zip_sha256": "09627e0798ebc137080d65ca592aa9f0541b0d5c4e2df90fab39ade4a99f7d93"
+  },
+  "yellow": {
+    "runtime": "assets/yellow.glb",
+    "sha256": "9e9f86d56f38aae161251608e8a0ba5078c749311f1aa5feb7fe64a7af147821",
+    "clip_count": 71,
+    "library_version": 7,
+    "runtime_library_id": "[private-archive-reference-omitted]",
+    "source_library_id": "[private-archive-reference-omitted]",
+    "source_library_version": 7,
+    "source_zip_sha256": "5f8fc413cb9a8d59a9e161acd4f7dc602f599ee71825cb33c4d650d409188183"
+  },
+  "original_sources": {
+    "purple": "[private-archive-reference-omitted]",
+    "yellow": "[private-archive-reference-omitted]",
+    "motion_attribution": "[private-archive-reference-omitted]"
+  },
+  "note": "All 59 prior clips, original geometry and appearance preserved. Purple adds paired MeowCast; yellow adds paired HeartCastStart/Loop/Land. Real bone-local mouth/hand markers and exact phase timing. Local garment contacts disclosed; no independent finger bones. Separate editing sources and all previous Library versions retained. P1 adds six paired CrouchStart/Loop/End animations per character. Original61/65 remain byte-preserved.",
+  "animation_qa_library_id": "[private-archive-reference-omitted]",
+  "p2_audio": {
+    "directory": "assets/audio/p2",
+    "cue_categories": 14,
+    "variants_per_cue": 2,
+    "wav_count": 28,
+    "wav_total_bytes": 491408,
+    "format": "mono 48000 Hz signed PCM16 WAV",
+    "manifest": "assets/audio/p2/manifest.json",
+    "manifest_sha256": "474983bb4288dff572e2d8299800dc4948c370973a6873aaaae636373ac5cb7a",
+    "mix_checks": "assets/audio/p2/mix-checks.json",
+    "mix_checks_sha256": "d53fbf34bef3e7131564e9269c7bf3c1f24be225a0dd4a62dacedee40d8d4c57",
+    "generator": "scripts/generate_p2_audio.py",
+    "generator_sha256": "847206c38f5cef925486f5c65bcab9f9089d4f6a8374d55b6e33796d7726087c",
+    "provenance": "Original deterministic procedural synthesis authored by OpenAI assistant for this project, using numeric parameters and xorshift32 noise only; no external audio samples or commercial-game extraction.",
+    "documentation": "docs/P2-AUDIO-ASSETS.md",
+    "existing_meow_unchanged": true,
+    "meow_sha256": "551cc7c8a4c90e6a120de466707ba36670f05dc8e0d96223a8a355b47cfd3eb2",
+    "validation": "336 asset checks, 5 offline mix checks, exact regeneration and SHA-256 checks pass. No subjective listening, real-phone playback or browser-audio certification claimed.",
+    "godot_import": "28 P2 WAV imports use lossless PCM (compress/mode=0), no normalization, trimming, looping or forced rate conversion; existing cat import metadata untouched."
+  }
+}

@@ -1,0 +1,826 @@
+{
+  "source": "actual exported GLB skin evaluated before BVH tests",
+  "sample_rates": "PeachCast60Hz; selected common actions10Hz",
+  "limitations": "Triangle intersections include hidden contacts; counts are diagnostic, not proof of visible artifact. Shoulder sleeve joins excluded.",
+  "summary": {
+    "FightIdle_R": {
+      "samples": 21,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "FightIdle_L": {
+      "samples": 21,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Jab_R": {
+      "samples": 6,
+      "frames_with_intersections": 1,
+      "max_triangle_pairs": {
+        "hair_arm": 15
+      }
+    },
+    "Jab_L": {
+      "samples": 6,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Straight_R": {
+      "samples": 7,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Straight_L": {
+      "samples": 7,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "HeavyPunch_R": {
+      "samples": 10,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "HeavyPunch_L": {
+      "samples": 10,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "RoundhouseKick_R": {
+      "samples": 11,
+      "frames_with_intersections": 4,
+      "max_triangle_pairs": {
+        "skirt_leg": 91
+      }
+    },
+    "RoundhouseKick_L": {
+      "samples": 11,
+      "frames_with_intersections": 4,
+      "max_triangle_pairs": {
+        "skirt_leg": 91
+      }
+    },
+    "FlyingKickLoop_R": {
+      "samples": 6,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "FlyingKickLoop_L": {
+      "samples": 6,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "CrouchLoop_R": {
+      "samples": 11,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "CrouchLoop_L": {
+      "samples": 11,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Knockdown_R": {
+      "samples": 9,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Knockdown_L": {
+      "samples": 9,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Recover_R": {
+      "samples": 11,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Recover_L": {
+      "samples": 11,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "PeachCast_R": {
+      "samples": 67,
+      "frames_with_intersections": 46,
+      "max_triangle_pairs": {
+        "hair_arm": 50
+      }
+    },
+    "PeachCast_L": {
+      "samples": 67,
+      "frames_with_intersections": 46,
+      "max_triangle_pairs": {
+        "hair_arm": 48
+      }
+    }
+  },
+  "intersections": [
+    {
+      "clip": "Jab_R",
+      "time": 0.2,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 15
+      }
+    },
+    {
+      "clip": "RoundhouseKick_R",
+      "time": 0.2,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 19
+      }
+    },
+    {
+      "clip": "RoundhouseKick_R",
+      "time": 0.3,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 91
+      }
+    },
+    {
+      "clip": "RoundhouseKick_R",
+      "time": 0.4,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 85
+      }
+    },
+    {
+      "clip": "RoundhouseKick_R",
+      "time": 0.5,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 38
+      }
+    },
+    {
+      "clip": "RoundhouseKick_L",
+      "time": 0.2,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 19
+      }
+    },
+    {
+      "clip": "RoundhouseKick_L",
+      "time": 0.3,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 91
+      }
+    },
+    {
+      "clip": "RoundhouseKick_L",
+      "time": 0.4,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 85
+      }
+    },
+    {
+      "clip": "RoundhouseKick_L",
+      "time": 0.5,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 38
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.1,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 10
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.11666666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.13333333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 20
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.15,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.16666666666666666,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.18333333333333332,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.2,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.21666666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.23333333333333334,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.25,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.26666666666666666,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.2833333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.3,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 18
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.31666666666666665,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 30
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.3333333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 42
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.35,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 38
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.36666666666666664,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 36
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.38333333333333336,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 42
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.4,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 32
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.4166666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 30
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.43333333333333335,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 28
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.45,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 28
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.4666666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 28
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.48333333333333334,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 28
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.5,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 32
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.5166666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 32
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.5333333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 38
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.55,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 38
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.5666666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 38
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.5833333333333334,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 36
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.6,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 38
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.6166666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 40
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.6333333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 50
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.65,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 26
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.6666666666666666,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 20
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.6833333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 18
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.7,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.7166666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.7333333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.75,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 18
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.7666666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 18
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.7833333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.8,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.8166666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 12
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.8333333333333334,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 10
+      }
+    },
+    {
+      "clip": "PeachCast_R",
+      "time": 0.85,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 10
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.1,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 10
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.11666666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.13333333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.15,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.16666666666666666,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.18333333333333332,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.2,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.21666666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.23333333333333334,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.25,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.26666666666666666,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.2833333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.3,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 18
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.31666666666666665,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 32
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.3333333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 40
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.35,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 36
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.36666666666666664,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 38
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.38333333333333336,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 42
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.4,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 30
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.4166666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 28
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.43333333333333335,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 28
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.45,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 28
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.4666666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 28
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.48333333333333334,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 28
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.5,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 28
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.5166666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 30
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.5333333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 36
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.55,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 40
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.5666666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 38
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.5833333333333334,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 36
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.6,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 38
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.6166666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 38
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.6333333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 48
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.65,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 28
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.6666666666666666,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 20
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.6833333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 18
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.7,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.7166666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.7333333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.75,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.7666666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.7833333333333333,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 16
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.8,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.8166666666666667,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 14
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.8333333333333334,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 10
+      }
+    },
+    {
+      "clip": "PeachCast_L",
+      "time": 0.85,
+      "intersecting_triangle_pairs": {
+        "hair_arm": 10
+      }
+    }
+  ]
+}

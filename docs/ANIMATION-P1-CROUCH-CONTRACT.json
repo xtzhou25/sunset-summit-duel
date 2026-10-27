@@ -1,0 +1,41 @@
+{
+  "status": "final-source-export-native-gates-passed",
+  "baseline": "Purple61 Yellow65 final signature assets, all old clips and appearance preserved",
+  "clips": {
+    "CrouchStart_R": 0.18,
+    "CrouchStart_L": 0.18,
+    "CrouchLoop_R": 1.0,
+    "CrouchLoop_L": 1.0,
+    "CrouchEnd_R": 0.18,
+    "CrouchEnd_L": 0.18
+  },
+  "new_counts": {
+    "Lavender": 67,
+    "YellowWhite": 71
+  },
+  "root_motion": false,
+  "loop": "CrouchLoop only, closed endpoints; tiny guarded breathing",
+  "interruptions": "Engine may immediately cancel for jump, attack, hurt; partial entry releases reverse authored phase rather than locking input",
+  "jump": "Existing JumpStart/Loop/Land unchanged; engine vy6.5 gravity17.5 supplies higher actor jump once",
+  "scope": "No low/high hitbox system, no appearance/mesh/finger changes; generic guarded combat crouch, not MeowCast.",
+  "qa": {
+    "Lavender": {
+      "runtime_sha256": "5c2ed804c069cafa42e06ef91d6e48cf5ee4a3cb204d6cf4b58bb4a90ac21b96",
+      "exported_skin_samples": 334,
+      "floor_min_native_m": 1.529479050077498e-07,
+      "max_bone_rotation_per_10ms_deg": 3.282550573348999,
+      "phase_join_translation_max_m": 2.9802322387695312e-08,
+      "phase_join_rotation_max_deg": 0.03956468030810356
+    },
+    "YellowWhite": {
+      "runtime_sha256": "9e9f86d56f38aae161251608e8a0ba5078c749311f1aa5feb7fe64a7af147821",
+      "exported_skin_samples": 334,
+      "floor_min_native_m": -5.422869435278699e-05,
+      "max_bone_rotation_per_10ms_deg": 3.7393946647644043,
+      "phase_join_translation_max_m": 0.0,
+      "phase_join_rotation_max_deg": 0.0
+    }
+  },
+  "native_gate": "Both characters and facings: crouch hold, release, repeat, jump cancellation inspected 2026-10-25. Controlled input fixtures, not a claim of live-AI gameplay coverage.",
+  "engine_report": "190 strict crouch tests passed; 576 original emitter/reference bone world poses still zero error."
+}

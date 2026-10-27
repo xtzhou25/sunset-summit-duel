@@ -1,0 +1,485 @@
+{
+  "CrouchEnd_L": {
+    "duration_s": 0.18000000317891438,
+    "source_frames": [
+      0.0,
+      5.400000095367432
+    ]
+  },
+  "CrouchEnd_R": {
+    "duration_s": 0.18000000317891438,
+    "source_frames": [
+      0.0,
+      5.400000095367432
+    ]
+  },
+  "CrouchLoop_L": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "CrouchLoop_R": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "CrouchStart_L": {
+    "duration_s": 0.18000000317891438,
+    "source_frames": [
+      0.0,
+      5.400000095367432
+    ]
+  },
+  "CrouchStart_R": {
+    "duration_s": 0.18000000317891438,
+    "source_frames": [
+      0.0,
+      5.400000095367432
+    ]
+  },
+  "RoundhouseKick_L": {
+    "duration_s": 0.9599999745686849,
+    "source_frames": [
+      0.0,
+      28.799999237060547
+    ]
+  },
+  "RoundhouseKick_R": {
+    "duration_s": 0.9599999745686849,
+    "source_frames": [
+      0.0,
+      28.799999237060547
+    ]
+  },
+  "HeavyPunch_L": {
+    "duration_s": 0.9400000254313151,
+    "source_frames": [
+      0.0,
+      28.200000762939453
+    ]
+  },
+  "HeavyPunch_R": {
+    "duration_s": 0.9400000254313151,
+    "source_frames": [
+      0.0,
+      28.200000762939453
+    ]
+  },
+  "Straight_L": {
+    "duration_s": 0.6,
+    "source_frames": [
+      0.0,
+      18.0
+    ]
+  },
+  "Straight_R": {
+    "duration_s": 0.6,
+    "source_frames": [
+      0.0,
+      18.0
+    ]
+  },
+  "Jab_L": {
+    "duration_s": 0.5199999809265137,
+    "source_frames": [
+      0.0,
+      15.59999942779541
+    ]
+  },
+  "Jab_R": {
+    "duration_s": 0.5199999809265137,
+    "source_frames": [
+      0.0,
+      15.59999942779541
+    ]
+  },
+  "Recover_L": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "Recover_R": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "Knockdown_L": {
+    "duration_s": 0.8,
+    "source_frames": [
+      0.0,
+      24.0
+    ]
+  },
+  "Knockdown_R": {
+    "duration_s": 0.8,
+    "source_frames": [
+      0.0,
+      24.0
+    ]
+  },
+  "Punch_R": {
+    "duration_s": 0.6,
+    "source_frames": [
+      0.0,
+      18.0
+    ]
+  },
+  "JumpLand_L": {
+    "duration_s": 0.36666666666666664,
+    "source_frames": [
+      0.0,
+      11.0
+    ]
+  },
+  "JumpLand_R": {
+    "duration_s": 0.36666666666666664,
+    "source_frames": [
+      0.0,
+      11.0
+    ]
+  },
+  "JumpLoop_L": {
+    "duration_s": 0.4,
+    "source_frames": [
+      0.0,
+      12.0
+    ]
+  },
+  "JumpLoop_R": {
+    "duration_s": 0.4,
+    "source_frames": [
+      0.0,
+      12.0
+    ]
+  },
+  "JumpStart_L": {
+    "duration_s": 0.2,
+    "source_frames": [
+      0.0,
+      6.0
+    ]
+  },
+  "JumpStart_R": {
+    "duration_s": 0.2,
+    "source_frames": [
+      0.0,
+      6.0
+    ]
+  },
+  "FlyingKickLand_L": {
+    "duration_s": 0.4,
+    "source_frames": [
+      0.0,
+      12.0
+    ]
+  },
+  "FlyingKickLand_R": {
+    "duration_s": 0.4,
+    "source_frames": [
+      0.0,
+      12.0
+    ]
+  },
+  "FlyingKickStart_L": {
+    "duration_s": 0.2,
+    "source_frames": [
+      0.0,
+      6.0
+    ]
+  },
+  "FlyingKickStart_R": {
+    "duration_s": 0.2,
+    "source_frames": [
+      0.0,
+      6.0
+    ]
+  },
+  "Punch_L": {
+    "duration_s": 0.6,
+    "source_frames": [
+      0.0,
+      18.0
+    ]
+  },
+  "HitReactStrong_L": {
+    "duration_s": 0.4,
+    "source_frames": [
+      0.0,
+      12.0
+    ]
+  },
+  "HitReactStrong_R": {
+    "duration_s": 0.4,
+    "source_frames": [
+      0.0,
+      12.0
+    ]
+  },
+  "FlyingKickLoop_L": {
+    "duration_s": 0.5,
+    "source_frames": [
+      0.0,
+      15.0
+    ]
+  },
+  "FlyingKickLoop_R": {
+    "duration_s": 0.5,
+    "source_frames": [
+      0.0,
+      15.0
+    ]
+  },
+  "Run_L": {
+    "duration_s": 0.6,
+    "source_frames": [
+      0.0,
+      18.0
+    ]
+  },
+  "Run_R": {
+    "duration_s": 0.6,
+    "source_frames": [
+      0.0,
+      18.0
+    ]
+  },
+  "Walk_L": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "Walk_R": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "BackstepGuard_L": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "BackstepGuard_R": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "Guard_L": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "Guard_R": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "FightIdle_L": {
+    "duration_s": 2.0,
+    "source_frames": [
+      0.0,
+      60.0
+    ]
+  },
+  "FightIdle_R": {
+    "duration_s": 2.0,
+    "source_frames": [
+      0.0,
+      60.0
+    ]
+  },
+  "HitReactStrong": {
+    "duration_s": 0.4,
+    "source_frames": [
+      0.0,
+      12.0
+    ]
+  },
+  "FightIdle": {
+    "duration_s": 2.0,
+    "source_frames": [
+      0.0,
+      60.0
+    ]
+  },
+  "BackstepGuard": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "Victory": {
+    "duration_s": 1.8,
+    "source_frames": [
+      0.0,
+      54.0
+    ]
+  },
+  "Recover": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "Knockdown": {
+    "duration_s": 0.8,
+    "source_frames": [
+      0.0,
+      24.0
+    ]
+  },
+  "HitReact": {
+    "duration_s": 0.4,
+    "source_frames": [
+      0.0,
+      12.0
+    ]
+  },
+  "Guard": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "FlyingKickLand": {
+    "duration_s": 0.4,
+    "source_frames": [
+      0.0,
+      12.0
+    ]
+  },
+  "FlyingKickLoop": {
+    "duration_s": 0.5,
+    "source_frames": [
+      0.0,
+      15.0
+    ]
+  },
+  "FlyingKickStart": {
+    "duration_s": 0.2,
+    "source_frames": [
+      0.0,
+      6.0
+    ]
+  },
+  "Punch": {
+    "duration_s": 0.6,
+    "source_frames": [
+      0.0,
+      18.0
+    ]
+  },
+  "JumpLand": {
+    "duration_s": 0.36666666666666664,
+    "source_frames": [
+      0.0,
+      11.0
+    ]
+  },
+  "JumpLoop": {
+    "duration_s": 0.4,
+    "source_frames": [
+      0.0,
+      12.0
+    ]
+  },
+  "JumpStart": {
+    "duration_s": 0.2,
+    "source_frames": [
+      0.0,
+      6.0
+    ]
+  },
+  "StandUp": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "SitIdle": {
+    "duration_s": 3.0,
+    "source_frames": [
+      0.0,
+      90.0
+    ]
+  },
+  "SitDown": {
+    "duration_s": 1.2,
+    "source_frames": [
+      0.0,
+      36.0
+    ]
+  },
+  "Run": {
+    "duration_s": 0.6,
+    "source_frames": [
+      0.0,
+      18.0
+    ]
+  },
+  "Walk": {
+    "duration_s": 1.0,
+    "source_frames": [
+      0.0,
+      30.0
+    ]
+  },
+  "Idle": {
+    "duration_s": 4.0,
+    "source_frames": [
+      0.0,
+      120.0
+    ]
+  },
+  "RifleCast_R": {
+    "duration_s": 1.1,
+    "source_frames": [
+      0.0,
+      33.0
+    ]
+  },
+  "RifleCast_L": {
+    "duration_s": 1.1,
+    "source_frames": [
+      0.0,
+      33.0
+    ]
+  },
+  "Victory_R": {
+    "duration_s": 1.8,
+    "source_frames": [
+      0.0,
+      54.0
+    ]
+  },
+  "Victory_L": {
+    "duration_s": 1.8,
+    "source_frames": [
+      0.0,
+      54.0
+    ]
+  }
+}

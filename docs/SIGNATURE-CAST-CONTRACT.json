@@ -1,0 +1,39 @@
+{
+  "status": "authoring-not-release",
+  "baseline": "frozen v6 original59 preserved",
+  "characters": {
+    "Lavender": {
+      "clips": {
+        "MeowCast_R": 1.0,
+        "MeowCast_L": 1.0
+      },
+      "total_clips": 61,
+      "emit_global_seconds": 0.38,
+      "pose": "Planted half squat, both arms open; mouth emission from measured lip/head bone marker."
+    },
+    "YellowWhite": {
+      "clips": {
+        "HeartCastStart_R": 0.2,
+        "HeartCastStart_L": 0.2,
+        "HeartCastLoop_R": 0.6,
+        "HeartCastLoop_L": 0.6,
+        "HeartCastLand_R": 0.25,
+        "HeartCastLand_L": 0.25
+      },
+      "total_clips": 65,
+      "emit_air_seconds": 0.28,
+      "emit_global_seconds": 0.48,
+      "jump_start_global_seconds": 0.2,
+      "jump_velocity_m_s": 5.25,
+      "gravity_m_s2": 17.5,
+      "physical_air_seconds": 0.6,
+      "physical_apex_height_m": 0.7875,
+      "land_global_seconds": 0.8,
+      "total_seconds": 1.05,
+      "pose": "Two actual arm arcs form large overhead heart; static hands approach inner indentation, not articulated finger-heart. Actor physics supplies jump height once, no animation root jump."
+    }
+  },
+  "root": "Static animation actor root; physics position only supplied by engine. Stance endpoints and phase joins exact.",
+  "markers": "Pending actual geometry-derived glTF bone-local markers and emit world positions; do not use abdomen spawn constants.",
+  "scope": "Original exclusive character clips only, no appearance/mesh/weight/finger-rig changes; engineer owns projectile, audio, UI, cooldown, block/damage."
+}

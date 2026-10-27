@@ -1,0 +1,282 @@
+[
+  {
+    "file": "Tao-v02-Editable-Actions.blend",
+    "bytes": 98849860,
+    "sha256": "4408f15742af44bc292ba367f87a3be63ad3a3add907714efcba0adb65291929"
+  },
+  {
+    "file": "Tao-v02-Runtime.glb",
+    "bytes": 21634292,
+    "sha256": "1f3737e5269d4d5e8acae83d5050fdc4eefa34ec3ac9caad445e784c26f056c3"
+  },
+  {
+    "file": "peach.glb",
+    "bytes": 68056,
+    "sha256": "bd695433bc9c2cef24cbf577af666a919f1d763b099cc36f08263ff07b5a5155"
+  },
+  {
+    "file": "Peach-Projectile.blend",
+    "bytes": 597176,
+    "sha256": "a63d139846a271a04e84fdff05ff9a80fcd213e79b5b52995defdd3610917ead"
+  },
+  {
+    "file": "tao_peach_contract.json",
+    "bytes": 1790,
+    "sha256": "8ad08b9dba149afb239d4eaa1bd6dcee92876c78a844345fc4181b7a0ffc6685"
+  },
+  {
+    "file": "tao_surface_curves.json",
+    "bytes": 2624368,
+    "sha256": "194a8dbf608301750a5dcdeb8d4f34754ac086e0ab1145e5656b46d681117ee3"
+  },
+  {
+    "file": "COMMON-CLIP-PRESERVATION.json",
+    "bytes": 1466,
+    "sha256": "8eba4b61ad680e47a71b01143140312b4e1bf645a51bf6d4df42d8598918d9a2"
+  },
+  {
+    "file": "EXPORTED-SKIN-QA.json",
+    "bytes": 12894,
+    "sha256": "2055f2700257d467459bdb810baea1135c1381afe81c049a71d67e9c661d4dba"
+  },
+  {
+    "file": "GARMENT-COLLISION-QA.json",
+    "bytes": 17056,
+    "sha256": "0d43d72f582170291bb7460a2b35d5df69102ee2b1ac6e906e3b2cf52565c509"
+  },
+  {
+    "file": "NATIVE-IMPORT-QA.json",
+    "bytes": 145,
+    "sha256": "afd76072b5f245bdeb6e645b3c72565aefbe5753d775f4ee926cceb3db892696"
+  },
+  {
+    "file": "LOCOMOTION-CALIBRATION.json",
+    "bytes": 460,
+    "sha256": "5017874aaa900c6aa530cb0c204f0ad6749691696e905350dc8af5b12abb41a9"
+  },
+  {
+    "file": "README.md",
+    "bytes": 3868,
+    "sha256": "6fb4dcaa134964ee58e08b4472bccd9fd1d5546fa8850472612466291255c26d"
+  },
+  {
+    "file": "REST-REGION-LABELS.json",
+    "bytes": 1445310,
+    "sha256": "458df6b0938ccb106807d556958c6bb82f8d7c70aae73628b009ea401b08b652"
+  },
+  {
+    "file": "Tao-PeachCast-Preview.mp4",
+    "bytes": 109700,
+    "sha256": "afbad80e182f3156b99d4f00ceec579f17a269915c9128425b6b1790ef5c1e24"
+  },
+  {
+    "file": "scripts/peach_prop.py",
+    "bytes": 2012,
+    "sha256": "ffb3613ac36c05b6e7aca6d12d5e91a598e1a197aa8bff4e3af9af80bdcb27cd"
+  },
+  {
+    "file": "scripts/check_collisions.py",
+    "bytes": 1689,
+    "sha256": "02aabe2373fc6bf0d17d14ee35fa233871ba99f83e7efb1a5b2d3548165a1971"
+  },
+  {
+    "file": "scripts/render_actual.py",
+    "bytes": 2771,
+    "sha256": "b7ca95410b53d7ae055080138ad8515f57939f0f221a72c4d061de18327c93d5"
+  },
+  {
+    "file": "scripts/inspect_pose.py",
+    "bytes": 738,
+    "sha256": "c6804270f3ba7ecedcb7ebba990bff774275b13ba525c69a3ee30100f7bc3351"
+  },
+  {
+    "file": "scripts/marker.py",
+    "bytes": 2012,
+    "sha256": "ff864f4c34b75c903f976ea0a8bdb9cdbbb18de2a66617c46a62a6819576d354"
+  },
+  {
+    "file": "scripts/sample_render.py",
+    "bytes": 1521,
+    "sha256": "357abc78e9c669a2779fa26d7d3e210ed40ae19a8290f7e685008ba0b4131a1e"
+  },
+  {
+    "file": "scripts/sample_contact.py",
+    "bytes": 1336,
+    "sha256": "0f8b48fde610e0819e28df59619b98181d524c63b8114552151949a479036138"
+  },
+  {
+    "file": "scripts/gltf_marker_qa.py",
+    "bytes": 3534,
+    "sha256": "516701759f9c5d8fc5fe12cf5b206986097d8c7fab70e4852f72c3c088f43499"
+  },
+  {
+    "file": "scripts/render_motion.py",
+    "bytes": 2785,
+    "sha256": "5e69483f752ee508dbd3ffe018c1791690d5ca866f3e66c636ab7ba346ec8b4f"
+  },
+  {
+    "file": "scripts/render_poses.py",
+    "bytes": 2235,
+    "sha256": "3df7961cdeb4e0947cf5dbe979919d84e3bce3b4094c4b81e8d275424299a691"
+  },
+  {
+    "file": "scripts/render_contact.py",
+    "bytes": 2907,
+    "sha256": "b4ec059bd5052432dd69f08ebfbdc8fb7f2849604629d7961f5b8dc708478639"
+  },
+  {
+    "file": "scripts/author.py",
+    "bytes": 5381,
+    "sha256": "f38f4c165bf69e754e1a76aedc48de123336ce552da651e0cee3da6962eb46f1"
+  },
+  {
+    "file": "scripts/validate_gltf.py",
+    "bytes": 3994,
+    "sha256": "c84891b20c2435560b8ed4c837eb7ed8b06e9a3c37660f351572936c5f4e662d"
+  },
+  {
+    "file": "scripts/preserve.py",
+    "bytes": 2066,
+    "sha256": "ceaa8f29930a8d6f67e5c31abe4651eb1021eceb0234d5a25eb61a7a206c204d"
+  },
+  {
+    "file": "scripts/prepare_collision_samples.py",
+    "bytes": 1975,
+    "sha256": "ff447543360e897520e7a3794c9295a5c921cfdd4df5637d4d872709be717a7e"
+  },
+  {
+    "file": "scripts/localize_contact.py",
+    "bytes": 1572,
+    "sha256": "080fbbe10d755d74ee2753f23b9d7afe242395436645695f6845e54c44cf33a8"
+  },
+  {
+    "file": "scripts/sample_motion.py",
+    "bytes": 1318,
+    "sha256": "629389a4cd4a84e431fc4dfa9fa900135cc5fc3b3f5a169c51048944da84893a"
+  },
+  {
+    "file": "qa/actual-10-HeavyPunch_L-0.35.png",
+    "bytes": 581643,
+    "sha256": "226403fb16e5bffecbf79065778d73eab5cd5b6504638af58a3b5781efa2becc"
+  },
+  {
+    "file": "qa/actual-17-PeachCast_L-0.85.png",
+    "bytes": 576021,
+    "sha256": "37693bb1796c77920fbc522cc43db182b96c06eaa995883408853bb57c186b14"
+  },
+  {
+    "file": "qa/actual-11-RoundhouseKick_L-0.20.png",
+    "bytes": 586978,
+    "sha256": "6223ef976234e321bb8efb6c54df001215185e425fe6beb49bbe550b0b44257a"
+  },
+  {
+    "file": "qa/actual-12-RoundhouseKick_L-0.50.png",
+    "bytes": 579243,
+    "sha256": "ec20a066f8fad6e1ac2f3e1197dc61aaf7a5c2a6945154aa557025c349e02b49"
+  },
+  {
+    "file": "qa/actual-08-PeachCast_R-0.85.png",
+    "bytes": 563962,
+    "sha256": "67a426a1c3c78f114a9adefe0ac4dac4bd3c3490551ec5ca7750f572f761594a"
+  },
+  {
+    "file": "qa/actual-00-FightIdle_R-0.00.png",
+    "bytes": 562894,
+    "sha256": "c7609a612f1b2764e64b12fb574abaef99805c7d85404c6c00ecdbf2f65518c8"
+  },
+  {
+    "file": "qa/actual-04-CrouchLoop_R-0.20.png",
+    "bytes": 564555,
+    "sha256": "86d499514d2896869b582101dd01c2c054910c71babbc3ddb89d85342d01c871"
+  },
+  {
+    "file": "qa/actual-07-PeachCast_R-0.42.png",
+    "bytes": 563275,
+    "sha256": "16975204085086e018ba0639d4ee5ca8d2bb7048658a35eef45fea06282b336b"
+  },
+  {
+    "file": "qa/actual-14-Knockdown_L-0.45.png",
+    "bytes": 542869,
+    "sha256": "779bd0c8c8de609dafae05818d6baa4b6e601fd7d6689930f963f32eda212c1a"
+  },
+  {
+    "file": "qa/actual-16-PeachCast_L-0.42.png",
+    "bytes": 573357,
+    "sha256": "467236fa823164514cbfd76241b458bdbac72ec43d2cc50084512a562751f4ae"
+  },
+  {
+    "file": "qa/actual-05-Knockdown_R-0.45.png",
+    "bytes": 543335,
+    "sha256": "9e3841bd835e963353bfbc9d589ae7bd991c9556fef157bfd208c784aaba40b1"
+  },
+  {
+    "file": "qa/actual-15-PeachCast_L-0.20.png",
+    "bytes": 572237,
+    "sha256": "973e07c7853ded872a28287fd8967e1746be9182fb2e307fd93cd6122e1e105e"
+  },
+  {
+    "file": "qa/actual-13-CrouchLoop_L-0.20.png",
+    "bytes": 577657,
+    "sha256": "5809d1279ce810a98a93abcb6bb648d6950ff035cb9d07a5d97a25bee55260de"
+  },
+  {
+    "file": "qa/actual-03-RoundhouseKick_R-0.50.png",
+    "bytes": 593098,
+    "sha256": "d8ecb526f7969c8f79e652dca0500cf58fb11304c1e924fc729b27bf884b6f6c"
+  },
+  {
+    "file": "qa/actual-02-RoundhouseKick_R-0.20.png",
+    "bytes": 586336,
+    "sha256": "5f28687c43e0f6a0929427bb5cb3409666cb832416776aa92fa64104460a212e"
+  },
+  {
+    "file": "qa/actual-09-FightIdle_L-0.00.png",
+    "bytes": 578893,
+    "sha256": "dd75494064692d9ae30376a29737cca51bd4cd08c76808587f49e93d7310bced"
+  },
+  {
+    "file": "qa/actual-01-HeavyPunch_R-0.35.png",
+    "bytes": 569757,
+    "sha256": "59dcd5abb324a7f6eaee4e74c2e049902859e92b4dafba33c3bfa3fde77c0eee"
+  },
+  {
+    "file": "qa/actual-06-PeachCast_R-0.20.png",
+    "bytes": 561981,
+    "sha256": "2ed1a78a93f7a880ae9048cb85017237aaeced8f3f3aa53bed4a076721314ba3"
+  },
+  {
+    "file": "qa/contact-00-PeachCast_R-0.63.png",
+    "bytes": 588824,
+    "sha256": "8e08ff670da0d432c2b96fa0bb986420a1ef41c9a32064b241b99ac115406e94"
+  },
+  {
+    "file": "qa/contact-01-PeachCast_L-0.63.png",
+    "bytes": 571837,
+    "sha256": "71e6962491c74c081bccfbd5d9e9efc00dd83a447cde1ec9abb60b1eb49adaca"
+  },
+  {
+    "file": "licenses/CC-BY-3.0-legalcode.txt",
+    "bytes": 19467,
+    "sha256": "e6bc9e9c474700b708f568bac9e5a8a9bcb2b1dad53442f5ba449fcb848b8e76"
+  },
+  {
+    "file": "licenses/ATTRIBUTION.txt",
+    "bytes": 606,
+    "sha256": "cc6d44a828733a8d7a689f4cfde834750e2acac46549f5c132466f71d2193b5a"
+  },
+  {
+    "file": "base/Qi-v03-Runtime.glb",
+    "bytes": 17459672,
+    "sha256": "4076d5bfbabc683d32c76ffe95fef038ee5ea16bb77ee4738f36761a78fb3f68"
+  },
+  {
+    "file": "neutral/Tao-v01-Model.blend",
+    "bytes": 91431004,
+    "sha256": "2b99c0339eca120e0cf26d991951a3402a2f420a89a0ad974a88a092dc0e2e7d"
+  },
+  {
+    "file": "scripts/build_tao.py",
+    "bytes": 8610,
+    "sha256": "fca7e497305c1b45edc513757bc568d00203909def21d759173b561c676e0a31"
+  }
+]

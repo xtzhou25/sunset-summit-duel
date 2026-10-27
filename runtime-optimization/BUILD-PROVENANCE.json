@@ -1,0 +1,37 @@
+{
+  "source_url": "https://github.com/godotengine/godot/archive/refs/tags/4.6.3-stable.tar.gz",
+  "source_commit": "35e80b3a8822a9df9be390814b62f44c0a9c69e8",
+  "source_archive_sha256": "fa22b5f974125057087c9ef725eae582dbc5e39385dc377e8d5dbc295b367e1c",
+  "scons": "4.11.1",
+  "toolchain": {
+    "release": "https://github.com/mstorsjo/llvm-mingw/releases/tag/20261020",
+    "asset": "https://github.com/mstorsjo/llvm-mingw/releases/download/20261020/llvm-mingw-20261020-ucrt-ubuntu-22.04-x86_64.tar.xz",
+    "size": 84017268,
+    "publisher_digest": "sha256:55064b60b991a1e1e8090b8c2f84e82b22cfe5903d12c159d65064cf5e8ae335",
+    "digest_verified": true,
+    "extracted_path": "<local-toolchain-directory>/llvm-mingw-20261020-ucrt-ubuntu-22.04-x86_64",
+    "compiler": "clang23.1.4, POSIX threads, x86_64-w64-windows-gnu",
+    "smoke_test": "Static C++ compile and PE import inspection passed; execution on Windows not tested",
+    "system_changes": false
+  },
+  "flags": "platform=windows target=template_release arch=x86_64 use_mingw=yes use_llvm=yes optimize=size_extra lto=none debug_symbols=no vulkan=no d3d12=no opengl3=yes disable_xr=yes",
+  "unchanged": "3D/animation/physics/audio/fonts/advanced text/CJK/resource formats and project PCK",
+  "runtime_test": "Windows execution not performed; PE structure/import inspection passed. No Windows QA environment available.",
+  "build_status": "Succeeded",
+  "build_elapsed": "00:25:44.81",
+  "output_bytes": 49139712,
+  "output_sha256": "d5a52b1b05a8ee34ff8c4cbb0b972b6294e8f6f3555aad4290ce43ed49def0e0",
+  "baseline_exe_bytes": 104659456,
+  "exe_reduction_bytes": 55519744,
+  "exe_reduction_percent": 53.04799596894523,
+  "official_release_article": "https://godotengine.org/article/maintenance-release-godot-4-6-3/",
+  "source_commit_verification": "Official release article explicitly states35e80b3a8, matching GitHub4.6.3-stable tag API.",
+  "baseline_binary_metadata_discrepancy": {
+    "official_windows_template_embedded_commit": "7d41c59c457bd5a245092b4e7eb2d833e3b3f8c3",
+    "source_tag_and_release_article_commit": "35e80b3a8822a9df9be390814b62f44c0a9c69e8",
+    "status": "Unresolved upstream binary/source metadata discrepancy. Not claimed commit-identical. Public GitHub7d41c commit page returned404; compare API was rate-limited."
+  },
+  "gdscript_tokenizer_version": 101,
+  "gdscript_tokenizer_compatibility": "Candidate source constant101 matches audited exported .gdc headers101; this is format compatibility evidence, not Windows execution.",
+  "final_runtime_validation": "Windows native unavailable. Local Wine aborted before guest initialization (invalid pointer, exit134) for both game and independent trivial executable; Windows game execution remains unverified, not a game-test failure."
+}

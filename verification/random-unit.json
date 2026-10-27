@@ -1,0 +1,62 @@
+{
+  "checks": 202072,
+  "distributions": [
+    {
+      "counts": [
+        0,
+        5059,
+        4979,
+        4873,
+        5089
+      ],
+      "draws": 20000,
+      "player": 0
+    },
+    {
+      "counts": [
+        5126,
+        0,
+        5041,
+        5016,
+        4817
+      ],
+      "draws": 20000,
+      "player": 1
+    },
+    {
+      "counts": [
+        4993,
+        5034,
+        0,
+        5073,
+        4900
+      ],
+      "draws": 20000,
+      "player": 2
+    },
+    {
+      "counts": [
+        5037,
+        4924,
+        5105,
+        0,
+        4934
+      ],
+      "draws": 20000,
+      "player": 3
+    },
+    {
+      "counts": [
+        4938,
+        5001,
+        5041,
+        5020,
+        0
+      ],
+      "draws": 20000,
+      "player": 4
+    }
+  ],
+  "failures": 0,
+  "scope": "100000 seeded draws, mapping/frequency, manual/invalid cases and RNG isolation"
+}

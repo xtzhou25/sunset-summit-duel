@@ -1,0 +1,70 @@
+{
+  "Lavender": {
+    "MeowCast_R": {
+      "samples": 121,
+      "floor_min_native": 1.529479050077498e-07,
+      "max_game_world_y": 2.044067716598511,
+      "max_height_clip_time": 0.0,
+      "physics_height_added_once": 0,
+      "contact_frames": 118
+    },
+    "MeowCast_L": {
+      "samples": 121,
+      "floor_min_native": 1.529479050077498e-07,
+      "max_game_world_y": 2.044067716598511,
+      "max_height_clip_time": 0.0,
+      "physics_height_added_once": 0,
+      "contact_frames": 118
+    }
+  },
+  "YellowWhite": {
+    "HeartCastStart_R": {
+      "samples": 25,
+      "floor_min_native": -1.7780548660084605e-05,
+      "max_game_world_y": 2.0402599811553954,
+      "max_height_clip_time": 0.0,
+      "physics_height_added_once": 0,
+      "contact_frames": 21
+    },
+    "HeartCastStart_L": {
+      "samples": 25,
+      "floor_min_native": -1.7780548660084605e-05,
+      "max_game_world_y": 2.0402599811553954,
+      "max_height_clip_time": 0.0,
+      "physics_height_added_once": 0,
+      "contact_frames": 21
+    },
+    "HeartCastLoop_R": {
+      "samples": 73,
+      "floor_min_native": -2.0881998352706432e-07,
+      "max_game_world_y": 2.918045711517334,
+      "max_height_clip_time": 0.3,
+      "physics_height_added_once": 0.7875,
+      "contact_frames": 71
+    },
+    "HeartCastLoop_L": {
+      "samples": 73,
+      "floor_min_native": -2.0881998352706432e-07,
+      "max_game_world_y": 2.918045711517334,
+      "max_height_clip_time": 0.3,
+      "physics_height_added_once": 0.7875,
+      "contact_frames": 71
+    },
+    "HeartCastLand_R": {
+      "samples": 31,
+      "floor_min_native": -4.698607517639175e-05,
+      "max_game_world_y": 2.0402599811553954,
+      "max_height_clip_time": 0.0,
+      "physics_height_added_once": 0,
+      "contact_frames": 0
+    },
+    "HeartCastLand_L": {
+      "samples": 31,
+      "floor_min_native": -4.698607517639175e-05,
+      "max_game_world_y": 2.0402599811553954,
+      "max_height_clip_time": 0.0,
+      "physics_height_added_once": 0,
+      "contact_frames": 0
+    }
+  }
+}

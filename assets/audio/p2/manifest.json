@@ -1,0 +1,3042 @@
+{
+  "schema": 1,
+  "bank": "Livehouse Duel P2 original procedural arcade effects",
+  "created_date_utc": "2026-10-25",
+  "provenance": {
+    "authoring": "Original procedural synthesis authored by OpenAI assistant for this game project.",
+    "source": "scripts/generate_p2_audio.py",
+    "source_sha256": "847206c38f5cef925486f5c65bcab9f9089d4f6a8374d55b6e33796d7726087c",
+    "source_inputs": "Numeric synthesis parameters and deterministic xorshift32 noise only. No recordings, libraries of sound samples, commercial-game extraction, or third-party audio inputs.",
+    "third_party_audio_license": "Not applicable to generated P2 samples; existing separately licensed CC0 cat recording is untouched.",
+    "reproduction": "Python 3.12.14 + NumPy 2.3.5 reference environment; deterministic source, seeds, PCM and SHA-256 checks. Floating-point libraries can affect exact bytes on other architectures; --check detects differences.",
+    "listening": "Not subjectively auditioned. Numeric waveform, spectrum, headroom and byte checks do not certify perceptual quality or phone playback."
+  },
+  "audio": {
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "sample_width_bits": 16,
+    "peak_target_dbfs": -10.5,
+    "loop": false
+  },
+  "meow_preserved": {
+    "file": "../meow.wav",
+    "sha256": "551cc7c8a4c90e6a120de466707ba36670f05dc8e0d96223a8a355b47cfd3eb2",
+    "source_sha256": "a3af64f8c9dd921343f076d7ed3bcfc9d0f7db49b84e6a81c84fae72d1c8b38d"
+  },
+  "runtime_contract": {
+    "variant_count": 2,
+    "extra_pitch_shift": false,
+    "import_policy": "Lossless PCM (compress/mode=0), no normalize, no trim, no loop, no forced resample; source WAV numeric budget assumes no lossy transform.",
+    "recommended_variant_policy": "Alternate or bounded random choice; do not play both variants for one event.",
+    "group_limits": {
+      "combat": {
+        "voices": 6,
+        "gain_cap_linear": 0.24,
+        "max_source_peak_linear": 0.298522949,
+        "phase_independent_peak_contribution": 0.429873047
+      },
+      "voice": {
+        "voices": 2,
+        "gain_cap_linear": 0.11,
+        "max_source_peak_linear": 0.79473877,
+        "phase_independent_peak_contribution": 0.174842529
+      },
+      "ui": {
+        "voices": 2,
+        "gain_cap_linear": 0.12,
+        "max_source_peak_linear": 0.298522949,
+        "phase_independent_peak_contribution": 0.071645508
+      }
+    },
+    "maximum_master_gain_linear": 1.0,
+    "gate_policy": "One cue per accepted event, mute/pause/background/menu stop all voices, user-input audio unlock, no BGM.",
+    "independent_mix_bound_dbfs": -3.396428
+  },
+  "band_energy_method": "Whole-file one-sided rFFT power normalized to unit energy; half-open frequency intervals, including Nyquist. Phone-band metric is a spectral proxy, not perceptual certification.",
+  "files": [
+    {
+      "file": "swing_punch_1.wav",
+      "cue": "swing_punch",
+      "variant": 1,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.12,
+      "recommended_player_gain_db": -18.416375,
+      "duration_seconds": 0.125,
+      "sample_count": 6000,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 12044,
+      "sha256": "3a72b5211281bd6a1cbf9bcab3331c2590e30e87a16b072bdac5555236c92a21",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.047264,
+      "rms_dbfs": -25.83903,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -79.797473,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 1.153e-05,
+        "body_100_250_hz": 0.00094048,
+        "low_mid_250_1000_hz": 0.10352872,
+        "phone_mid_1000_4000_hz": 0.62128069,
+        "air_4000_8000_hz": 0.1931074,
+        "high_8000_24000_hz": 0.08113117
+      },
+      "phone_band_250_4000_fraction": 0.72480941,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 1015583471,
+        "design_intent": "Compact cloth/air sweep, no contact thump.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.42,
+            "band_hz": [
+              650,
+              4300
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.008,
+            "decay_seconds": 0.025
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.16,
+            "band_hz": [
+              280,
+              1300
+            ],
+            "offset_seconds": 0.016,
+            "attack_seconds": 0.009,
+            "decay_seconds": 0.019
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.08,
+            "base_hz": 490.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.004,
+            "attack_seconds": 0.006,
+            "decay_seconds": 0.017,
+            "settling_fraction": -0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "swing_punch_2.wav",
+      "cue": "swing_punch",
+      "variant": 2,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.12,
+      "recommended_player_gain_db": -18.416375,
+      "duration_seconds": 0.129,
+      "sample_count": 6192,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 12428,
+      "sha256": "1bd195f28bddd616bc53e8e55b9aceb2470d7282b5323b728f317678c93ef9e1",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.488042,
+      "rms_dbfs": -28.204245,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -82.888952,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 4.73e-06,
+        "body_100_250_hz": 0.00128477,
+        "low_mid_250_1000_hz": 0.09866652,
+        "phone_mid_1000_4000_hz": 0.62083367,
+        "air_4000_8000_hz": 0.17869768,
+        "high_8000_24000_hz": 0.10051262
+      },
+      "phone_band_250_4000_fraction": 0.71950019,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 3814471199,
+        "design_intent": "Compact cloth/air sweep, no contact thump.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.42,
+            "band_hz": [
+              650,
+              4300
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.008,
+            "decay_seconds": 0.025
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.16,
+            "band_hz": [
+              280,
+              1300
+            ],
+            "offset_seconds": 0.018000000000000002,
+            "attack_seconds": 0.009,
+            "decay_seconds": 0.019
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.08,
+            "base_hz": 472.84999999999997,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.004,
+            "attack_seconds": 0.006,
+            "decay_seconds": 0.017,
+            "settling_fraction": -0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "swing_kick_1.wav",
+      "cue": "swing_kick",
+      "variant": 1,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.14,
+      "recommended_player_gain_db": -17.077439,
+      "duration_seconds": 0.195,
+      "sample_count": 9360,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 18764,
+      "sha256": "5ee2a66e8730ec4782994f363766f4f2e03639650f6052e8440adf2510be8a70",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.044263,
+      "rms_dbfs": -26.71197,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -82.531258,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 1.39e-06,
+        "body_100_250_hz": 0.00189356,
+        "low_mid_250_1000_hz": 0.17992558,
+        "phone_mid_1000_4000_hz": 0.57052839,
+        "air_4000_8000_hz": 0.17837664,
+        "high_8000_24000_hz": 0.06927444
+      },
+      "phone_band_250_4000_fraction": 0.75045397,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 2704115314,
+        "design_intent": "Wider double air sweep with low-mid cloth movement.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.38,
+            "band_hz": [
+              440,
+              3100
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.012,
+            "decay_seconds": 0.04
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.2,
+            "band_hz": [
+              1000,
+              5500
+            ],
+            "offset_seconds": 0.025,
+            "attack_seconds": 0.009,
+            "decay_seconds": 0.031
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.13,
+            "base_hz": 360.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.009,
+            "attack_seconds": 0.008,
+            "decay_seconds": 0.028,
+            "settling_fraction": -0.1
+          }
+        ]
+      }
+    },
+    {
+      "file": "swing_kick_2.wav",
+      "cue": "swing_kick",
+      "variant": 2,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.14,
+      "recommended_player_gain_db": -17.077439,
+      "duration_seconds": 0.199,
+      "sample_count": 9552,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 19148,
+      "sha256": "015485349765f1157d166ff36b514a11a569befde3df5508452defdac021b99d",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.477925,
+      "rms_dbfs": -26.00061,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -85.169336,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 7.9e-07,
+        "body_100_250_hz": 0.00114565,
+        "low_mid_250_1000_hz": 0.14108875,
+        "phone_mid_1000_4000_hz": 0.63013867,
+        "air_4000_8000_hz": 0.1575912,
+        "high_8000_24000_hz": 0.07003495
+      },
+      "phone_band_250_4000_fraction": 0.77122742,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 143579514,
+        "design_intent": "Wider double air sweep with low-mid cloth movement.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.38,
+            "band_hz": [
+              440,
+              3100
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.012,
+            "decay_seconds": 0.04
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.2,
+            "band_hz": [
+              1000,
+              5500
+            ],
+            "offset_seconds": 0.027000000000000003,
+            "attack_seconds": 0.009,
+            "decay_seconds": 0.031
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.13,
+            "base_hz": 347.4,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.009,
+            "attack_seconds": 0.008,
+            "decay_seconds": 0.028,
+            "settling_fraction": -0.1
+          }
+        ]
+      }
+    },
+    {
+      "file": "hit_light_1.wav",
+      "cue": "hit_light",
+      "variant": 1,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.2,
+      "recommended_player_gain_db": -13.9794,
+      "duration_seconds": 0.105,
+      "sample_count": 5040,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 10124,
+      "sha256": "9822443212ac55d861b6fc09abf65459815bd5dc93d351c3b492af2a4d96c6bb",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.412957,
+      "rms_dbfs": -30.099145,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -92.611227,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 0.00065606,
+        "body_100_250_hz": 0.00677524,
+        "low_mid_250_1000_hz": 0.58379444,
+        "phone_mid_1000_4000_hz": 0.22761203,
+        "air_4000_8000_hz": 0.11134485,
+        "high_8000_24000_hz": 0.06981737
+      },
+      "phone_band_250_4000_fraction": 0.81140647,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 4088474355,
+        "design_intent": "One short dry padded snap; front-hand jab.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.47,
+            "band_hz": [
+              800,
+              5600
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0005,
+            "decay_seconds": 0.009
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.18,
+            "band_hz": [
+              350,
+              1700
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.001,
+            "decay_seconds": 0.016
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.58,
+            "base_hz": 340.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.018,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.17,
+            "base_hz": 710.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.003,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.011,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "hit_light_2.wav",
+      "cue": "hit_light",
+      "variant": 2,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.2,
+      "recommended_player_gain_db": -13.9794,
+      "duration_seconds": 0.109,
+      "sample_count": 5232,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 10508,
+      "sha256": "5131d4acf122770a86df875526e8c2cb048361ba3b95d9818f3be137278c2e27",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.39867,
+      "rms_dbfs": -29.084905,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -91.238694,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 0.00063295,
+        "body_100_250_hz": 0.00614726,
+        "low_mid_250_1000_hz": 0.63702919,
+        "phone_mid_1000_4000_hz": 0.19149689,
+        "air_4000_8000_hz": 0.09826502,
+        "high_8000_24000_hz": 0.06642869
+      },
+      "phone_band_250_4000_fraction": 0.82852608,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 234569524,
+        "design_intent": "One short dry padded snap; front-hand jab.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.47,
+            "band_hz": [
+              800,
+              5600
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0005,
+            "decay_seconds": 0.009
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.18,
+            "band_hz": [
+              350,
+              1700
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.001,
+            "decay_seconds": 0.016
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.58,
+            "base_hz": 328.09999999999997,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.018,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.17,
+            "base_hz": 685.15,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.003,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.011,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "hit_straight_1.wav",
+      "cue": "hit_straight",
+      "variant": 1,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.22,
+      "recommended_player_gain_db": -13.151546,
+      "duration_seconds": 0.165,
+      "sample_count": 7920,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 15884,
+      "sha256": "d7ff96484036297406f00573e0a75866b2b4fbcad005541c80235b884d9407cd",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.500446,
+      "rms_dbfs": -27.38164,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -88.341942,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 0.00057361,
+        "body_100_250_hz": 0.00905619,
+        "low_mid_250_1000_hz": 0.69677167,
+        "phone_mid_1000_4000_hz": 0.22337469,
+        "air_4000_8000_hz": 0.04766818,
+        "high_8000_24000_hz": 0.02255566
+      },
+      "phone_band_250_4000_fraction": 0.92014636,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 810294010,
+        "design_intent": "Firm leading strike plus delayed low-mid body, not pitched jab.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.36,
+            "band_hz": [
+              800,
+              4600
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0006,
+            "decay_seconds": 0.012
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.2,
+            "band_hz": [
+              450,
+              2200
+            ],
+            "offset_seconds": 0.01,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.021
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.58,
+            "base_hz": 285.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0011,
+            "decay_seconds": 0.032,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.3,
+            "base_hz": 460.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.019,
+            "attack_seconds": 0.0018,
+            "decay_seconds": 0.023,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.13,
+            "base_hz": 900.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.004,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.01,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "hit_straight_2.wav",
+      "cue": "hit_straight",
+      "variant": 2,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.22,
+      "recommended_player_gain_db": -13.151546,
+      "duration_seconds": 0.169,
+      "sample_count": 8112,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 16268,
+      "sha256": "fac79ed7e8b088a66ef74b6347303391c7d2e74d98656d63c6ee7ac9d4be8ff3",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.456122,
+      "rms_dbfs": -28.181719,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -91.711863,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 0.00040547,
+        "body_100_250_hz": 0.00880746,
+        "low_mid_250_1000_hz": 0.75423179,
+        "phone_mid_1000_4000_hz": 0.16446775,
+        "air_4000_8000_hz": 0.05038997,
+        "high_8000_24000_hz": 0.02169757
+      },
+      "phone_band_250_4000_fraction": 0.91869954,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 538871432,
+        "design_intent": "Firm leading strike plus delayed low-mid body, not pitched jab.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.36,
+            "band_hz": [
+              800,
+              4600
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0006,
+            "decay_seconds": 0.012
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.2,
+            "band_hz": [
+              450,
+              2200
+            ],
+            "offset_seconds": 0.011,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.021
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.58,
+            "base_hz": 275.025,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0011,
+            "decay_seconds": 0.032,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.3,
+            "base_hz": 443.9,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.020999999999999998,
+            "attack_seconds": 0.0018,
+            "decay_seconds": 0.023,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.13,
+            "base_hz": 868.5,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.004,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.01,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "hit_heavy_1.wav",
+      "cue": "hit_heavy",
+      "variant": 1,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.24,
+      "recommended_player_gain_db": -12.395775,
+      "duration_seconds": 0.25,
+      "sample_count": 12000,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 24044,
+      "sha256": "e39d58cbbee77ee32b1f39ce700fe4277aacb0f9c1dee22cbd1085574c0a35df",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.294828,
+      "rms_dbfs": -27.869223,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -91.073752,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 0.00022566,
+        "body_100_250_hz": 0.29396923,
+        "low_mid_250_1000_hz": 0.43961966,
+        "phone_mid_1000_4000_hz": 0.20706822,
+        "air_4000_8000_hz": 0.04116819,
+        "high_8000_24000_hz": 0.01794904
+      },
+      "phone_band_250_4000_fraction": 0.64668788,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 932140255,
+        "design_intent": "Rounded broad thump, midrange slap and damped body tail.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.4,
+            "band_hz": [
+              650,
+              4600
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0009,
+            "decay_seconds": 0.016
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.25,
+            "band_hz": [
+              220,
+              1350
+            ],
+            "offset_seconds": 0.01,
+            "attack_seconds": 0.002,
+            "decay_seconds": 0.04
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.59,
+            "base_hz": 185.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.002,
+            "decay_seconds": 0.047,
+            "settling_fraction": 0.2
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.42,
+            "base_hz": 390.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.008,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.038,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.22,
+            "base_hz": 720.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.004,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.025,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "hit_heavy_2.wav",
+      "cue": "hit_heavy",
+      "variant": 2,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.24,
+      "recommended_player_gain_db": -12.395775,
+      "duration_seconds": 0.254,
+      "sample_count": 12192,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 24428,
+      "sha256": "8a4cb018dbf53c41313a83e4ff2644732b48aafb7057d925806f4c38e5b5f4cf",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.456036,
+      "rms_dbfs": -29.047729,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -92.497431,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 0.00030954,
+        "body_100_250_hz": 0.32193823,
+        "low_mid_250_1000_hz": 0.43818357,
+        "phone_mid_1000_4000_hz": 0.17560582,
+        "air_4000_8000_hz": 0.04455857,
+        "high_8000_24000_hz": 0.01940427
+      },
+      "phone_band_250_4000_fraction": 0.61378939,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 1879029518,
+        "design_intent": "Rounded broad thump, midrange slap and damped body tail.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.4,
+            "band_hz": [
+              650,
+              4600
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0009,
+            "decay_seconds": 0.016
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.25,
+            "band_hz": [
+              220,
+              1350
+            ],
+            "offset_seconds": 0.012,
+            "attack_seconds": 0.002,
+            "decay_seconds": 0.04
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.59,
+            "base_hz": 178.525,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.002,
+            "decay_seconds": 0.047,
+            "settling_fraction": 0.2
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.42,
+            "base_hz": 376.34999999999997,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.008,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.038,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.22,
+            "base_hz": 694.8,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.004,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.025,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "hit_kick_1.wav",
+      "cue": "hit_kick",
+      "variant": 1,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.23,
+      "recommended_player_gain_db": -12.765443,
+      "duration_seconds": 0.215,
+      "sample_count": 10320,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 20684,
+      "sha256": "d88e48cf02ea2ac2c11a6ad387123ed0c3c6acb17442a943e16290c40d230498",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.303893,
+      "rms_dbfs": -30.873531,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -93.746818,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 0.00049794,
+        "body_100_250_hz": 0.17753884,
+        "low_mid_250_1000_hz": 0.52951856,
+        "phone_mid_1000_4000_hz": 0.16757346,
+        "air_4000_8000_hz": 0.07429303,
+        "high_8000_24000_hz": 0.05057815
+      },
+      "phone_band_250_4000_fraction": 0.69709202,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 4139291611,
+        "design_intent": "Wide slap followed by a separate cushioned body pulse.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.46,
+            "band_hz": [
+              650,
+              5100
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.018
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.2,
+            "band_hz": [
+              230,
+              1600
+            ],
+            "offset_seconds": 0.018,
+            "attack_seconds": 0.004,
+            "decay_seconds": 0.034
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.56,
+            "base_hz": 245.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.034,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.33,
+            "base_hz": 365.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.026,
+            "attack_seconds": 0.002,
+            "decay_seconds": 0.031,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.19,
+            "base_hz": 820.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.004,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.013,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "hit_kick_2.wav",
+      "cue": "hit_kick",
+      "variant": 2,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.23,
+      "recommended_player_gain_db": -12.765443,
+      "duration_seconds": 0.219,
+      "sample_count": 10512,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 21068,
+      "sha256": "edb6f47f98742c0a45de6f9f0c92170a9951310dfbeaafbbfce531e2f3ec7ae4",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -9.928104,
+      "rms_dbfs": -28.437054,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -98.670431,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 0.00046108,
+        "body_100_250_hz": 0.24705249,
+        "low_mid_250_1000_hz": 0.40174997,
+        "phone_mid_1000_4000_hz": 0.21770009,
+        "air_4000_8000_hz": 0.08682464,
+        "high_8000_24000_hz": 0.04621172
+      },
+      "phone_band_250_4000_fraction": 0.61945006,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 77040265,
+        "design_intent": "Wide slap followed by a separate cushioned body pulse.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.46,
+            "band_hz": [
+              650,
+              5100
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.018
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.2,
+            "band_hz": [
+              230,
+              1600
+            ],
+            "offset_seconds": 0.018,
+            "attack_seconds": 0.004,
+            "decay_seconds": 0.034
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.56,
+            "base_hz": 236.42499999999998,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.034,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.33,
+            "base_hz": 352.22499999999997,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.027999999999999997,
+            "attack_seconds": 0.002,
+            "decay_seconds": 0.031,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.19,
+            "base_hz": 791.3,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.004,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.013,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "block_1.wav",
+      "cue": "block",
+      "variant": 1,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.18,
+      "recommended_player_gain_db": -14.89455,
+      "duration_seconds": 0.115,
+      "sample_count": 5520,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 11084,
+      "sha256": "e2a9679e6f5045c2f03c84cca08d8a48759ec9051fb734aed695b98415f2d61d",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -9.971274,
+      "rms_dbfs": -28.464899,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -98.228394,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 7.04e-06,
+        "body_100_250_hz": 0.00049992,
+        "low_mid_250_1000_hz": 0.55157322,
+        "phone_mid_1000_4000_hz": 0.25691235,
+        "air_4000_8000_hz": 0.11759695,
+        "high_8000_24000_hz": 0.07341051
+      },
+      "phone_band_250_4000_fraction": 0.80848557,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 1230711426,
+        "design_intent": "Short muted glove clack with little low-end impact.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.4,
+            "band_hz": [
+              950,
+              5000
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.009
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.13,
+            "band_hz": [
+              350,
+              1700
+            ],
+            "offset_seconds": 0.006,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.018
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.42,
+            "base_hz": 700.0,
+            "ratios": [
+              1.0,
+              1.46,
+              2.11
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.014,
+            "settling_fraction": 0.015
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.19,
+            "base_hz": 380.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.003,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.018,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "block_2.wav",
+      "cue": "block",
+      "variant": 2,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.18,
+      "recommended_player_gain_db": -14.89455,
+      "duration_seconds": 0.119,
+      "sample_count": 5712,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 11468,
+      "sha256": "fb419e7dcb72918d2992e29eda9d77885a58f232b51eeb8b58c0464eafc99a19",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.135635,
+      "rms_dbfs": -29.878859,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -107.121411,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 3.581e-05,
+        "body_100_250_hz": 0.00122012,
+        "low_mid_250_1000_hz": 0.5423015,
+        "phone_mid_1000_4000_hz": 0.27169002,
+        "air_4000_8000_hz": 0.14385166,
+        "high_8000_24000_hz": 0.04090088
+      },
+      "phone_band_250_4000_fraction": 0.81399152,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 2451768736,
+        "design_intent": "Short muted glove clack with little low-end impact.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.4,
+            "band_hz": [
+              950,
+              5000
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.009
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.13,
+            "band_hz": [
+              350,
+              1700
+            ],
+            "offset_seconds": 0.006,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.018
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.42,
+            "base_hz": 675.5,
+            "ratios": [
+              1.0,
+              1.46,
+              2.11
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.014,
+            "settling_fraction": 0.015
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.19,
+            "base_hz": 366.7,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.003,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.018,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "guard_break_1.wav",
+      "cue": "guard_break",
+      "variant": 1,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.22,
+      "recommended_player_gain_db": -13.151546,
+      "duration_seconds": 0.27,
+      "sample_count": 12960,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 25964,
+      "sha256": "c2ef7f5e8cbe89b1e1301ae6248c454b60796ce1f83821719065886e35a49d94",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.406493,
+      "rms_dbfs": -28.178572,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -94.508782,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 1.981e-05,
+        "body_100_250_hz": 0.00132027,
+        "low_mid_250_1000_hz": 0.47354959,
+        "phone_mid_1000_4000_hz": 0.36132067,
+        "air_4000_8000_hz": 0.11653685,
+        "high_8000_24000_hz": 0.04725281
+      },
+      "phone_band_250_4000_fraction": 0.83487026,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 3793763799,
+        "design_intent": "Three soft staggered clacks and a broad cloth release.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.4,
+            "band_hz": [
+              650,
+              4200
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.013
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.4,
+            "base_hz": 610.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.022,
+            "settling_fraction": 0.035
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.3,
+            "band_hz": [
+              650,
+              4200
+            ],
+            "offset_seconds": 0.027,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.013
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.3,
+            "base_hz": 470.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.027,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.022,
+            "settling_fraction": 0.035
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.23,
+            "band_hz": [
+              650,
+              4200
+            ],
+            "offset_seconds": 0.059,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.013
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.23,
+            "base_hz": 355.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.059,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.022,
+            "settling_fraction": 0.035
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.19,
+            "band_hz": [
+              300,
+              1700
+            ],
+            "offset_seconds": 0.045,
+            "attack_seconds": 0.007,
+            "decay_seconds": 0.043
+          }
+        ]
+      }
+    },
+    {
+      "file": "guard_break_2.wav",
+      "cue": "guard_break",
+      "variant": 2,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.22,
+      "recommended_player_gain_db": -13.151546,
+      "duration_seconds": 0.274,
+      "sample_count": 13152,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 26348,
+      "sha256": "6c05e8e36f295f80575f41c693585bd654b2a2af0f8d0ea51c8332bf923da25a",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.500446,
+      "rms_dbfs": -28.357626,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -93.697184,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 3.936e-05,
+        "body_100_250_hz": 0.00118789,
+        "low_mid_250_1000_hz": 0.44203918,
+        "phone_mid_1000_4000_hz": 0.40289177,
+        "air_4000_8000_hz": 0.10803555,
+        "high_8000_24000_hz": 0.04580624
+      },
+      "phone_band_250_4000_fraction": 0.84493095,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 3246559524,
+        "design_intent": "Three soft staggered clacks and a broad cloth release.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.4,
+            "band_hz": [
+              650,
+              4200
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.013
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.4,
+            "base_hz": 588.65,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.022,
+            "settling_fraction": 0.035
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.3,
+            "band_hz": [
+              650,
+              4200
+            ],
+            "offset_seconds": 0.027,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.013
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.3,
+            "base_hz": 453.55,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.027,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.022,
+            "settling_fraction": 0.035
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.23,
+            "band_hz": [
+              650,
+              4200
+            ],
+            "offset_seconds": 0.061,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.013
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.23,
+            "base_hz": 342.575,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.061,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.022,
+            "settling_fraction": 0.035
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.19,
+            "band_hz": [
+              300,
+              1700
+            ],
+            "offset_seconds": 0.045,
+            "attack_seconds": 0.007,
+            "decay_seconds": 0.043
+          }
+        ]
+      }
+    },
+    {
+      "file": "jump_1.wav",
+      "cue": "jump",
+      "variant": 1,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.1,
+      "recommended_player_gain_db": -20.0,
+      "duration_seconds": 0.105,
+      "sample_count": 5040,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 10124,
+      "sha256": "1e0c25b1f9324c0132e2886c111d48952a7fa96c5559f63fb0cd3a5ff3032f08",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.475585,
+      "rms_dbfs": -28.415708,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -89.412891,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 6.062e-05,
+        "body_100_250_hz": 0.00140237,
+        "low_mid_250_1000_hz": 0.20329163,
+        "phone_mid_1000_4000_hz": 0.58880246,
+        "air_4000_8000_hz": 0.16354261,
+        "high_8000_24000_hz": 0.04290031
+      },
+      "phone_band_250_4000_fraction": 0.79209409,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 583762325,
+        "design_intent": "Light cloth lift and muted foot release.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.32,
+            "band_hz": [
+              650,
+              3300
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.004,
+            "decay_seconds": 0.017
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.18,
+            "base_hz": 450.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.003,
+            "decay_seconds": 0.016,
+            "settling_fraction": -0.1
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.1,
+            "band_hz": [
+              250,
+              1100
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.009
+          }
+        ]
+      }
+    },
+    {
+      "file": "jump_2.wav",
+      "cue": "jump",
+      "variant": 2,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.1,
+      "recommended_player_gain_db": -20.0,
+      "duration_seconds": 0.109,
+      "sample_count": 5232,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 10508,
+      "sha256": "f0201e1556cda51e30511e8ede6a6f7a32aec104ed622d6b6d4900123a703f03",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.500446,
+      "rms_dbfs": -28.304486,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -91.020135,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 4.332e-05,
+        "body_100_250_hz": 0.0033758,
+        "low_mid_250_1000_hz": 0.28264358,
+        "phone_mid_1000_4000_hz": 0.53766791,
+        "air_4000_8000_hz": 0.13701957,
+        "high_8000_24000_hz": 0.03924983
+      },
+      "phone_band_250_4000_fraction": 0.82031149,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 1699766454,
+        "design_intent": "Light cloth lift and muted foot release.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.32,
+            "band_hz": [
+              650,
+              3300
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.004,
+            "decay_seconds": 0.017
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.18,
+            "base_hz": 434.25,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.003,
+            "decay_seconds": 0.016,
+            "settling_fraction": -0.1
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.1,
+            "band_hz": [
+              250,
+              1100
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.009
+          }
+        ]
+      }
+    },
+    {
+      "file": "land_1.wav",
+      "cue": "land",
+      "variant": 1,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.12,
+      "recommended_player_gain_db": -18.416375,
+      "duration_seconds": 0.12,
+      "sample_count": 5760,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 11564,
+      "sha256": "058ee61ce88ff83b27d83a7680a572a5ee11355500514c6fdf517474cfdc3a72",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.337687,
+      "rms_dbfs": -26.360908,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -92.002577,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 0.00064258,
+        "body_100_250_hz": 0.00589907,
+        "low_mid_250_1000_hz": 0.74238062,
+        "phone_mid_1000_4000_hz": 0.19508444,
+        "air_4000_8000_hz": 0.04241948,
+        "high_8000_24000_hz": 0.01357381
+      },
+      "phone_band_250_4000_fraction": 0.93746506,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 1650372649,
+        "design_intent": "Two closely spaced cushioned sole contacts.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.38,
+            "band_hz": [
+              420,
+              2800
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.01
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.49400000000000005,
+            "base_hz": 300.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.019,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.22,
+            "band_hz": [
+              420,
+              2800
+            ],
+            "offset_seconds": 0.016,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.01
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.28600000000000003,
+            "base_hz": 300.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.016,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.019,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "land_2.wav",
+      "cue": "land",
+      "variant": 2,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.12,
+      "recommended_player_gain_db": -18.416375,
+      "duration_seconds": 0.124,
+      "sample_count": 5952,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 11948,
+      "sha256": "7b7729a72cb0704d337e7bea87566e765ea75b03db84e44c298d3c2d3f2773ef",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.500446,
+      "rms_dbfs": -27.567579,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -89.858215,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 0.00069241,
+        "body_100_250_hz": 0.01138717,
+        "low_mid_250_1000_hz": 0.61468594,
+        "phone_mid_1000_4000_hz": 0.31131382,
+        "air_4000_8000_hz": 0.04653423,
+        "high_8000_24000_hz": 0.01538643
+      },
+      "phone_band_250_4000_fraction": 0.92599976,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 1084242652,
+        "design_intent": "Two closely spaced cushioned sole contacts.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.38,
+            "band_hz": [
+              420,
+              2800
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.01
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.49400000000000005,
+            "base_hz": 289.5,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.019,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.22,
+            "band_hz": [
+              420,
+              2800
+            ],
+            "offset_seconds": 0.018000000000000002,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.01
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.28600000000000003,
+            "base_hz": 289.5,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.018000000000000002,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.019,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "down_land_1.wav",
+      "cue": "down_land",
+      "variant": 1,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.2,
+      "recommended_player_gain_db": -13.9794,
+      "duration_seconds": 0.245,
+      "sample_count": 11760,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 23564,
+      "sha256": "916d769cdfd1fe2aaf6cce54a1275cb4e439ae11571bd8efda4b742b51257edb",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.468104,
+      "rms_dbfs": -26.91153,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -89.717784,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 0.0003528,
+        "body_100_250_hz": 0.34354872,
+        "low_mid_250_1000_hz": 0.41968573,
+        "phone_mid_1000_4000_hz": 0.18794304,
+        "air_4000_8000_hz": 0.03570293,
+        "high_8000_24000_hz": 0.01276677
+      },
+      "phone_band_250_4000_fraction": 0.60762877,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 3798096353,
+        "design_intent": "Two low-mid padded contacts with short stage resonance.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.36,
+            "band_hz": [
+              350,
+              3300
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.022
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.59,
+            "base_hz": 190.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.002,
+            "decay_seconds": 0.044,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.32,
+            "base_hz": 360.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.008,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.039,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.26,
+            "band_hz": [
+              450,
+              2600
+            ],
+            "offset_seconds": 0.036,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.022
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.28,
+            "base_hz": 285.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.039,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.033,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "down_land_2.wav",
+      "cue": "down_land",
+      "variant": 2,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.2,
+      "recommended_player_gain_db": -13.9794,
+      "duration_seconds": 0.249,
+      "sample_count": 11952,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 23948,
+      "sha256": "9d72ead16eb5594da32a75144563bab60f9d4c547bbc9f2142321ed0d3f50ff9",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.420642,
+      "rms_dbfs": -29.756855,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -98.370798,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 0.00038984,
+        "body_100_250_hz": 0.31781746,
+        "low_mid_250_1000_hz": 0.43910801,
+        "phone_mid_1000_4000_hz": 0.18712383,
+        "air_4000_8000_hz": 0.04221391,
+        "high_8000_24000_hz": 0.01334697
+      },
+      "phone_band_250_4000_fraction": 0.62623184,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 1700268285,
+        "design_intent": "Two low-mid padded contacts with short stage resonance.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.36,
+            "band_hz": [
+              350,
+              3300
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.022
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.59,
+            "base_hz": 183.35,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.002,
+            "decay_seconds": 0.044,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.32,
+            "base_hz": 347.4,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.008,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.039,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.26,
+            "band_hz": [
+              450,
+              2600
+            ],
+            "offset_seconds": 0.038,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.022
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.28,
+            "base_hz": 275.025,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.041,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.033,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "ko_1.wav",
+      "cue": "ko",
+      "variant": 1,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.22,
+      "recommended_player_gain_db": -13.151546,
+      "duration_seconds": 0.325,
+      "sample_count": 15600,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 31244,
+      "sha256": "0f2feb0093e52e98f1a4bacdf6f624d9352edd75c6562085a6778453152d2ed1",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.480507,
+      "rms_dbfs": -27.14635,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -89.878652,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 3.859e-05,
+        "body_100_250_hz": 0.0065807,
+        "low_mid_250_1000_hz": 0.81324005,
+        "phone_mid_1000_4000_hz": 0.15555111,
+        "air_4000_8000_hz": 0.01874266,
+        "high_8000_24000_hz": 0.0058469
+      },
+      "phone_band_250_4000_fraction": 0.96879116,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 3811479479,
+        "design_intent": "Two soft downward resolving resonances, no voice or gore.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.24,
+            "band_hz": [
+              500,
+              3000
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.024
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.43,
+            "base_hz": 400.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.002,
+            "decay_seconds": 0.045,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.19,
+            "band_hz": [
+              350,
+              2300
+            ],
+            "offset_seconds": 0.074,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.027
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.52,
+            "base_hz": 265.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.077,
+            "attack_seconds": 0.003,
+            "decay_seconds": 0.048,
+            "settling_fraction": 0.08
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.14,
+            "base_hz": 790.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.08,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.025,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "ko_2.wav",
+      "cue": "ko",
+      "variant": 2,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.22,
+      "recommended_player_gain_db": -13.151546,
+      "duration_seconds": 0.329,
+      "sample_count": 15792,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 31628,
+      "sha256": "790e6f3d11dcbddcbf213bc1a44a0fc8730d37d228b3a99d758de8dca346ff8e",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.361828,
+      "rms_dbfs": -28.305739,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -88.780385,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 4.918e-05,
+        "body_100_250_hz": 0.02539866,
+        "low_mid_250_1000_hz": 0.81908626,
+        "phone_mid_1000_4000_hz": 0.13156121,
+        "air_4000_8000_hz": 0.01770076,
+        "high_8000_24000_hz": 0.00620393
+      },
+      "phone_band_250_4000_fraction": 0.95064747,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 2668212270,
+        "design_intent": "Two soft downward resolving resonances, no voice or gore.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.24,
+            "band_hz": [
+              500,
+              3000
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.024
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.43,
+            "base_hz": 386.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.002,
+            "decay_seconds": 0.045,
+            "settling_fraction": 0.12
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.19,
+            "band_hz": [
+              350,
+              2300
+            ],
+            "offset_seconds": 0.076,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.027
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.52,
+            "base_hz": 255.725,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.079,
+            "attack_seconds": 0.003,
+            "decay_seconds": 0.048,
+            "settling_fraction": 0.08
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.14,
+            "base_hz": 762.35,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.08,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.025,
+            "settling_fraction": 0.12
+          }
+        ]
+      }
+    },
+    {
+      "file": "ui_confirm_1.wav",
+      "cue": "ui_confirm",
+      "variant": 1,
+      "group": "ui",
+      "recommended_player_gain_linear": 0.12,
+      "recommended_player_gain_db": -18.416375,
+      "duration_seconds": 0.105,
+      "sample_count": 5040,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 10124,
+      "sha256": "26867b96847677e633706bb1313a57df215c4383a877e3e5c42d1b24f95fdb25",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.454531,
+      "rms_dbfs": -27.033979,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -92.069911,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 2.7e-06,
+        "body_100_250_hz": 2.78e-05,
+        "low_mid_250_1000_hz": 0.34680164,
+        "phone_mid_1000_4000_hz": 0.59450664,
+        "air_4000_8000_hz": 0.03773106,
+        "high_8000_24000_hz": 0.02093015
+      },
+      "phone_band_250_4000_fraction": 0.94130828,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 4069762793,
+        "design_intent": "Soft tactile two-part wood/click confirmation.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.22,
+            "band_hz": [
+              950,
+              4300
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.005
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.3,
+            "base_hz": 950.0,
+            "ratios": [
+              1.0,
+              1.48,
+              2.15
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0007,
+            "decay_seconds": 0.012,
+            "settling_fraction": 0.02
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.25,
+            "base_hz": 1270.0,
+            "ratios": [
+              1.0,
+              1.41,
+              2.06
+            ],
+            "offset_seconds": 0.025,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.013,
+            "settling_fraction": 0.015
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.1,
+            "band_hz": [
+              1200,
+              4500
+            ],
+            "offset_seconds": 0.026,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.005
+          }
+        ]
+      }
+    },
+    {
+      "file": "ui_confirm_2.wav",
+      "cue": "ui_confirm",
+      "variant": 2,
+      "group": "ui",
+      "recommended_player_gain_linear": 0.12,
+      "recommended_player_gain_db": -18.416375,
+      "duration_seconds": 0.109,
+      "sample_count": 5232,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 10508,
+      "sha256": "0307de1ad28236db74c88e2851e5c15e8c45afea8128410c6e93b100ad890ef9",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.374416,
+      "rms_dbfs": -27.446409,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -94.508782,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 5.8e-06,
+        "body_100_250_hz": 6.823e-05,
+        "low_mid_250_1000_hz": 0.39128206,
+        "phone_mid_1000_4000_hz": 0.54394156,
+        "air_4000_8000_hz": 0.03848269,
+        "high_8000_24000_hz": 0.02621966
+      },
+      "phone_band_250_4000_fraction": 0.93522362,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 2585206734,
+        "design_intent": "Soft tactile two-part wood/click confirmation.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.22,
+            "band_hz": [
+              950,
+              4300
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.005
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.3,
+            "base_hz": 916.75,
+            "ratios": [
+              1.0,
+              1.48,
+              2.15
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.0007,
+            "decay_seconds": 0.012,
+            "settling_fraction": 0.02
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.25,
+            "base_hz": 1225.55,
+            "ratios": [
+              1.0,
+              1.41,
+              2.06
+            ],
+            "offset_seconds": 0.026000000000000002,
+            "attack_seconds": 0.0012,
+            "decay_seconds": 0.013,
+            "settling_fraction": 0.015
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.1,
+            "band_hz": [
+              1200,
+              4500
+            ],
+            "offset_seconds": 0.026,
+            "attack_seconds": 0.0008,
+            "decay_seconds": 0.005
+          }
+        ]
+      }
+    },
+    {
+      "file": "heart_emit_1.wav",
+      "cue": "heart_emit",
+      "variant": 1,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.14,
+      "recommended_player_gain_db": -17.077439,
+      "duration_seconds": 0.185,
+      "sample_count": 8880,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 17804,
+      "sha256": "295ec945a63fc687702eb90d710bfdc78cfb0e63a64de75c5201243dfa0f386f",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.351022,
+      "rms_dbfs": -28.356519,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -92.767746,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 4.897e-05,
+        "body_100_250_hz": 0.00032058,
+        "low_mid_250_1000_hz": 0.53530437,
+        "phone_mid_1000_4000_hz": 0.32998585,
+        "air_4000_8000_hz": 0.09026106,
+        "high_8000_24000_hz": 0.04407918
+      },
+      "phone_band_250_4000_fraction": 0.86529022,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 1488758139,
+        "design_intent": "Warm airy pop with two short upward body pulses.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.27,
+            "band_hz": [
+              750,
+              3600
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.003,
+            "decay_seconds": 0.026
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.35,
+            "base_hz": 540.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.002,
+            "decay_seconds": 0.025,
+            "settling_fraction": -0.11
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.26,
+            "base_hz": 760.0,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.029,
+            "attack_seconds": 0.003,
+            "decay_seconds": 0.028,
+            "settling_fraction": -0.06
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.14,
+            "band_hz": [
+              1600,
+              5300
+            ],
+            "offset_seconds": 0.019,
+            "attack_seconds": 0.008,
+            "decay_seconds": 0.026
+          }
+        ]
+      }
+    },
+    {
+      "file": "heart_emit_2.wav",
+      "cue": "heart_emit",
+      "variant": 2,
+      "group": "combat",
+      "recommended_player_gain_linear": 0.14,
+      "recommended_player_gain_db": -17.077439,
+      "duration_seconds": 0.189,
+      "sample_count": 9072,
+      "sample_rate_hz": 48000,
+      "channels": 1,
+      "encoding": "signed PCM 16-bit little endian",
+      "bytes": 18188,
+      "sha256": "f837959dec9656f4222658e1cf48bc9f8d96f0b15d65709e402c08d7419e86a5",
+      "sample_peak_linear": 0.298522949,
+      "sample_peak_dbfs": -10.500446,
+      "eightfold_fft_peak_estimate_dbfs": -10.380823,
+      "rms_dbfs": -27.432943,
+      "dc_mean": 0.0,
+      "first_sample": 0.0,
+      "last_sample": 0.0,
+      "tail_last_4ms_rms_dbfs": -94.221065,
+      "band_energy_fraction": {
+        "sub_0_100_hz": 3.687e-05,
+        "body_100_250_hz": 0.00026694,
+        "low_mid_250_1000_hz": 0.554982,
+        "phone_mid_1000_4000_hz": 0.29720696,
+        "air_4000_8000_hz": 0.10519181,
+        "high_8000_24000_hz": 0.04231542
+      },
+      "phone_band_250_4000_fraction": 0.85218896,
+      "checks": {
+        "mono_pcm16_48khz": true,
+        "duration_070_to_350_ms": true,
+        "peak_below_minus_8_dbfs": true,
+        "eightfold_peak_estimate_below_minus_8_dbfs": true,
+        "non_silent": true,
+        "zero_integer_dc": true,
+        "zero_endpoints": true,
+        "quiet_endpoint_neighbors": true,
+        "tail_last_4ms_below_minus_50_dbfs": true,
+        "phone_band_fraction_above_55_percent": true,
+        "sub100_fraction_below_8_percent": true,
+        "not_clipped": true
+      },
+      "synthesis": {
+        "deterministic_seed": 2089145785,
+        "design_intent": "Warm airy pop with two short upward body pulses.",
+        "layers": [
+          {
+            "kind": "filtered_noise",
+            "gain": 0.27,
+            "band_hz": [
+              750,
+              3600
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.003,
+            "decay_seconds": 0.026
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.35,
+            "base_hz": 521.1,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.0,
+            "attack_seconds": 0.002,
+            "decay_seconds": 0.025,
+            "settling_fraction": -0.11
+          },
+          {
+            "kind": "damped_inharmonic_body",
+            "gain": 0.26,
+            "base_hz": 733.4,
+            "ratios": [
+              1.0,
+              1.67,
+              2.43
+            ],
+            "offset_seconds": 0.031,
+            "attack_seconds": 0.003,
+            "decay_seconds": 0.028,
+            "settling_fraction": -0.06
+          },
+          {
+            "kind": "filtered_noise",
+            "gain": 0.14,
+            "band_hz": [
+              1600,
+              5300
+            ],
+            "offset_seconds": 0.019,
+            "attack_seconds": 0.008,
+            "decay_seconds": 0.026
+          }
+        ]
+      }
+    }
+  ]
+}

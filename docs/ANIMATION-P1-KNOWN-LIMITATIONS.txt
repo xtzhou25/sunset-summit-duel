@@ -1,0 +1,7 @@
+The model has no independent finger bones; guard uses existing static hands. No appearance, skin topology, weight or costume changes were made.
+
+Small local hair/cape/arm and skirt/body contacts may remain; dense triangle-contact counts are diagnostic rather than a promise of zero hidden intersection. Final approval is based on full-body both-facing game readability, floor placement and continuity.
+
+Loop breathing can differ from the release clip by at most2.5mm torso displacement; engine may use a short visual transition while immediately responding to input. Jump height, directional air control, backward movement speed and heavy knockback belong to game physics, not these animations.
+
+Old clips retain their previously documented limitations; this additive update does not retroactively certify all old animation intersections.

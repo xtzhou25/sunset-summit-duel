@@ -1,0 +1,147 @@
+{
+  "title": "决战日不落之巅",
+  "revision": "camera-aware combat and recoverable knockdown",
+  "animation_count": 51,
+  "original_actions_preserved": 21,
+  "paired_bases": [
+    "FightIdle",
+    "Guard",
+    "BackstepGuard",
+    "Walk",
+    "Run",
+    "Punch",
+    "FlyingKickStart",
+    "FlyingKickLoop",
+    "FlyingKickLand",
+    "JumpStart",
+    "JumpLoop",
+    "JumpLand",
+    "HitReactStrong",
+    "Knockdown",
+    "Recover"
+  ],
+  "coordinate_system": {
+    "unit": "meter",
+    "up": "+Y",
+    "forward": "+Z",
+    "root_motion": false,
+    "actor_yaw": "face * PI / 2",
+    "camera_world_side": "+Z",
+    "face_suffix": {
+      "1": "R",
+      "-1": "L"
+    },
+    "extra_runtime_torso_twist": false,
+    "game_uniform_scale": 1.2
+  },
+  "knockdown": {
+    "duration_s": 0.8,
+    "air_loss_hold_pose_s": 0.2,
+    "ground_catch_s": [
+      0.2,
+      0.6
+    ],
+    "settled_s": [
+      0.6,
+      0.8
+    ],
+    "engine_hold_s": 0.25,
+    "support_hands": [
+      "L",
+      "R"
+    ],
+    "support_samples_s": [
+      0.4667,
+      0.5
+    ],
+    "purple_additional_support_sample_s": 0.46,
+    "hold_hands_not_floor_supports": true,
+    "ko_holds_final_without_recover": true
+  },
+  "recover": {
+    "duration_s": 1.0,
+    "engine_protection_s": 0.35
+  },
+  "known_limitations_file": "KNOWN-LIMITATIONS.txt",
+  "model_files": {
+    "Lavender": {
+      "file": "Lavender-Livehouse-v4-Runtime.glb",
+      "sha256": "21732563754c7765f37801d87136cd2e2938f9686da955315d4271b744d4d52c",
+      "clips": {
+        "FightIdle_R": 2.0,
+        "FightIdle_L": 2.0,
+        "Guard_R": 1.0,
+        "Guard_L": 1.0,
+        "BackstepGuard_R": 1.0,
+        "BackstepGuard_L": 1.0,
+        "Walk_R": 1.0,
+        "Walk_L": 1.0,
+        "Run_R": 0.6,
+        "Run_L": 0.6,
+        "FlyingKickLoop_R": 0.5,
+        "FlyingKickLoop_L": 0.5,
+        "HitReactStrong_R": 0.4,
+        "HitReactStrong_L": 0.4,
+        "Punch_R": 0.6,
+        "Punch_L": 0.6,
+        "FlyingKickStart_R": 0.2,
+        "FlyingKickStart_L": 0.2,
+        "FlyingKickLand_R": 0.4,
+        "FlyingKickLand_L": 0.4,
+        "JumpStart_R": 0.2,
+        "JumpStart_L": 0.2,
+        "JumpLoop_R": 0.4,
+        "JumpLoop_L": 0.4,
+        "JumpLand_R": 0.36666666666666664,
+        "JumpLand_L": 0.36666666666666664,
+        "Knockdown_R": 0.8,
+        "Knockdown_L": 0.8,
+        "Recover_R": 1.0,
+        "Recover_L": 1.0
+      }
+    },
+    "YellowWhite": {
+      "file": "YellowWhite-Livehouse-v4-Runtime.glb",
+      "sha256": "d083c9c4125d3e57bf9b942896bb243e3a2954c978748bf3ad6a18206ad58eb9",
+      "clips": {
+        "FightIdle_R": 2.0,
+        "FightIdle_L": 2.0,
+        "Guard_R": 1.0,
+        "Guard_L": 1.0,
+        "BackstepGuard_R": 1.0,
+        "BackstepGuard_L": 1.0,
+        "Walk_R": 1.0,
+        "Walk_L": 1.0,
+        "Run_R": 0.6,
+        "Run_L": 0.6,
+        "FlyingKickLoop_R": 0.5,
+        "FlyingKickLoop_L": 0.5,
+        "HitReactStrong_R": 0.4,
+        "HitReactStrong_L": 0.4,
+        "Punch_L": 0.6,
+        "FlyingKickStart_R": 0.2,
+        "FlyingKickStart_L": 0.2,
+        "FlyingKickLand_R": 0.4,
+        "FlyingKickLand_L": 0.4,
+        "JumpStart_R": 0.2,
+        "JumpStart_L": 0.2,
+        "JumpLoop_R": 0.4,
+        "JumpLoop_L": 0.4,
+        "JumpLand_R": 0.36666666666666664,
+        "JumpLand_L": 0.36666666666666664,
+        "Punch_R": 0.6,
+        "Knockdown_R": 0.8,
+        "Knockdown_L": 0.8,
+        "Recover_R": 1.0,
+        "Recover_L": 1.0
+      }
+    }
+  },
+  "native_candidate3_acceptance": {
+    "status": "Accepted exact visible shoulder-gap fix in native same-frame replay; presentation/state/geometry and feedback checks pass.",
+    "presentation_state_geometry_checks": 309,
+    "feedback_checks": 153,
+    "full_match_recordings": "Delivered separately with the game QA archive; not represented as animation-only coverage."
+  },
+  "authorship": "Original game-only keyframes and rig adaptations; existing ACCAD attribution retained; no new capture or finger rig claim."
+}

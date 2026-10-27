@@ -1,0 +1,57 @@
+CAT MEOW AUDIO: SOURCE, LICENSE, AND TECHNICAL CHECKS
+
+Game asset: assets/audio/meow.wav
+Source recording: "Little Meow of a Cat #1" (sound number 0494)
+Creator: Joseph SARDIN / BigSoundBank.com
+Official source page:
+https://bigsoundbank.com/little-meow-of-a-cat-s0494.html
+Direct source download, copied from the source page's encoding metadata:
+https://bigsoundbank.com/UPLOAD/bwf-en/0494.wav
+Source downloaded and license checked: 2026-10-25 (UTC)
+
+LICENSE
+Creative Commons CC0 1.0 Universal / public-domain dedication.
+The source page explicitly labels the recording CC0 (public domain), permits
+editing and redistribution, including games and commercial projects, and states
+that attribution is optional. The source BWF file also includes the copyright
+tag "CC0 / WTFPL / Public domain".
+Official site license statement: https://bigsoundbank.com/licenses.html
+CC0 deed: https://creativecommons.org/publicdomain/zero/1.0/
+CC0 legal text: https://creativecommons.org/publicdomain/zero/1.0/legalcode
+
+Optional credit included for provenance:
+Cat sound: "Little Meow of a Cat #1" by Joseph SARDIN, BigSoundBank.com (CC0).
+No endorsement by the creator is implied.
+
+PRESERVED ORIGINAL
+assets/audio/originals/bigsoundbank_0494_original.wav
+This is the unmodified downloaded BWF/WAV source. Its .gdignore prevents an
+unnecessary Godot import but does not remove the source from the project.
+SHA-256: a3af64f8c9dd921343f076d7ed3bcfc9d0f7db49b84e6a81c84fae72d1c8b38d
+
+GAME VERSION
+assets/audio/meow.wav
+The complete source vocalization is retained at its original pitch and speed.
+Processing: metadata stripped; amplitude multiplied by 0.854 (approximately
+-1.37 dB); 3 ms leading and 5 ms trailing fades; encoded as mono 48 kHz,
+16-bit PCM WAV. No synthesized tone, bell, pitch shift, or imitation was added.
+Duration: 0.479604 seconds (23021 samples)
+Channels: 1
+Sample rate: 48000 Hz
+Sample width: 16 bits
+Peak: -1.996 dBFS
+RMS: -18.310 dBFS
+SHA-256: 551cc7c8a4c90e6a120de466707ba36670f05dc8e0d96223a8a355b47cfd3eb2
+
+VALIDATION SCOPE
+The official source identifies the sound as a single small cat meow. The WAV
+was decoded successfully and its waveform and spectrogram inspected: audible-
+range energy is present, with a natural nonuniform envelope and harmonic
+structure. The file is non-silent and not clipped.
+
+Auditory validation was NOT possible in the asset-preparation session: the
+available audio-output path explicitly reported that audio input is unsupported.
+Waveform inspection and source descriptions do not establish that a listener
+will recognize the sound. A human or audio-capable playtest should verify the
+meow and its balance against music, voices, and combat effects before claiming
+that subjective requirement is tested.

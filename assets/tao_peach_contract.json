@@ -1,0 +1,73 @@
+{
+  "character": "Tao",
+  "clip_base": "PeachCast",
+  "duration_s": 1.1,
+  "emit_at_s": 0.42,
+  "emit_count_per_cast": 1,
+  "actor_scale": 1.2,
+  "projectile_file": "peach.glb",
+  "projectile_scale": 1.0,
+  "emitter_method": "actual weighted hand-surface centroid + 0.06m forward at cast event, inverted into each hand bone. Projectile emitted at average of the two points.",
+  "facing": {
+    "R": {
+      "emitter_points": [
+        {
+          "bone": "DEF-hand.L",
+          "offset": [
+            0.0044388562005599624,
+            0.09752056314828828,
+            0.01813735672714427
+          ]
+        },
+        {
+          "bone": "DEF-hand.R",
+          "offset": [
+            -0.004438843139000087,
+            0.0975205556803968,
+            0.01813736762144244
+          ]
+        }
+      ],
+      "verified_model_emit_xyz": [
+        1.5914155410134967e-10,
+        1.2270112400641715,
+        0.3980194982200789
+      ],
+      "fallback_origin_game_relative_xyz": [
+        0.4776233978640947,
+        1.4724134880770057,
+        -1.9096983567562133e-10
+      ]
+    },
+    "L": {
+      "emitter_points": [
+        {
+          "bone": "DEF-hand.L",
+          "offset": [
+            0.004438843138999948,
+            0.09752055568039608,
+            0.018137367621442635
+          ]
+        },
+        {
+          "bone": "DEF-hand.R",
+          "offset": [
+            -0.004438856200561059,
+            0.09752056314828872,
+            0.01813735672714327
+          ]
+        }
+      ],
+      "verified_model_emit_xyz": [
+        -1.5914158185692528e-10,
+        1.2270112400641708,
+        0.3980194982200788
+      ],
+      "fallback_origin_game_relative_xyz": [
+        -0.4776233978640946,
+        1.472413488077005,
+        -1.9096986898231207e-10
+      ]
+    }
+  }
+}

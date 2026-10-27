@@ -1,0 +1,61 @@
+{
+  "retrieved_utc": "2026-10-26T07:54:00Z",
+  "provider": "Open Motion Project, ACCAD / The Ohio State University",
+  "source_page": "https://accad.osu.edu/research/motion-lab/mocap-system-and-data",
+  "download_url": "https://accad.osu.edu/sites/accad.osu.edu/files/Male2_bvh.zip",
+  "license": "CC BY 3.0 Unported",
+  "license_url": "https://creativecommons.org/licenses/by/3.0/",
+  "official_license_evidence": "Live official source page footer explicitly identifies Open Motion Project and CC BY 3.0; local original HTML retained. Creative Commons deed read through web tool. Direct Python license HTML request returned403 and was not retried.",
+  "archive_sha256": "f30dc56f8557d4b9f1bd6b8b0c4218c076471de0a9c1a20f3bc4a8b776cc14b1",
+  "archive_bytes": 7242625,
+  "selected_clips": [
+    {
+      "name": "Male2_A1_Stand.bvh",
+      "frames": 115,
+      "dt": 0.0333333,
+      "duration": 3.7999962000000003,
+      "sha256": "c73f9f931ee72a5241fe8537ba48a6e70a8fa7f7f011431e3012d5247fb1d077"
+    },
+    {
+      "name": "Male2_A2_Sway.bvh",
+      "frames": 1280,
+      "dt": 0.00833333,
+      "duration": 10.65832907,
+      "sha256": "1e33b5fab47db37d88f2c79a3e0fcae58aec2bb431932ee8b04af941b8197f86"
+    },
+    {
+      "name": "Male2_D1_StandToReady.bvh",
+      "frames": 89,
+      "dt": 0.0333333,
+      "duration": 2.9333304000000004,
+      "sha256": "1aeebbc888da69fb55128aabff7138e351d0677b3d1ebefb20aa5383aab61e93"
+    },
+    {
+      "name": "Male2_D16_SwitchStanceMore.bvh",
+      "frames": 147,
+      "dt": 0.0333333,
+      "duration": 4.8666618,
+      "sha256": "c9e1d29b3c698139e91169446dce28f4678a180ba00eb552a4429bc14b700c80"
+    },
+    {
+      "name": "Male2_E8_Bounce.bvh",
+      "frames": 227,
+      "dt": 0.0333333,
+      "duration": 7.533325800000001,
+      "sha256": "aed685fc753f8d260002fe4b75f615e4f4638029fc48ccf5ae1c2bfcdeaa6438"
+    },
+    {
+      "name": "Male2_D15_SwitchStance.bvh",
+      "frames": 92,
+      "dt": 0.0333333,
+      "duration": 3.0333303000000003,
+      "sha256": "c4fb5c1d1fbd7e01bdfdabf90f2400669cb7989974ecf6dedfe726960b84c142"
+    }
+  ],
+  "recommended_clip": "Male2_E8_Bounce.bvh",
+  "supporting_clips": [
+    "Male2_A1_Stand.bvh",
+    "Male2_A2_Sway.bvh"
+  ],
+  "adaptation_status": "Raw downloaded data only; animation worker must document exact selected frame range, retargeting, root locking, loop seam edits and amplitude changes separately."
+}

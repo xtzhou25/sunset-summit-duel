@@ -1,0 +1,98 @@
+{
+  "Lavender": {
+    "R": {
+      "samples": 109,
+      "floor_min_native": -5.406342097558081e-06,
+      "support_min_native": -1.994820195250213e-06,
+      "support_max_min_native": 0.00013488373951986432,
+      "support_min_near_floor_vertices": 140,
+      "peak": {
+        "depth_x": [
+          -0.11281161904335021,
+          0.004805704951286315
+        ],
+        "height_y": [
+          0.9193906545639038,
+          1.1084436178207397
+        ],
+        "forward_z": [
+          1.1072502136230469,
+          1.365449810028076
+        ]
+      },
+      "max_rear_extent_native": 0.2449643611907959,
+      "contact_frames": 87
+    },
+    "L": {
+      "samples": 109,
+      "floor_min_native": -5.406342097558081e-06,
+      "support_min_native": -1.994820195250213e-06,
+      "support_max_min_native": 0.00013488373951986432,
+      "support_min_near_floor_vertices": 140,
+      "peak": {
+        "depth_x": [
+          -0.11281161904335021,
+          0.004805704951286315
+        ],
+        "height_y": [
+          0.9193906545639038,
+          1.1084436178207397
+        ],
+        "forward_z": [
+          1.1072502136230469,
+          1.365449810028076
+        ]
+      },
+      "max_rear_extent_native": 0.2449643611907959,
+      "contact_frames": 61
+    }
+  },
+  "YellowWhite": {
+    "R": {
+      "samples": 116,
+      "floor_min_native": -6.418620614567772e-05,
+      "support_min_native": -5.045112629886717e-06,
+      "support_max_min_native": 0.0001399748434778303,
+      "support_min_near_floor_vertices": 168,
+      "peak": {
+        "depth_x": [
+          -0.11161109805107117,
+          0.0036057472229003903
+        ],
+        "height_y": [
+          0.9158888339996337,
+          1.1109970092773438
+        ],
+        "forward_z": [
+          1.098497700691223,
+          1.3605880737304688
+        ]
+      },
+      "max_rear_extent_native": 0.2367754578590393,
+      "contact_frames": 76
+    },
+    "L": {
+      "samples": 116,
+      "floor_min_native": -6.418620614567772e-05,
+      "support_min_native": -5.045112629886717e-06,
+      "support_max_min_native": 0.0001399748434778303,
+      "support_min_near_floor_vertices": 168,
+      "peak": {
+        "depth_x": [
+          -0.11161109805107117,
+          0.0036057472229003903
+        ],
+        "height_y": [
+          0.9158888339996337,
+          1.1109970092773438
+        ],
+        "forward_z": [
+          1.098497700691223,
+          1.3605880737304688
+        ]
+      },
+      "max_rear_extent_native": 0.2367754578590393,
+      "contact_frames": 57
+    }
+  }
+}

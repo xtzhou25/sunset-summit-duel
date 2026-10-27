@@ -1,0 +1,155 @@
+{
+  "source": "actual exported GLB skin evaluated before BVH tests",
+  "sample_rates": "CakeCast60Hz; selected common actions10Hz",
+  "limitations": "Triangle intersections include hidden contacts; counts are diagnostic, not proof of visible artifact. Shoulder sleeve joins excluded.",
+  "summary": {
+    "FightIdle_R": {
+      "samples": 21,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "FightIdle_L": {
+      "samples": 21,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Jab_R": {
+      "samples": 6,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Jab_L": {
+      "samples": 6,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Straight_R": {
+      "samples": 7,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Straight_L": {
+      "samples": 7,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "HeavyPunch_R": {
+      "samples": 10,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "HeavyPunch_L": {
+      "samples": 10,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "RoundhouseKick_R": {
+      "samples": 11,
+      "frames_with_intersections": 3,
+      "max_triangle_pairs": {
+        "skirt_leg": 70
+      }
+    },
+    "RoundhouseKick_L": {
+      "samples": 11,
+      "frames_with_intersections": 3,
+      "max_triangle_pairs": {
+        "skirt_leg": 70
+      }
+    },
+    "FlyingKickLoop_R": {
+      "samples": 6,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "FlyingKickLoop_L": {
+      "samples": 6,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "CrouchLoop_R": {
+      "samples": 11,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "CrouchLoop_L": {
+      "samples": 11,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Knockdown_R": {
+      "samples": 9,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Knockdown_L": {
+      "samples": 9,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Recover_R": {
+      "samples": 11,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "Recover_L": {
+      "samples": 11,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "CakeCast_R": {
+      "samples": 70,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    },
+    "CakeCast_L": {
+      "samples": 70,
+      "frames_with_intersections": 0,
+      "max_triangle_pairs": {}
+    }
+  },
+  "intersections": [
+    {
+      "clip": "RoundhouseKick_R",
+      "time": 0.3,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 68
+      }
+    },
+    {
+      "clip": "RoundhouseKick_R",
+      "time": 0.4,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 70
+      }
+    },
+    {
+      "clip": "RoundhouseKick_R",
+      "time": 0.5,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 13
+      }
+    },
+    {
+      "clip": "RoundhouseKick_L",
+      "time": 0.3,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 68
+      }
+    },
+    {
+      "clip": "RoundhouseKick_L",
+      "time": 0.4,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 70
+      }
+    },
+    {
+      "clip": "RoundhouseKick_L",
+      "time": 0.5,
+      "intersecting_triangle_pairs": {
+        "skirt_leg": 13
+      }
+    }
+  ]
+}

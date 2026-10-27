@@ -1,0 +1,15 @@
+Existing source combat motions: Open Motion Project, ACCAD / The Ohio State University.
+https://accad.osu.edu/research/motion-lab/mocap-system-and-data
+Creative Commons Attribution 3.0 Unported:
+https://creativecommons.org/licenses/by/3.0/
+Existing adaptations include retiming, anthropometric reach reduction, root motion removal, and original takeoff/landing phases. See original source-use.json and ADAPTATION.json retained in each package. No endorsement implied. This does not grant a license over the character geometry.
+
+NEW LIVEHOUSE ADDITIONS: Guard, HitReact, Knockdown, Recover and Victory are original procedural/keyframed additions for this game, derived from the existing character rig and conservative guard pose. They are NOT newly captured human motion and are not claimed to be full-body mocap retargets. Victory is a modest stage bow. Knockdown/Recover are stylized whole-skeleton recline/return, not anatomical ragdoll simulation. Original appearance and 13 previous actions are preserved.
+
+V2 GAME ADDITIONS: FightIdle (2s loop) and HitReactStrong (.4s) are original keyed derivatives of the existing rig. Staggered planted feet, modest bent knees, low costume-safe guard and subtle breathing; no new mocap or finger-bone/fist claim. All19 previous clips and character geometry retained.
+
+V3 camera-facing and knockdown revision (2026-10-25): 15 paired _R/_L gameplay animation bases were authored as game-specific pose adaptations, retaining all21 earlier animation records and original character geometry. Chest/head camera opening, support/catch/recovery staging and selected auxiliary-roll continuity corrections are original editing work, not a claim of newly captured motion. Feet/root and measured original attack paths remain in the combat plane. No independent finger rig was added. Local concealed garment contacts and stylized skin-volume limitations remain documented in ANIMATION-V3-LIMITATIONS.txt.
+
+V4 varied-punch additions (2026-10-25): Jab_R/L, Straight_R/L and HeavyPunch_R/L are original keyed actions appended to the frozen 51-clip baseline. All earlier animation records and appearance remain preserved. Actual hand mesh reach curves at game scale 1.2 bound collision fronts; no new mocap or articulated finger-fist claim. Source/runtime archives are pinned in ASSETS.json. See ANIMATION-V4-LIMITATIONS.txt for localized garment contacts and near-opponent hand occlusion.
+
+V5 grounded roundhouse addition (2026-10-25): RoundhouseKick_R/L are original keyed rig animations appended to all57 preserved previous clips, making59 actions per character. A fixed actor root, planted left support-ball pivot, hip-driven right-leg transverse sweep and return to FightIdle are authored; this is not newly captured motion or a ragdoll. Actual imported foot-skin XYZ curves provide measured contact depth, height and forward reach. Local garment contacts remain disclosed; no blanket collision-free or articulated-finger claim.

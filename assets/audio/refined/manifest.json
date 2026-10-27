@@ -1,0 +1,350 @@
+{
+  "source": "Original numeric synthesis; no external samples. Existing meow retained with original CC0 provenance.",
+  "assets": [
+    {
+      "file": "rifle_emit_1.wav",
+      "sha256": "8617a966d35d7e2ef11ae3860cd08e3933312f403ef9861ab3bb801d77bb953c",
+      "gain": 0.17,
+      "intent": "Single rounded arcade pop, no repeated shots or piercing crack",
+      "seconds": 0.15,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -24.413245,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "rifle_emit_2.wav",
+      "sha256": "e747472c5873b5d4c19442d8136da8af965a7ef730e138a0763ac4ee7efcef13",
+      "gain": 0.17,
+      "intent": "Single rounded arcade pop, no repeated shots or piercing crack",
+      "seconds": 0.154,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -26.779176,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "heart_hit_1.wav",
+      "sha256": "7e3af6ebb0aa1999f88437a061142feece9667d4986f4365f46a1afef67d4a93",
+      "gain": 0.17,
+      "intent": "Warm hollow bubble and brief harmonic shimmer",
+      "seconds": 0.22,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -23.602513,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "heart_hit_2.wav",
+      "sha256": "83ed52f4b1b4bd380d98db218248015b54808ee0a054e9c3d0dae7ca39389f89",
+      "gain": 0.17,
+      "intent": "Warm hollow bubble and brief harmonic shimmer",
+      "seconds": 0.224,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -24.52551,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "peach_emit_1.wav",
+      "sha256": "52b0225b080ed8f1a6b87de98710bfff7b9897755c5966abeaea7544b2911c40",
+      "gain": 0.14,
+      "intent": "Soft elastic fruit pluck with leafy air",
+      "seconds": 0.23,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -24.568213,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "peach_emit_2.wav",
+      "sha256": "d87ec96abf5a3c014d6b86c39a089921f1d6e3890cc9258ca87f2c4562fb8a1b",
+      "gain": 0.14,
+      "intent": "Soft elastic fruit pluck with leafy air",
+      "seconds": 0.234,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -24.750819,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "peach_hit_1.wav",
+      "sha256": "72e479f9927945aed29fed7cad8ddae998acf2de22fee1c56db5651e841e0369",
+      "gain": 0.19,
+      "intent": "Cushioned fruit pop, not a punch or gunshot",
+      "seconds": 0.19,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -25.353141,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "peach_hit_2.wav",
+      "sha256": "6c519f7cd8eb0d22ff2a87dd7adcc325195e424de3bb3c0ee4e1bf55a26cf48d",
+      "gain": 0.19,
+      "intent": "Cushioned fruit pop, not a punch or gunshot",
+      "seconds": 0.194,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -25.756312,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "cake_warn_1.wav",
+      "sha256": "6b48ada519ffa8d31d1e96cd54cb0d2fd66479a91efe2cc4ed29434c59a00908",
+      "gain": 0.12,
+      "intent": "Two soft confectionery chimes at cast lock",
+      "seconds": 0.24,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -21.614838,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "cake_warn_2.wav",
+      "sha256": "52f4a8d44b759c0fc74b5d535b26a795513203b86ca6159f3e5c5cd8e06ecbcc",
+      "gain": 0.12,
+      "intent": "Two soft confectionery chimes at cast lock",
+      "seconds": 0.244,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -21.619961,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "cake_drop_1.wav",
+      "sha256": "59659c508918ff8d869ceceb940c60070e401e4b33083eda1278519fd11433cc",
+      "gain": 0.12,
+      "intent": "Descending filtered air and rounded falling whistle",
+      "seconds": 0.32,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -24.950869,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "cake_drop_2.wav",
+      "sha256": "d0537306cc618da6695dbebf199b2972bf09e98351f0eb90658af82d815ed737",
+      "gain": 0.12,
+      "intent": "Descending filtered air and rounded falling whistle",
+      "seconds": 0.324,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -24.607399,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "cake_land_1.wav",
+      "sha256": "d05f55284ea0478604380631bd46a24d05e0b152ab3f356380a7621c0580e9cc",
+      "gain": 0.21,
+      "intent": "Two-stage sponge thud with soft crumb rustle",
+      "seconds": 0.26,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -24.905523,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "file": "cake_land_2.wav",
+      "sha256": "0f31d3faa9d0b3c0f84e1cd03d84f8b830eba81492bb08a53f636963d29b30bf",
+      "gain": 0.21,
+      "intent": "Two-stage sponge thud with soft crumb rustle",
+      "seconds": 0.264,
+      "peak": 0.279998779296875,
+      "peak_dbfs": -11.056877,
+      "rms_dbfs": -25.027543,
+      "clipped_samples": 0,
+      "endpoints": [
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "voice_limit": 10,
+  "group_slots": {
+    "combat": 6,
+    "voice": 2,
+    "ui": 2
+  },
+  "conservative_sample_peak_bound": 0.677162529296875,
+  "preview_gain_db": 12.0412,
+  "preview": {
+    "seconds": 13.064604166666667,
+    "peak": 0.34968505859375,
+    "peak_dbfs": -9.126458,
+    "rms_dbfs": -33.865872,
+    "clipped_samples": 0,
+    "endpoints": [
+      0.0,
+      0.0
+    ]
+  },
+  "runtime_level_preview": {
+    "seconds": 13.064604166666667,
+    "peak": 0.0874212646484375,
+    "peak_dbfs": -21.167658,
+    "rms_dbfs": -45.907072,
+    "clipped_samples": 0,
+    "endpoints": [
+      0.0,
+      0.0
+    ]
+  },
+  "sequence": [
+    {
+      "start_seconds": 0.0,
+      "label": "挥空拳",
+      "cue": "swing_punch",
+      "runtime_gain": 0.12
+    },
+    {
+      "start_seconds": 0.675,
+      "label": "挥空踢",
+      "cue": "swing_kick",
+      "runtime_gain": 0.14
+    },
+    {
+      "start_seconds": 1.42,
+      "label": "轻拳命中",
+      "cue": "hit_light",
+      "runtime_gain": 0.2
+    },
+    {
+      "start_seconds": 2.075,
+      "label": "直拳命中",
+      "cue": "hit_straight",
+      "runtime_gain": 0.22
+    },
+    {
+      "start_seconds": 2.79,
+      "label": "重拳命中",
+      "cue": "hit_heavy",
+      "runtime_gain": 0.24
+    },
+    {
+      "start_seconds": 3.59,
+      "label": "踢击命中",
+      "cue": "hit_kick",
+      "runtime_gain": 0.23
+    },
+    {
+      "start_seconds": 4.355,
+      "label": "格挡",
+      "cue": "block",
+      "runtime_gain": 0.18
+    },
+    {
+      "start_seconds": 5.02,
+      "label": "破防",
+      "cue": "guard_break",
+      "runtime_gain": 0.22
+    },
+    {
+      "start_seconds": 5.84,
+      "label": "因：真实猫叫",
+      "cue": "meow",
+      "runtime_gain": 0.11
+    },
+    {
+      "start_seconds": 6.869604166666667,
+      "label": "鱼：爱心发射",
+      "cue": "heart_emit",
+      "runtime_gain": 0.14
+    },
+    {
+      "start_seconds": 7.604604166666666,
+      "label": "鱼：爱心接触",
+      "cue": "heart_hit",
+      "runtime_gain": 0.17
+    },
+    {
+      "start_seconds": 8.374604166666666,
+      "label": "七：单发",
+      "cue": "rifle_emit",
+      "runtime_gain": 0.17
+    },
+    {
+      "start_seconds": 9.074604166666667,
+      "label": "桃：桃子发射",
+      "cue": "peach_emit",
+      "runtime_gain": 0.14
+    },
+    {
+      "start_seconds": 9.854604166666666,
+      "label": "桃：桃子接触",
+      "cue": "peach_hit",
+      "runtime_gain": 0.19
+    },
+    {
+      "start_seconds": 10.594604166666667,
+      "label": "哈：预警",
+      "cue": "cake_warn",
+      "runtime_gain": 0.12
+    },
+    {
+      "start_seconds": 11.384604166666668,
+      "label": "哈：下落",
+      "cue": "cake_drop",
+      "runtime_gain": 0.12
+    },
+    {
+      "start_seconds": 12.254604166666667,
+      "label": "哈：着地/命中",
+      "cue": "cake_land",
+      "runtime_gain": 0.21
+    }
+  ],
+  "subjective_audition": "Not performed: no confirmed audio-input/listening tool available."
+}

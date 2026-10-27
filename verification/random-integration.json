@@ -1,0 +1,97 @@
+{
+  "cases": [
+    {
+      "final_random": 1,
+      "manual": 2,
+      "player": 0,
+      "viewport": "(375, 614)"
+    },
+    {
+      "final_random": 4,
+      "manual": 3,
+      "player": 1,
+      "viewport": "(375, 614)"
+    },
+    {
+      "final_random": 1,
+      "manual": 4,
+      "player": 2,
+      "viewport": "(375, 614)"
+    },
+    {
+      "final_random": 2,
+      "manual": 0,
+      "player": 3,
+      "viewport": "(375, 614)"
+    },
+    {
+      "final_random": 4,
+      "manual": 1,
+      "player": 4,
+      "viewport": "(375, 614)"
+    },
+    {
+      "final_random": 1,
+      "manual": 2,
+      "player": 0,
+      "viewport": "(568, 267)"
+    },
+    {
+      "final_random": 4,
+      "manual": 3,
+      "player": 1,
+      "viewport": "(568, 267)"
+    },
+    {
+      "final_random": 2,
+      "manual": 4,
+      "player": 2,
+      "viewport": "(568, 267)"
+    },
+    {
+      "final_random": 4,
+      "manual": 0,
+      "player": 3,
+      "viewport": "(568, 267)"
+    },
+    {
+      "final_random": 2,
+      "manual": 1,
+      "player": 4,
+      "viewport": "(568, 267)"
+    },
+    {
+      "final_random": 0,
+      "manual": 2,
+      "player": 0,
+      "viewport": "(960, 600)"
+    },
+    {
+      "final_random": 0,
+      "manual": 3,
+      "player": 1,
+      "viewport": "(960, 600)"
+    },
+    {
+      "final_random": 3,
+      "manual": 4,
+      "player": 2,
+      "viewport": "(960, 600)"
+    },
+    {
+      "final_random": 1,
+      "manual": 0,
+      "player": 3,
+      "viewport": "(960, 600)"
+    },
+    {
+      "final_random": 4,
+      "manual": 1,
+      "player": 4,
+      "viewport": "(960, 600)"
+    }
+  ],
+  "checks": 301,
+  "failures": 0,
+  "scope": "real main/HUD with synthetic native viewport touch/mouse and combat keyboard; not graphical/device acceptance"
+}

@@ -1,0 +1,112 @@
+{
+  "character": "Qi",
+  "clip_base": "RifleCast",
+  "duration_s": 1.1,
+  "emit_at_s": 0.4,
+  "emit_count_per_cast": 1,
+  "prop_visible_s": [
+    0.08,
+    0.94
+  ],
+  "prop_file": "Qi-Rifle-Prop-v03.glb",
+  "character_file": "Qi-v03-Runtime.glb",
+  "hand_bone": "DEF-hand.R",
+  "prop_local_muzzle_gltf_xyz": [
+    0,
+    0.075,
+    0.435
+  ],
+  "axes": "actual exported glTF/Godot: X lateral, Y up, Z forward",
+  "actor_scale": 1.2,
+  "actor_rotation_y_radians": {
+    "R": 1.5707963267948966,
+    "L": -1.5707963267948966
+  },
+  "interrupt_rule": "Engine must hide prop when leaving special state, hit, KO, round reset or character change; state-driven visibility, not only end animation key.",
+  "facing": {
+    "R": {
+      "prop_attachment_matrix_rows": [
+        [
+          -0.7755274499745054,
+          0.1531156617923946,
+          0.6124646011478678,
+          -5.1572099377117375e-06
+        ],
+        [
+          6.485879105411968e-07,
+          -0.9701420263702104,
+          0.2425355540869124,
+          -5.436707276373909e-06
+        ],
+        [
+          0.6313139797728686,
+          0.18809347792747,
+          0.7523720761186663,
+          -1.324636572019866e-05
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "muzzle_marker": {
+        "bone": "DEF-hand.R",
+        "offset": [
+          0.2779006189238144,
+          0.032736877342764745,
+          0.34137561759045987
+        ]
+      },
+      "verified_model_muzzle_at_emit_xyz": [
+        -0.07500000000000002,
+        1.29,
+        0.665
+      ],
+      "source_export_point_delta_m": 1.1371568079817199e-07
+    },
+    "L": {
+      "prop_attachment_matrix_rows": [
+        [
+          -0.7755273311330789,
+          0.15311566008574362,
+          0.6124646547369982,
+          -1.3687719759625239e-05
+        ],
+        [
+          6.335124378301666e-07,
+          -0.9701419208412398,
+          0.24253548469087585,
+          -2.501768773877089e-05
+        ],
+        [
+          0.6313140313480653,
+          0.18809340847493444,
+          0.7523719709828616,
+          -3.1243194567542876e-05
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "muzzle_marker": {
+        "bone": "DEF-hand.R",
+        "offset": [
+          0.27789211159726535,
+          0.03271727408969924,
+          0.34135756981859733
+        ]
+      },
+      "verified_model_muzzle_at_emit_xyz": [
+        -0.07500000000000002,
+        1.29,
+        0.6649999999999999
+      ],
+      "source_export_point_delta_m": 1.311532454668629e-07
+    }
+  }
+}

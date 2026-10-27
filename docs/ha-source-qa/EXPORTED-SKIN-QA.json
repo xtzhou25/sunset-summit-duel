@@ -1,0 +1,405 @@
+{
+  "clips": 69,
+  "common": {
+    "Idle": {
+      "duration_s": 4.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Walk": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Run": {
+      "duration_s": 0.6000000238418579,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "SitDown": {
+      "duration_s": 1.2000000476837158,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "SitIdle": {
+      "duration_s": 3.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "StandUp": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "JumpStart": {
+      "duration_s": 0.20000000298023224,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "JumpLoop": {
+      "duration_s": 0.4000000059604645,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "JumpLand": {
+      "duration_s": 0.36666667461395264,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Punch": {
+      "duration_s": 0.6000000238418579,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "FlyingKickStart": {
+      "duration_s": 0.20000000298023224,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "FlyingKickLoop": {
+      "duration_s": 0.5,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "FlyingKickLand": {
+      "duration_s": 0.4000000059604645,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Guard": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "HitReact": {
+      "duration_s": 0.4000000059604645,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Knockdown": {
+      "duration_s": 0.800000011920929,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Recover": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Victory": {
+      "duration_s": 1.7999999523162842,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Victory_R": {
+      "duration_s": 1.7999999523162842,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Victory_L": {
+      "duration_s": 1.7999999523162842,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "BackstepGuard": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "FightIdle": {
+      "duration_s": 2.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "HitReactStrong": {
+      "duration_s": 0.4000000059604645,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "FightIdle_R": {
+      "duration_s": 2.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "FightIdle_L": {
+      "duration_s": 2.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Guard_R": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Guard_L": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "BackstepGuard_R": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "BackstepGuard_L": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Walk_R": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Walk_L": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Run_R": {
+      "duration_s": 0.6000000238418579,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Run_L": {
+      "duration_s": 0.6000000238418579,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "FlyingKickLoop_R": {
+      "duration_s": 0.5,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "FlyingKickLoop_L": {
+      "duration_s": 0.5,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "HitReactStrong_R": {
+      "duration_s": 0.4000000059604645,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "HitReactStrong_L": {
+      "duration_s": 0.4000000059604645,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Punch_L": {
+      "duration_s": 0.6000000238418579,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "FlyingKickStart_R": {
+      "duration_s": 0.20000000298023224,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "FlyingKickStart_L": {
+      "duration_s": 0.20000000298023224,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "FlyingKickLand_R": {
+      "duration_s": 0.4000000059604645,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "FlyingKickLand_L": {
+      "duration_s": 0.4000000059604645,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "JumpStart_R": {
+      "duration_s": 0.20000000298023224,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "JumpStart_L": {
+      "duration_s": 0.20000000298023224,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "JumpLoop_R": {
+      "duration_s": 0.4000000059604645,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "JumpLoop_L": {
+      "duration_s": 0.4000000059604645,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "JumpLand_R": {
+      "duration_s": 0.36666667461395264,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "JumpLand_L": {
+      "duration_s": 0.36666667461395264,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Punch_R": {
+      "duration_s": 0.6000000238418579,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Knockdown_R": {
+      "duration_s": 0.800000011920929,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Knockdown_L": {
+      "duration_s": 0.800000011920929,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Recover_R": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Recover_L": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Jab_R": {
+      "duration_s": 0.5199999809265137,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Jab_L": {
+      "duration_s": 0.5199999809265137,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Straight_R": {
+      "duration_s": 0.6000000238418579,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "Straight_L": {
+      "duration_s": 0.6000000238418579,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "HeavyPunch_R": {
+      "duration_s": 0.9399999976158142,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "HeavyPunch_L": {
+      "duration_s": 0.9399999976158142,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "RoundhouseKick_R": {
+      "duration_s": 0.9599999785423279,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "RoundhouseKick_L": {
+      "duration_s": 0.9599999785423279,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "CrouchStart_R": {
+      "duration_s": 0.18000000715255737,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "CrouchStart_L": {
+      "duration_s": 0.18000000715255737,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "CrouchLoop_R": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "CrouchLoop_L": {
+      "duration_s": 1.0,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "CrouchEnd_R": {
+      "duration_s": 0.18000000715255737,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    },
+    "CrouchEnd_L": {
+      "duration_s": 0.18000000715255737,
+      "max_non_skirt_skin_matrix_abs_delta": 0,
+      "max_skirt_skin_matrix_abs_delta": 0
+    }
+  },
+  "peach": {
+    "R": {
+      "start_idle_max_vertex_delta_m": 2.675417509293842e-07,
+      "end_idle_max_vertex_delta_m": 2.675417509293842e-07,
+      "start_end_max_vertex_delta_m": 0.0
+    },
+    "L": {
+      "start_idle_max_vertex_delta_m": 2.6370682916773535e-07,
+      "end_idle_max_vertex_delta_m": 2.6370682916773535e-07,
+      "start_end_max_vertex_delta_m": 0.0
+    }
+  },
+  "region_map_max_error": 0.0,
+  "finite_all_samples": true,
+  "floor_min_by_clip": {
+    "CakeCast_R": -1.1791206132655469e-07,
+    "CakeCast_L": -1.1791206132655469e-07,
+    "Victory": -7.685728428421164e-08,
+    "Victory_R": -7.685728428421164e-08,
+    "Victory_L": -7.685728428421164e-08,
+    "FightIdle_R": -2.5244894518782415e-05,
+    "FightIdle_L": -2.5244894518782415e-05,
+    "Guard_R": -1.0339213710007641e-07,
+    "Guard_L": -1.0339213710007641e-07,
+    "BackstepGuard_R": -3.710958458573904e-05,
+    "BackstepGuard_L": -3.710958458573904e-05,
+    "Walk_R": -3.729635569384618e-05,
+    "Walk_L": -3.729635569384618e-05,
+    "Run_R": -8.194884119852412e-06,
+    "Run_L": -8.194884119852412e-06,
+    "FlyingKickLoop_R": -7.685728428421164e-08,
+    "FlyingKickLoop_L": -7.685728428421164e-08,
+    "HitReactStrong_R": -1.0339213710007641e-07,
+    "HitReactStrong_L": -1.0339213710007641e-07,
+    "Punch_L": -1.0339213710007641e-07,
+    "FlyingKickStart_R": -0.0001233587481659044,
+    "FlyingKickStart_L": -0.0001233587481659044,
+    "FlyingKickLand_R": -0.00011178250840058082,
+    "FlyingKickLand_L": -0.00011178250840058082,
+    "JumpStart_R": -1.0339213710007641e-07,
+    "JumpStart_L": -1.0339213710007641e-07,
+    "JumpLoop_R": 0.019953059221445923,
+    "JumpLoop_L": 0.019953059221445923,
+    "JumpLand_R": -2.672718002105895e-06,
+    "JumpLand_L": -2.672718002105895e-06,
+    "Punch_R": -1.0339213710007641e-07,
+    "Knockdown_R": -3.7508934900135126e-07,
+    "Knockdown_L": -3.7508934900135126e-07,
+    "Recover_R": -3.391623050105481e-07,
+    "Recover_L": -3.391623050105481e-07,
+    "Jab_R": -2.5432919527264264e-05,
+    "Jab_L": -2.52784001691732e-05,
+    "Straight_R": -2.5001472478112353e-05,
+    "Straight_L": -2.2861242364169678e-05,
+    "HeavyPunch_R": -8.15605720711463e-05,
+    "HeavyPunch_L": -7.982324742888222e-05,
+    "RoundhouseKick_R": -6.417514665565622e-05,
+    "RoundhouseKick_L": -6.417514665565622e-05,
+    "CrouchStart_R": -5.4217674926321956e-05,
+    "CrouchStart_L": -5.4217674926321956e-05,
+    "CrouchLoop_R": 0.0001355385285741488,
+    "CrouchLoop_L": 0.0001355385285741488,
+    "CrouchEnd_R": -5.4217674926321956e-05,
+    "CrouchEnd_L": -5.4217674926321956e-05
+  }
+}

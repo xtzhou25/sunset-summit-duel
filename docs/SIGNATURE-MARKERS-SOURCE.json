@@ -1,0 +1,45 @@
+{
+  "coordinate_system": "actual glTF/Godot bone-local XYZ",
+  "characters": {
+    "Lavender": {
+      "clip": "MeowCast",
+      "time": 0.38,
+      "points": [
+        {
+          "bone": "DEF-spine.006",
+          "offset": [
+            0,
+            0.0064999461,
+            0.0662460364
+          ]
+        }
+      ],
+      "actor_height_at_emit": 0,
+      "source": "original Upper rose lip / Lower rose lip seam"
+    },
+    "YellowWhite": {
+      "clip": "HeartCastLoop",
+      "time": 0.28,
+      "points": [
+        {
+          "bone": "DEF-hand.L",
+          "offset": [
+            -0.0036047953,
+            0.0867559984,
+            -0.0014678708
+          ]
+        },
+        {
+          "bone": "DEF-hand.R",
+          "offset": [
+            0.0036047956,
+            0.086755991,
+            -0.0014678712
+          ]
+        }
+      ],
+      "actor_height_at_emit": 0.784,
+      "source": "average original static-hand distal 10mm vertex centroids, no extra forward offset"
+    }
+  }
+}

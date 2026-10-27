@@ -1,0 +1,570 @@
+[
+  {
+    "bytes": 2708912,
+    "path": "res://.godot/imported/tao.glb-a21d242c15310b779c95ec668387946a.scn"
+  },
+  {
+    "bytes": 2612216,
+    "path": "res://.godot/imported/purple.glb-e86df958ea2687e5ada20449216e9c80.scn"
+  },
+  {
+    "bytes": 2610740,
+    "path": "res://.godot/imported/ha.glb-44f9faf3ac34b604b89f87b226d89351.scn"
+  },
+  {
+    "bytes": 2422219,
+    "path": "res://.godot/imported/qi.glb-107bafc188c4f54ca4440d905901ccdb.scn"
+  },
+  {
+    "bytes": 2398602,
+    "path": "res://.godot/imported/yellow.glb-29d707bf86a36c09845e74683a513e4a.scn"
+  },
+  {
+    "bytes": 85231,
+    "path": "res://.godot/imported/ui_font.otf-83b0b21733b18d5a7cd8cdb55d6d6d14.fontdata"
+  },
+  {
+    "bytes": 40272,
+    "path": "res://scripts/hud.gdc"
+  },
+  {
+    "bytes": 39685,
+    "path": "res://.godot/imported/peach.glb-8972f8678695eef49402bed848b9eb02.scn"
+  },
+  {
+    "bytes": 31967,
+    "path": "res://.godot/imported/ko_2.wav-c7853ee61ce2e9e8056ce25fd0b0d90b.sample"
+  },
+  {
+    "bytes": 31583,
+    "path": "res://.godot/imported/ko_1.wav-1802097ca6df07a29646d0500d08b358.sample"
+  },
+  {
+    "bytes": 31487,
+    "path": "res://.godot/imported/cake_drop_2.wav-14a8c087ed9e0d5ef12aaac270285be6.sample"
+  },
+  {
+    "bytes": 31103,
+    "path": "res://.godot/imported/cake_drop_1.wav-fd13c42d4d074d4801bba05bf3954c12.sample"
+  },
+  {
+    "bytes": 28610,
+    "path": "res://scripts/combat.gdc"
+  },
+  {
+    "bytes": 27177,
+    "path": "res://scripts/main.gdc"
+  },
+  {
+    "bytes": 26687,
+    "path": "res://.godot/imported/guard_break_2.wav-29923194893442801c71f11686db3851.sample"
+  },
+  {
+    "bytes": 26303,
+    "path": "res://.godot/imported/guard_break_1.wav-fd3e84f069f2e080f9e08a47bf2477e1.sample"
+  },
+  {
+    "bytes": 25727,
+    "path": "res://.godot/imported/cake_land_2.wav-bf8ef467dd684d2f6af57104e4346789.sample"
+  },
+  {
+    "bytes": 25343,
+    "path": "res://.godot/imported/cake_land_1.wav-a246984bc4b32836a29e0ef219e0f19c.sample"
+  },
+  {
+    "bytes": 24767,
+    "path": "res://.godot/imported/hit_heavy_2.wav-fa747da97d29932260de58c17bb614af.sample"
+  },
+  {
+    "bytes": 24383,
+    "path": "res://.godot/imported/hit_heavy_1.wav-26c23ce6fa2b2f9d106e63021768016a.sample"
+  },
+  {
+    "bytes": 24287,
+    "path": "res://.godot/imported/down_land_2.wav-91fa43625af3bf7ef21b3843bf64743f.sample"
+  },
+  {
+    "bytes": 23903,
+    "path": "res://.godot/imported/down_land_1.wav-13d1cc924ace13e389016c8296fd3b1a.sample"
+  },
+  {
+    "bytes": 23807,
+    "path": "res://.godot/imported/cake_warn_2.wav-6fa75fc8136a404a3c1370c70606db80.sample"
+  },
+  {
+    "bytes": 23423,
+    "path": "res://.godot/imported/cake_warn_1.wav-821a489f9987426b5f5488448dddf4db.sample"
+  },
+  {
+    "bytes": 22847,
+    "path": "res://.godot/imported/peach_emit_2.wav-a8347807ba7d8a6d2b215ee5eb0d8f75.sample"
+  },
+  {
+    "bytes": 22463,
+    "path": "res://.godot/imported/peach_emit_1.wav-34726cada82fc75fd048de79f783834c.sample"
+  },
+  {
+    "bytes": 21887,
+    "path": "res://.godot/imported/heart_hit_2.wav-863e15e6ba7a4ca876633841815e878a.sample"
+  },
+  {
+    "bytes": 21503,
+    "path": "res://.godot/imported/heart_hit_1.wav-0638b38f094fc50d9983e16ccf4049f4.sample"
+  },
+  {
+    "bytes": 21407,
+    "path": "res://.godot/imported/hit_kick_2.wav-c0359ca8889f97125a69159d956ef9e5.sample"
+  },
+  {
+    "bytes": 21023,
+    "path": "res://.godot/imported/hit_kick_1.wav-f9943e566dc44d7c11ff0e0efb3c7c00.sample"
+  },
+  {
+    "bytes": 19487,
+    "path": "res://.godot/imported/swing_kick_2.wav-eaacddd432fba15a04ee23af07591727.sample"
+  },
+  {
+    "bytes": 19103,
+    "path": "res://.godot/imported/swing_kick_1.wav-6ff28502fdf3a7ee4c83545638564738.sample"
+  },
+  {
+    "bytes": 19007,
+    "path": "res://.godot/imported/peach_hit_2.wav-e2a6997442e50433143829073816b3b9.sample"
+  },
+  {
+    "bytes": 18623,
+    "path": "res://.godot/imported/peach_hit_1.wav-1de0363756c1d0afb8aee6182f62c1f4.sample"
+  },
+  {
+    "bytes": 18527,
+    "path": "res://.godot/imported/heart_emit_2.wav-5b64697e370dee08a9c852e04e72719c.sample"
+  },
+  {
+    "bytes": 18143,
+    "path": "res://.godot/imported/heart_emit_1.wav-6a72c42c98e063929390a8eedece721e.sample"
+  },
+  {
+    "bytes": 16607,
+    "path": "res://.godot/imported/hit_straight_2.wav-2408ed8e21594d2fcb68b3d53fc8106e.sample"
+  },
+  {
+    "bytes": 16223,
+    "path": "res://.godot/imported/hit_straight_1.wav-c95f6700a154299b315f21d8df377c58.sample"
+  },
+  {
+    "bytes": 15743,
+    "path": "res://.godot/imported/rifle_emit_1.wav-2fb963e08928c54f73a1debd78060e17.sample"
+  },
+  {
+    "bytes": 15743,
+    "path": "res://.godot/imported/rifle_emit_2.wav-1b83557203b921fac57c43685b6fdacd.sample"
+  },
+  {
+    "bytes": 15167,
+    "path": "res://.godot/imported/rifle_emit_2.wav-432fd63d30230e84e69775ac63470f5f.sample"
+  },
+  {
+    "bytes": 14783,
+    "path": "res://.godot/imported/rifle_emit_1.wav-4704841b5ba1a50bc70d1a0d84dd237b.sample"
+  },
+  {
+    "bytes": 12767,
+    "path": "res://.godot/imported/swing_punch_2.wav-fb9d0cee61f45e3e5adcd764c709b5a1.sample"
+  },
+  {
+    "bytes": 12383,
+    "path": "res://.godot/imported/swing_punch_1.wav-d6050b0e773620b0d318eaa68e7149df.sample"
+  },
+  {
+    "bytes": 12287,
+    "path": "res://.godot/imported/land_2.wav-7dea01fec6093a489d300b0fcb21a29d.sample"
+  },
+  {
+    "bytes": 11903,
+    "path": "res://.godot/imported/land_1.wav-53f35469ba994a9ddc5253f886433e42.sample"
+  },
+  {
+    "bytes": 11807,
+    "path": "res://.godot/imported/block_2.wav-6f22a0a48b8e67de97bee92f2042b357.sample"
+  },
+  {
+    "bytes": 11580,
+    "path": "res://scripts/stage.gdc"
+  },
+  {
+    "bytes": 11503,
+    "path": "res://.godot/imported/cake.glb-0fc7b14777ca8c6a7ec9e9699c9182bf.scn"
+  },
+  {
+    "bytes": 11423,
+    "path": "res://.godot/imported/block_1.wav-bca97aaf1c14b11006066b726f1c246b.sample"
+  },
+  {
+    "bytes": 10847,
+    "path": "res://.godot/imported/hit_light_2.wav-e9c31c1e0b7959401650578789ea3087.sample"
+  },
+  {
+    "bytes": 10847,
+    "path": "res://.godot/imported/jump_2.wav-15e14b824daea1dc105180896ac1ecd4.sample"
+  },
+  {
+    "bytes": 10847,
+    "path": "res://.godot/imported/ui_confirm_2.wav-58989e1e1466022c15ab9df0baccfb10.sample"
+  },
+  {
+    "bytes": 10771,
+    "path": "res://scripts/combat_audio.gdc"
+  },
+  {
+    "bytes": 10463,
+    "path": "res://.godot/imported/hit_light_1.wav-e980fe7682a8756cd474c55211720a01.sample"
+  },
+  {
+    "bytes": 10463,
+    "path": "res://.godot/imported/jump_1.wav-a9eb4162680d8c8948936be23490a440.sample"
+  },
+  {
+    "bytes": 10463,
+    "path": "res://.godot/imported/ui_confirm_1.wav-7fb0894355a970d42879ea335599ca8d.sample"
+  },
+  {
+    "bytes": 9727,
+    "path": "res://.godot/imported/meow.wav-b09e6ba736d1240ff1f3bdb0c219c21e.sample"
+  },
+  {
+    "bytes": 9191,
+    "path": "res://.godot/uid_cache.bin"
+  },
+  {
+    "bytes": 5375,
+    "path": "res://scripts/ai.gdc"
+  },
+  {
+    "bytes": 4329,
+    "path": "res://scripts/characters.gdc"
+  },
+  {
+    "bytes": 4096,
+    "path": "res://.godot/imported/qi_rifle.glb-aa4310169bb7fc4be23ac22af999820b.scn"
+  },
+  {
+    "bytes": 4049,
+    "path": "res://scripts/projectile_view.gdc"
+  },
+  {
+    "bytes": 3277,
+    "path": "res://stage-art/fan_band.gdc"
+  },
+  {
+    "bytes": 2725,
+    "path": "res://stage-art/expanded_livehouse.gdc"
+  },
+  {
+    "bytes": 2611,
+    "path": "res://assets/qi_rifle_contract.json"
+  },
+  {
+    "bytes": 1790,
+    "path": "res://assets/tao_peach_contract.json"
+  },
+  {
+    "bytes": 1512,
+    "path": "res://scripts/fight_camera.gdc"
+  },
+  {
+    "bytes": 998,
+    "path": "res://assets/signature_markers.json"
+  },
+  {
+    "bytes": 770,
+    "path": "res://assets/ha_cake_contract.json"
+  },
+  {
+    "bytes": 734,
+    "path": "res://scripts/opponent_selection.gdc"
+  },
+  {
+    "bytes": 686,
+    "path": "res://.godot/exported/133200997/export-3070c538c03ee49b7677ff960a3f5195-main.scn"
+  },
+  {
+    "bytes": 624,
+    "path": "res://project.binary"
+  },
+  {
+    "bytes": 512,
+    "path": "res://assets/character_softlight.gdshader"
+  },
+  {
+    "bytes": 170,
+    "path": "res://assets/qi_rifle.glb.import"
+  },
+  {
+    "bytes": 168,
+    "path": "res://assets/purple.glb.import"
+  },
+  {
+    "bytes": 167,
+    "path": "res://assets/peach.glb.import"
+  },
+  {
+    "bytes": 167,
+    "path": "res://assets/yellow.glb.import"
+  },
+  {
+    "bytes": 166,
+    "path": "res://assets/cake.glb.import"
+  },
+  {
+    "bytes": 165,
+    "path": "res://assets/tao.glb.import"
+  },
+  {
+    "bytes": 164,
+    "path": "res://assets/ha.glb.import"
+  },
+  {
+    "bytes": 164,
+    "path": "res://assets/qi.glb.import"
+  },
+  {
+    "bytes": 163,
+    "path": "res://assets/ui_font.otf.import"
+  },
+  {
+    "bytes": 161,
+    "path": "res://assets/audio/p2/hit_straight_1.wav.import"
+  },
+  {
+    "bytes": 161,
+    "path": "res://assets/audio/p2/hit_straight_2.wav.import"
+  },
+  {
+    "bytes": 160,
+    "path": "res://assets/audio/p2/guard_break_1.wav.import"
+  },
+  {
+    "bytes": 160,
+    "path": "res://assets/audio/p2/guard_break_2.wav.import"
+  },
+  {
+    "bytes": 160,
+    "path": "res://assets/audio/p2/swing_punch_1.wav.import"
+  },
+  {
+    "bytes": 160,
+    "path": "res://assets/audio/p2/swing_punch_2.wav.import"
+  },
+  {
+    "bytes": 159,
+    "path": "res://assets/audio/p2/heart_emit_1.wav.import"
+  },
+  {
+    "bytes": 159,
+    "path": "res://assets/audio/p2/heart_emit_2.wav.import"
+  },
+  {
+    "bytes": 159,
+    "path": "res://assets/audio/p2/rifle_emit_2.wav.import"
+  },
+  {
+    "bytes": 159,
+    "path": "res://assets/audio/p2/swing_kick_1.wav.import"
+  },
+  {
+    "bytes": 159,
+    "path": "res://assets/audio/p2/swing_kick_2.wav.import"
+  },
+  {
+    "bytes": 159,
+    "path": "res://assets/audio/p2/ui_confirm_1.wav.import"
+  },
+  {
+    "bytes": 159,
+    "path": "res://assets/audio/refined/peach_emit_1.wav.import"
+  },
+  {
+    "bytes": 159,
+    "path": "res://assets/audio/refined/peach_emit_2.wav.import"
+  },
+  {
+    "bytes": 159,
+    "path": "res://assets/audio/refined/rifle_emit_2.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/p2/down_land_1.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/p2/down_land_2.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/p2/hit_heavy_1.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/p2/hit_heavy_2.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/p2/hit_light_1.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/p2/hit_light_2.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/p2/rifle_emit_1.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/p2/ui_confirm_2.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/refined/cake_drop_2.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/refined/cake_land_1.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/refined/heart_hit_1.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/refined/heart_hit_2.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/refined/peach_hit_2.wav.import"
+  },
+  {
+    "bytes": 158,
+    "path": "res://assets/audio/refined/rifle_emit_1.wav.import"
+  },
+  {
+    "bytes": 157,
+    "path": "res://assets/audio/p2/hit_kick_1.wav.import"
+  },
+  {
+    "bytes": 157,
+    "path": "res://assets/audio/refined/cake_drop_1.wav.import"
+  },
+  {
+    "bytes": 157,
+    "path": "res://assets/audio/refined/cake_land_2.wav.import"
+  },
+  {
+    "bytes": 157,
+    "path": "res://assets/audio/refined/cake_warn_1.wav.import"
+  },
+  {
+    "bytes": 157,
+    "path": "res://assets/audio/refined/cake_warn_2.wav.import"
+  },
+  {
+    "bytes": 157,
+    "path": "res://assets/audio/refined/peach_hit_1.wav.import"
+  },
+  {
+    "bytes": 156,
+    "path": "res://assets/audio/p2/hit_kick_2.wav.import"
+  },
+  {
+    "bytes": 154,
+    "path": "res://assets/audio/p2/block_1.wav.import"
+  },
+  {
+    "bytes": 154,
+    "path": "res://assets/audio/p2/block_2.wav.import"
+  },
+  {
+    "bytes": 153,
+    "path": "res://assets/audio/p2/jump_2.wav.import"
+  },
+  {
+    "bytes": 153,
+    "path": "res://assets/audio/p2/land_1.wav.import"
+  },
+  {
+    "bytes": 153,
+    "path": "res://assets/audio/p2/land_2.wav.import"
+  },
+  {
+    "bytes": 152,
+    "path": "res://assets/audio/p2/jump_1.wav.import"
+  },
+  {
+    "bytes": 151,
+    "path": "res://assets/audio/p2/ko_2.wav.import"
+  },
+  {
+    "bytes": 150,
+    "path": "res://assets/audio/p2/ko_1.wav.import"
+  },
+  {
+    "bytes": 150,
+    "path": "res://assets/audio/meow.wav.import"
+  },
+  {
+    "bytes": 97,
+    "path": "res://main.tscn.remap"
+  },
+  {
+    "bytes": 55,
+    "path": "res://stage-art/expanded_livehouse.gd.remap"
+  },
+  {
+    "bytes": 53,
+    "path": "res://scripts/opponent_selection.gd.remap"
+  },
+  {
+    "bytes": 50,
+    "path": "res://scripts/projectile_view.gd.remap"
+  },
+  {
+    "bytes": 47,
+    "path": "res://scripts/combat_audio.gd.remap"
+  },
+  {
+    "bytes": 47,
+    "path": "res://scripts/fight_camera.gd.remap"
+  },
+  {
+    "bytes": 45,
+    "path": "res://scripts/characters.gd.remap"
+  },
+  {
+    "bytes": 45,
+    "path": "res://stage-art/fan_band.gd.remap"
+  },
+  {
+    "bytes": 41,
+    "path": "res://scripts/combat.gd.remap"
+  },
+  {
+    "bytes": 40,
+    "path": "res://scripts/stage.gd.remap"
+  },
+  {
+    "bytes": 39,
+    "path": "res://scripts/main.gd.remap"
+  },
+  {
+    "bytes": 38,
+    "path": "res://scripts/hud.gd.remap"
+  },
+  {
+    "bytes": 37,
+    "path": "res://scripts/ai.gd.remap"
+  },
+  {
+    "bytes": 8,
+    "path": "res://.godot/global_script_class_cache.cfg"
+  }
+]

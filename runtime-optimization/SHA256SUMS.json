@@ -1,0 +1,102 @@
+{
+  "BASELINE-BUILD-REPORT.md": {
+    "bytes": 4815,
+    "sha256": "5f9b1e79a2378e9501c0e825ecc23bd60cfd9c21512f67dfb2a3318ca70b710b"
+  },
+  "BUILD-PROVENANCE.json": {
+    "bytes": 2809,
+    "sha256": "f1e773a5f5eb6b7684d7e4d598b60c17d80b7183c6e8933f5bba447545eff7a0"
+  },
+  "Build-Optimized-Runtime.sh": {
+    "bytes": 1150,
+    "sha256": "84117e48561be93db027060760068ead87c74f38106659c73049eabc7bc81f2d"
+  },
+  "GODOT-THIRD-PARTY-NOTICES.json": {
+    "bytes": 115354,
+    "sha256": "76ac00257cbb2f2f24ac1b85abe674deb87a5eda0ece36ec6ea01925f2595112"
+  },
+  "README-先读我.md": {
+    "bytes": 2776,
+    "sha256": "eb860abb2830d3c142d07ed6b3d1e27e1755edd920c65e24aecb44c98b165438"
+  },
+  "RUNTIME-REPRODUCE.md": {
+    "bytes": 1791,
+    "sha256": "e2d7a632e81090ce36283146eeaddcfbff4043e37bb7308366db4ca443f3f321"
+  },
+  "SIZE-OPTIMIZATION.md": {
+    "bytes": 2939,
+    "sha256": "fa7fce3b3cef083dbd49096ddfc73a9de876cca90aa0cc9ad3162251ee8a30a4"
+  },
+  "SunsetSummitDuel.exe": {
+    "bytes": 49139712,
+    "sha256": "d5a52b1b05a8ee34ff8c4cbb0b972b6294e8f6f3555aad4290ce43ed49def0e0"
+  },
+  "SunsetSummitDuel.pck": {
+    "bytes": 13932428,
+    "sha256": "74c848485257814f620a92918dcb890e1bca0a75ed952f0881cad39dedb03422"
+  },
+  "licenses/ANIMATION-ATTRIBUTION.txt": {
+    "bytes": 2959,
+    "sha256": "ef09d66a9457dd8aca80b45775c086316bc155f3671bd9927567731fcfd39520"
+  },
+  "licenses/AUDIO-SELECTION-REFINEMENT.md": {
+    "bytes": 4454,
+    "sha256": "f4cacca98f22885456f3f68c76fbc2998abead3312ff43ba7af25fe2fa92c570"
+  },
+  "licenses/COPYRIGHT.txt": {
+    "bytes": 99790,
+    "sha256": "b3330849267d56ddd3d62a513817506606c2195034411fe05859f0140bff9d8a"
+  },
+  "licenses/CREDITS.txt": {
+    "bytes": 23732,
+    "sha256": "4c6034b0138e06f05525a08e28b29a36ff8f8d0f721fa7d89387b94a29a70534"
+  },
+  "licenses/FONT-LICENSE.txt": {
+    "bytes": 14712,
+    "sha256": "849f4ea9c214fa4ac3593b770c699f387534b11ce671264c1b10d85bdcb5997b"
+  },
+  "licenses/GODOT-LICENSE.txt": {
+    "bytes": 1149,
+    "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80"
+  },
+  "licenses/LICENSE.txt": {
+    "bytes": 1149,
+    "sha256": "b0435e3b3e4e55238f05f4b306f30524a1b2e20147810d436eaa554fa6855c80"
+  },
+  "licenses/LLVM-MINGW-LICENSE.txt": {
+    "bytes": 15141,
+    "sha256": "8d85c1057d742e597985c7d4e6320b015a9139385cff4cbae06ffc0ebe89afee"
+  },
+  "licenses/MEOW-AUDIO-LICENSE.txt": {
+    "bytes": 2742,
+    "sha256": "6e001710a6c2a7a3f11cd78fc8bd6b74c4cbe583b2b86c080a29b3f6535e7d9e"
+  },
+  "licenses/OPEN-MOTION-LICENSE.txt": {
+    "bytes": 951,
+    "sha256": "ac1d3921bd45df13356cd2d086313ba957df2539efeef2049a2de9809669dffd"
+  },
+  "licenses/P2-AUDIO-ASSETS.md": {
+    "bytes": 7754,
+    "sha256": "ea18e5b88a580ab9c1bc07600789a117c927501b4284e95659874e03dd652ce1"
+  },
+  "licenses/toolchain/COPYING": {
+    "bytes": 2326,
+    "sha256": "99a69660981156c21336fdb5661f89341b013c94e4bf9e1c7467b4745718397f"
+  },
+  "licenses/toolchain/COPYING.MinGW-w64-runtime.txt": {
+    "bytes": 12155,
+    "sha256": "1db8da07b436c68833c0673ffee3d9fcb2526047f3820b81661865dfedc79a1f"
+  },
+  "licenses/toolchain/COPYING.MinGW-w64.txt": {
+    "bytes": 5905,
+    "sha256": "f38e6194bd3bfa1b654f118e5acefe0aead437bbe669eee43957ccc65a7127f1"
+  },
+  "licenses/toolchain/COPYING.winpthreads.txt": {
+    "bytes": 2883,
+    "sha256": "63263614cdd29f2f93cba85e992f041b31f9fc7b4033692f31269489a8a1b177"
+  },
+  "licenses/toolchain/COPYING.winstorecompat.txt": {
+    "bytes": 1099,
+    "sha256": "fa7368d1f93d890c173177475d8ec7aff265a7d08f1f364d66f74d138978ce36"
+  }
+}

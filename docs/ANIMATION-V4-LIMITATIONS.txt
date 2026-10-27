@@ -1,0 +1,9 @@
+No claim of universally zero mesh intersection. Existing cape/arm, cape/hair and skirt contacts can remain concealed at local seams. Original upper-arm mesh has a proximal cropped section intentionally covered by the cape; the additions retain natural cape coverage rather than exposing or rebuilding this section.
+
+The existing stylized hand mesh has no independent finger articulation. New attack presentation uses wrist orientation, not a new finger-fist rig.
+
+Heavy's far-side chamber is partly hidden in the L-facing camera view; a modest planted pelvis-back/down cue makes anticipation visible without rotating the actor root. Contact posture and peak timing remain fixed.
+
+Yellow Heavy forearm unfolds rapidly during the chamber-to-strike interval near .32-.33 seconds. Source sampled views show a hinge unfolding rather than shoulder orbit; final actual-game sequence must confirm the visible motion.
+
+Camera-aware shoulders produce modest R/L differences in actual skinned hand reach. Gameplay collider tolerances must follow measured visible extents, not assume equal 1 m arm reach. Frozen original51 actions retain their prior documented limitations.

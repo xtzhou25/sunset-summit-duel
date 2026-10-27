@@ -1,0 +1,35 @@
+# Godot generated caches; keep import settings and stable resource UIDs
+.godot/
+.import/
+export_credentials.cfg
+exports/
+dist/
+build/
+*.exe
+*.dll
+*.pck
+*.wasm
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tar.xz
+*.log
+__pycache__/
+*.py[cod]
+.venv/
+node_modules/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Models restored losslessly before importing Godot
+/assets/ha.glb
+/assets/qi.glb
+/assets/tao.glb

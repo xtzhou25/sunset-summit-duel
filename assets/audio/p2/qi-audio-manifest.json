@@ -1,0 +1,18 @@
+[
+  {
+    "file": "rifle_emit_1.wav",
+    "sha256": "d43598378f2fbdb385ec83c5431f550e41c2c4e0892777c955cc6266ac8e25b4",
+    "peak": 0.279998779296875,
+    "seconds": 0.16,
+    "source": "Original numeric synthesis, no external samples",
+    "gain": 0.18
+  },
+  {
+    "file": "rifle_emit_2.wav",
+    "sha256": "25982f25b61f4fefcb7faf7e4843af735497acc2a832cf079e55719324e0c529",
+    "peak": 0.279998779296875,
+    "seconds": 0.16,
+    "source": "Original numeric synthesis, no external samples",
+    "gain": 0.18
+  }
+]

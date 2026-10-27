@@ -1,0 +1,9 @@
+{
+  "root_motion": false,
+  "actor_scale": 1.2,
+  "run_speed_m_s_at_playback_1": 2.674428,
+  "backstep_guard_speed_m_s_at_playback_1": 0.620124,
+  "source": "Existing Fish/YellowWhite v9 main.gd calibration. Qi preserves same body, feet, skeleton dimensions and original common non-skirt animation buffers. Costume changes do not change foot trajectories.",
+  "runtime_rule": "playback_speed = abs(actor_vx) / calibrated_speed; Run backwards uses negative playback per existing engine.",
+  "validation": "Use EXPORTED-SKIN-QA non-skirt equivalence and QI-ACTUAL-SURFACE-CURVES for actual exported sole bounds; native engine cancellation/foot-slide checks still required."
+}

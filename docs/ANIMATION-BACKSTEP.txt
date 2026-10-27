@@ -1,0 +1,9 @@
+Livehouse reaction set v2: adds BackstepGuard to the existing eighteen clips, total nineteen.
+
+BackstepGuard is an original composite from the existing character actions: reverse the genuine Walk pelvis, legs, feet and skirt cycle; retain Guard upper-body orientation and shift upper-body translation by the corresponding pelvis bob. Duration 1.0s, looping, sampled at60Hz; zero actor root motion. No newly captured motion is claimed.
+
+Native nominal retreat speed: purple0.55m/s, yellow0.51677m/s. With game modelscale1.2, nominal speeds are0.66/0.62012m/s; for sharedretreat0.66m/s use playback1.0/1.0643. Existing eighteen animation records and originalbinary prefix remain identical. The19-action BakedEditable.blend is editable baked animation; the previous source bundle's Rigify control sources remain included for the original eighteen actions.
+
+Run source/build_backstep.py from a source layout containing output/[Character]-Livehouse-Runtime.glb (the frozen18-clip baseline); it creates output/v2/[Character]-Livehouse-v2-Runtime.glb. source/validate_backstep.py validates exported deformation. Original18 sources and CC BY attribution are retained in this package.
+
+Kick QA: existing FlyingKickLoop is deliberately low. Native foot lift is limited to0.12m purple/0.22m yellow. Peak is0.20s into the0.50s airclip. Actual original-mesh maximum forward reach from actorroot is0.574876m purple/0.570876m yellow; engine modelscale1.2 gives≈0.69m. Do not use distant hitbox reach that visibly exceeds the leg. Punch peak0.20s within original0.60s clip; front extents0.466975/0.413761m before scale.

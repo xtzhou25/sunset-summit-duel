@@ -1,0 +1,9 @@
+No independent finger rig exists. The overhead heart uses actual upper/lower arm arcs and the existing static hands near each other; no small finger-heart articulation is claimed. The mouth emitter is an original-lip seam marker; no new facial/lip rig is claimed.
+
+The original proximal upper-arm mesh is intentionally cropped beneath the cape. For Yellow's raised arms, existing outer cape panels lift vertically while the center collar remains anchored. A smooth local22% longitudinal cape compression keeps the raised drape compact. This affects only new animation channels, not mesh/rest shape or original59 actions. The final peak was visually accepted from both game-facing cameras.
+
+Local cape/hair/arm and skirt/body contacts remain in dense reports; no universally zero hidden intersection claim is made. Rigify secondary forearm roll branches in the first Yellow candidate were corrected using primary-relative idle/approved-emit anchors, preserving primary pose and exact phase endpoints. Arm lowering remains brisk near recovery and is subject to the actual native full-body visual gate.
+
+The Yellow actor physics must supply jump height exactly once. Adding the same jump to root animation or model offset duplicates height and invalidates marker/camera bounds. Marker coordinates are bone-local glTF/Godot XYZ, not Blender actor XYZ. Heart projectile aim/damage handling is engine-owned, while the visual origin follows the actual hands.
+
+All frozen59 clips keep their earlier documented limitations; they are preserved, not reauthored or retroactively certified by these new-clip checks.

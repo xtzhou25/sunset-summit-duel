@@ -1,0 +1,67 @@
+{
+  "status": "exported-candidate-native-game-acceptance-pending",
+  "frozen_base": "v4 Candidate3, 51 clips, immutable",
+  "new_clips": [
+    "Jab_R",
+    "Jab_L",
+    "Straight_R",
+    "Straight_L",
+    "HeavyPunch_R",
+    "HeavyPunch_L"
+  ],
+  "total_planned": 57,
+  "timing_seconds": {
+    "Lavender": {
+      "Jab": 0.48,
+      "Straight": 0.56,
+      "HeavyPunch": 0.88
+    },
+    "YellowWhite": {
+      "Jab": 0.52,
+      "Straight": 0.6,
+      "HeavyPunch": 0.94
+    }
+  },
+  "active_intervals": {
+    "Jab": [
+      0.14,
+      0.24
+    ],
+    "Straight": [
+      0.18,
+      0.28
+    ],
+    "HeavyPunch": [
+      0.34,
+      0.46
+    ]
+  },
+  "contact_peaks": {
+    "Jab": 0.19,
+    "Straight": 0.23,
+    "HeavyPunch": 0.4
+  },
+  "controls": "Light on press. One fresh second press during last 120 ms of first recovery queues only Straight. Separate Heavy L / mobile action button. No hold charge or random attacks.",
+  "mapping": "Source seconds map directly to simulation seconds. Paired camera-aware R/L, no extra root/torso rotation.",
+  "authorship": "Original game-specific keyframed additions; no claim of newly captured motion. Existing source motion attribution retained.",
+  "scope": "Different lead jab, rear straight and visibly anticipated heavy punch. Preserve appearances, all frozen 51 clips, planted feet and root-plane alignment. No new finger bones or full-finger-fist claim.",
+  "qa_pending": [
+    "actual game two-hit and heavy sequences",
+    "final persistent source/runtime actual download hash verification"
+  ],
+  "runtime_sha256": {
+    "Lavender": "57a41e6c3ee31391359cc61e565f45cb8caed178424b79052de1bef037b494b6",
+    "YellowWhite": "5584f3b25c4120797a3e99630889aed7d48e32d42f5749cde20e145b417144ea"
+  },
+  "exported_qa": {
+    "sample_hz": 120,
+    "samples": 968,
+    "new_clips_checked": 12,
+    "max_floor_penetration_m": 8.1592e-05,
+    "idle_join_translation_m": 2.98023224e-08,
+    "jab_to_straight_join_translation_m": 0,
+    "geometry_and_frozen51_preserved": true,
+    "cloth_contacts": "present; sampled pixel and actual gameplay judgment, not blanket zero claim",
+    "native_game": "pending"
+  }
+}

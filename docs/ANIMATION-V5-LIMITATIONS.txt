@@ -1,0 +1,11 @@
+The brief back view during the hip turn is intentional. Head and chest follow the rotation naturally instead of remaining forcibly camera-facing.
+
+The support ankle and heel move around a planted ball/toe pivot; whole-sole immobility is neither promised nor anatomically appropriate. Foot-surface floor samples and anchor drift are recorded separately.
+
+The fast lower-shin extension is an intended kick snap. A measured knee-plane branch flip in the initial candidate was corrected; no runtime auxiliary-bone patch is used in the final source.
+
+Local skirt/leg, cape/arm and cape/hair contacts can remain. The striking-side hem responds locally using existing bones, without real-time cloth or mesh changes. No claim of universally zero hidden intersections is made. Appearance, cropped proximal arm coverage and static hands retain their original constraints.
+
+The visible foot travels substantially across the depth axis early in the active interval. Gameplay must gate damage until foot surface overlaps the opponent depth band, then use the measured finite forward reach. Do not use a full rectangular hitbox from the first active tick, do not infer reach from the ankle alone, and do not turn this into 360 AOE.
+
+All previous 57 clips retain their previously documented limitations; they are preserved, not reauthored or retroactively certified by these new-clip checks.

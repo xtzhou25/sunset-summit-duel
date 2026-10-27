@@ -1,0 +1,26 @@
+{
+  "requested_style": "lower black half rim, upper lens edge rimless",
+  "objects": [
+    "Ha glasses bridge",
+    "Ha glasses LOWER black half rim -1",
+    "Ha glasses LOWER black half rim 1",
+    "Ha glasses temple",
+    "Ha glasses temple.001"
+  ],
+  "lower_rims": [
+    {
+      "name": "Ha glasses LOWER black half rim -1",
+      "z_min": 1.5304999351501465,
+      "z_max": 1.55448317527771,
+      "lens_center_z": 1.554,
+      "material": "Ha black lower-rim glasses"
+    },
+    {
+      "name": "Ha glasses LOWER black half rim 1",
+      "z_min": 1.5304999351501465,
+      "z_max": 1.55448317527771,
+      "lens_center_z": 1.554,
+      "material": "Ha black lower-rim glasses"
+    }
+  ]
+}

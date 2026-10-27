@@ -1,0 +1,20 @@
+/* Unit tests of the explicitly mocked browser fixture, not a game test. */
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const {create}=require('./browser_directional_fixture.js');
+const pad={x:10,y:20,w:100,h:100},attacks=['punch','kick','heavy','roundhouse','special'].map((name,i)=>({name,x:150+i*60,y:20,w:50,h:60}));
+const m=create(()=>({pad,attacks}));
+const p=(x,y)=>[10+100*x,20+100*y];
+const t=(type,id,xy)=>m.input({kind:'touch',type,values:[{id,x:xy[0],y:xy[1]}]});
+const held=(...actions)=>assert.deepEqual(m.report().held.slice().sort(),actions.sort());
+let count=0;const check=(name,fn)=>{fn();count++;console.log('PASS '+name)};
+check('source guards match actual current HUD thresholds and ownership',()=>{const s=fs.readFileSync(require('node:path').join(__dirname,'../scripts/hud.gd'),'utf8');for(const guard of ['JOYSTICK_DEAD_ENTER := 0.26','JOYSTICK_DEAD_EXIT := 0.18','JOYSTICK_AXIS_ENTER := 0.38','JOYSTICK_AXIS_EXIT := 0.26','_joystick_touch_id >= 0 or _mouse_direction_active','displacement.limit_length(1.0)','const DIRECTION_ACTIONS := ["left", "right", "crouch", "jump"]'])assert.ok(s.includes(guard),guard)});
+check('cardinals and diagonal use fixed-base normalized positions',()=>{assert.deepEqual(m.padActions(p(.1,.5)),['left']);assert.deepEqual(m.padActions(p(.9,.5)),['right']);assert.deepEqual(m.padActions(p(.5,.1)),['jump']);assert.deepEqual(m.padActions(p(.5,.9)),['crouch']);assert.deepEqual(m.padActions(p(.1,.1)),['left','jump']);assert.deepEqual(m.padActions(p(.9,.9)),['right','crouch']);assert.deepEqual(m.padActions(p(.5,.5)),[])});
+check('drag across top preserves a single jump press edge',()=>{t(0,91,p(.1,.1));held('left','jump');t(2,91,p(.9,.1));held('right','jump');assert.equal(m.report().edges.filter(e=>e.action==='jump'&&e.pressed).length,1)});
+check('pad owns contact outside and allows reentry without becoming attack',()=>{t(2,91,[160,30]);held('right','jump');assert.equal(m.report().contacts[0].kind,'direction');t(2,91,p(.9,.9));held('right','crouch')});
+check('second pad touch cannot steal and does not auto-promote',()=>{t(0,4,p(.9,.5));held('right','crouch');t(1,91,[-1000000,-1000000]);held();t(2,4,p(.9,.5));held();t(1,4,p(.9,.5));held()});
+check('keyboard and touch sources preserve shared direction',()=>{t(0,4,p(.1,.5));m.input({kind:'key',code:'ArrowLeft',pressed:1});t(1,4,p(.1,.5));held('left');t(0,4,p(.1,.5));m.input({kind:'key',code:'ArrowLeft',pressed:0});held('left');t(1,4,p(.1,.5));held()});
+check('five attacks map and never acquire from pad drag',()=>{for(let i=0;i<5;i++){t(0,19,[attacks[i].x+5,30]);held(attacks[i].name);t(1,19,[-1000000,-1000000]);held()}});
+check('mouse diagonal drag and cancellation release',()=>{m.input({kind:'mouse',button:0,pressed:1,x:20,y:30});held('left','jump');m.input({kind:'move',x:100,y:110});held('right','crouch');m.input({kind:'mouse',button:0,pressed:0,x:-1000000,y:-1000000});held()});
+check('radial neutral and axis hysteresis are explicit mock only',()=>{assert.deepEqual(m.padActions(p(.65,.5)),[]);assert.deepEqual(m.padActions(p(.65,.5),['right']),['right']);assert.deepEqual(m.padActions(p(.61,.5),['right']),[]);assert.deepEqual(m.padActions(p(.52,.52),['right']),[])});
+console.log(`PASS ${count} mock-fixture tests; actual HUD tested separately.`);

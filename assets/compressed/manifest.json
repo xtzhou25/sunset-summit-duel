@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "destination": "assets/ha.glb",
+      "raw_bytes": 23264828,
+      "raw_sha256": "a5cbbc41b8d6598d65d809f76603bb6d5b136118011faee73dd3d2c27d21cbef",
+      "parts": [
+        {
+          "path": "assets/compressed/ha.glb.gz",
+          "bytes": 8548300,
+          "sha256": "31d0667deb355af02ce4c83e41d751a992d6c7bb3ba6c12c65e315408b538e94"
+        }
+      ]
+    },
+    {
+      "destination": "assets/qi.glb",
+      "raw_bytes": 19488268,
+      "raw_sha256": "23c9c5b03cecf9c9a9a0141201f76921dbd56c2d8d418ecb2a1a439afc5ced24",
+      "parts": [
+        {
+          "path": "assets/compressed/qi.glb.gz",
+          "bytes": 8138049,
+          "sha256": "519237de14842f5b6976dc9fd6a7011c2f5bb2c867dacbc14bbaf97e965ea9dd"
+        }
+      ]
+    },
+    {
+      "destination": "assets/tao.glb",
+      "raw_bytes": 23707540,
+      "raw_sha256": "f49c96c3c6172fc11ad1a635969800b28010b1ba26da2649934d90b0d2745305",
+      "parts": [
+        {
+          "path": "assets/compressed/tao.glb.gz",
+          "bytes": 8618527,
+          "sha256": "46ac4e2d1a690b73b59d8b9feaf41a664b781a4d8dc548d8ffa3b835bb2118ea"
+        }
+      ]
+    }
+  ]
+}

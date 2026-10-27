@@ -1,0 +1,6 @@
+Motion source: Open Motion Project by ACCAD / The Ohio State University.
+Source: https://accad.osu.edu/research/motion-lab/mocap-system-and-data
+License: Creative Commons Attribution 3.0 Unported (CC BY 3.0).
+License link: https://creativecommons.org/licenses/by/3.0/
+Selected source: Male2_E8_Bounce.bvh, frames 30–210 (zero-based).
+Adaptations: measured BVH joint trajectories retargeted to five existing flat runtime skeletons; Gaussian smoothing sigma 1.1 frames; trimmed to 6 seconds; quintic endpoint drift removal and 0.30-second edge smoothing; hips/neck/head/elbow/wrist amplitudes reduced; two-bone limb IK with planted foot targets; authored handguard offset (+8.5 cm vertical peak) added independently from capture, with 0.8-second quintic pickup/settle to preserve original idle entry/exit pose; original rig, mesh, materials and all non-idle animation tracks preserved. No endorsement by ACCAD or The Ohio State University is implied.
