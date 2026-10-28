@@ -10,6 +10,14 @@ signal rematch_requested
 signal menu_requested
 signal mute_requested
 signal feedback_settings_changed(combat_gain: float, voice_gain: float, shake_enabled: bool)
+signal lan_host_requested(room_name: String, port: int, username: String)
+signal lan_join_requested(address: String, port: int, username: String)
+signal lan_cancel_requested
+signal lan_discovery_requested
+signal lan_discovery_stopped
+signal lan_auth_register(username: String, question: String, answer: String)
+signal lan_auth_login_begin(username: String)
+signal lan_auth_login_answer(username: String, answer: String)
 
 const INK := Color("0b0913")
 const PANEL := Color("171322")
@@ -110,6 +118,35 @@ var _special_kind := 0
 var _special_cd := 0.0
 var _special_input_blocked := false
 var _special_cooldown_overlay: ColorRect
+var local_side := 0
+var _entry_overlay: ColorRect
+var _entry_card: PanelContainer
+var _entry_notice: Label
+var _entry_open := false
+var _menu_mode_button: Button
+var _lan_overlay: ColorRect
+var _lan_card: PanelContainer
+var _lan_status: Label
+var _lan_room_hint: Label
+var _lan_room_box: VBoxContainer
+var _lan_room_rows: Array[Control] = []
+var _lan_leaderboard: Label
+var _lan_username: LineEdit
+var _lan_room_name: LineEdit
+var _lan_host_port: LineEdit
+var _lan_join_row: Control
+var _lan_address: LineEdit
+var _lan_join_port: LineEdit
+var _lan_scroll: ScrollContainer
+var _lan_default_room := ""
+var _lan_question := ""
+var _lan_authenticated := false
+var _lan_account_button: Button
+var _lan_room_button: Button
+var _auth_callback
+var _auth_pending_name := ""
+var _auth_pending_room := ""
+var _lan_open := false
 const SPECIAL_COOLDOWN := 4.0
 
 func _ready() -> void:
@@ -134,9 +171,11 @@ func _ready() -> void:
 	_build_result()
 	_build_pause()
 	_build_feedback_settings()
+	_build_lan()
+	_build_entry()
 	get_viewport().size_changed.connect(_resize)
 	_resize()
-	show_menu()
+	show_entry()
 	_queue_overlay_layout()
 
 func gameplay_height_ratio() -> float:
@@ -168,15 +207,47 @@ func set_match(data: Dictionary) -> void:
 		_rounds[i].text = ("●" if wins >= 1 else "○") + "  " + ("●" if wins >= 2 else "○")
 	_timer.text = "%02d" % maxi(0, int(ceil(float(data.get("time", 60)))))
 	_status.text = str(data.get("status", "先取两局 · 每局 60 秒"))
-	_status.visible = not _menu_open and not _paused and not _result_open
+	_status.visible = not _menu_open and not _paused and not _result_open and not _entry_open and not _lan_open
 	# Only simulation snapshots advance this badge. Pausing or a suspended web
 	# tab must not run a second, wall-clock cooldown in the interface.
-	_set_special_status(int(data.get("special_kind", _special_kind)), float(data.get("special_cd", 0.0)))
+	var meter_side := clampi(local_side, 0, 1)
+	_set_special_status(int(data.get("special_kind%d" % meter_side, data.get("special_kind", _special_kind))), float(data.get("special_cd%d" % meter_side, data.get("special_cd", 0.0))))
+
+func show_entry(notice: String = "") -> void:
+	_clear_touches()
+	_hide_feedback_settings()
+	_close_lan_panel()
+	_entry_open = true
+	_menu_open = false
+	_result_open = false
+	_paused = false
+	local_side = 0
+	_entry_overlay.show()
+	_menu_overlay.hide()
+	_result_overlay.hide()
+	_pause_overlay.hide()
+	if is_instance_valid(_entry_notice):
+		_entry_notice.text = notice if not notice.is_empty() else "选择模式，开启今晚的演出"
+	_update_visibility()
+	_queue_overlay_layout()
 
 func show_menu() -> void:
 	_clear_touches()
 	_hide_feedback_settings()
+	_close_lan_panel()
+	_entry_open = false
+	if is_instance_valid(_entry_overlay):
+		_entry_overlay.hide()
+	local_side = 0
 	_set_special_status(_special_kind, 0.0)
+	if is_instance_valid(_menu_tagline):
+		_menu_tagline.text = "灯光就位。选一位偶像，守住你的舞台。"
+	if is_instance_valid(_menu_tip):
+		_menu_tip.text = "拳击收招时再按，可接第二拳；重拳前摇更长"
+	if is_instance_valid(_opponent_button):
+		_opponent_button.visible = true
+		_opponent_button.disabled = false
+		set_opponent_choice(opponent_choice)
 	_menu_open = true
 	_result_open = false
 	_paused = false
@@ -186,9 +257,66 @@ func show_menu() -> void:
 	_update_visibility()
 	_queue_overlay_layout()
 
+func set_local_side(side: int) -> void:
+	local_side = clampi(side, 0, 1)
+
+func set_menu_notice(text: String) -> void:
+	if is_instance_valid(_menu_tagline):
+		_menu_tagline.text = text
+
+func show_lan_lobby(text: String) -> void:
+	_clear_touches()
+	_hide_feedback_settings()
+	_close_lan_panel()
+	_entry_open = false
+	if is_instance_valid(_entry_overlay):
+		_entry_overlay.hide()
+	_menu_open = true
+	_result_open = false
+	_paused = false
+	_menu_overlay.show()
+	_result_overlay.hide()
+	_pause_overlay.hide()
+	if is_instance_valid(_menu_tagline):
+		_menu_tagline.text = text
+	if is_instance_valid(_menu_tip):
+		_menu_tip.text = "双方选择不同角色 · 都确认后自动开赛"
+	if is_instance_valid(_opponent_button):
+		_opponent_button.visible = true
+		_opponent_button.disabled = true
+		_opponent_button.text = "对手：由对方玩家选择"
+	_update_visibility()
+	_queue_overlay_layout()
+
+func start_lan_match_view() -> void:
+	_clear_touches()
+	_hide_feedback_settings()
+	_close_lan_panel()
+	_entry_open = false
+	if is_instance_valid(_entry_overlay):
+		_entry_overlay.hide()
+	_menu_open = false
+	_result_open = false
+	_paused = false
+	_menu_overlay.hide()
+	_result_overlay.hide()
+	_pause_overlay.hide()
+	_update_visibility()
+	_queue_overlay_layout()
+
+func lan_panel_open() -> bool:
+	return _lan_open
+
+func request_lan_cancel() -> void:
+	lan_cancel_requested.emit()
+
 func show_result(text: String) -> void:
 	_clear_touches()
 	_hide_feedback_settings()
+	_close_lan_panel()
+	_entry_open = false
+	if is_instance_valid(_entry_overlay):
+		_entry_overlay.hide()
 	_menu_open = false
 	_result_open = true
 	_paused = false
@@ -615,6 +743,421 @@ func _build_feedback_settings() -> void:
 	set_feedback_settings(_combat_gain, _voice_gain, _shake_enabled)
 	_settings_overlay.hide()
 
+func _build_lan() -> void:
+	_lan_overlay = _overlay()
+	_lan_overlay.name = "LanLobbyOverlay"
+	_lan_card = _card(_lan_overlay, YELLOW)
+	_lan_card.name = "LanLobbyCard"
+	var stack := VBoxContainer.new()
+	stack.add_theme_constant_override("separation", 10)
+	_lan_card.add_child(_margin(stack, 22, 18))
+	stack.add_child(_center_label("局域网大厅", 26, WHITE))
+	stack.add_child(_center_label("浏览器大厅 · WebRTC 点对点直连 · 信令只负责握手" if OS.has_feature("web") else "同一局域网自动发现 · 房主直接开局，不经任何外部服务器", 13, DIM))
+	var name_row := HFlowContainer.new()
+	name_row.add_theme_constant_override("separation", 8)
+	stack.add_child(name_row)
+	name_row.add_child(_label("你的昵称", 14, WHITE))
+	_lan_username = LineEdit.new()
+	_lan_username.max_length = 16
+	_lan_username.custom_minimum_size = Vector2(220, 40)
+	_lan_username.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_register_font(_lan_username, 15)
+	_lan_username.text_changed.connect(_on_lan_username_changed)
+	_lan_username.focus_exited.connect(_save_lan_profile)
+	_lan_username.editable = not OS.has_feature("web")
+	name_row.add_child(_lan_username)
+	_lan_account_button = _button("账号/登录", PURPLE, 13)
+	_lan_account_button.custom_minimum_size = Vector2(96, 40)
+	_lan_account_button.visible = OS.has_feature("web")
+	_lan_account_button.pressed.connect(_open_account_dialog)
+	name_row.add_child(_lan_account_button)
+	_lan_status = _center_label("正在连接联机大厅…" if OS.has_feature("web") else "正在搜索同一局域网的房间…", 14, YELLOW)
+	stack.add_child(_lan_status)
+	_lan_room_hint = _center_label("", 13, DIM)
+	stack.add_child(_lan_room_hint)
+	_lan_scroll = ScrollContainer.new()
+	_lan_scroll.custom_minimum_size = Vector2(0, 118)
+	_lan_scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_lan_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	stack.add_child(_lan_scroll)
+	_lan_room_box = VBoxContainer.new()
+	_lan_room_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_lan_room_box.add_theme_constant_override("separation", 6)
+	_lan_scroll.add_child(_lan_room_box)
+	stack.add_child(_center_label("积分榜", 14, YELLOW))
+	_lan_leaderboard = _center_label("暂无战绩", 12, DIM)
+	stack.add_child(_lan_leaderboard)
+	var host_row := HFlowContainer.new()
+	host_row.add_theme_constant_override("separation", 8)
+	stack.add_child(host_row)
+	host_row.add_child(_label("房间名", 14, WHITE))
+	_lan_room_name = LineEdit.new()
+	_lan_room_name.text = "决斗房间"
+	_lan_room_name.max_length = 32
+	_lan_room_name.custom_minimum_size = Vector2(180, 40)
+	_lan_room_name.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_register_font(_lan_room_name, 15)
+	_lan_room_name.focus_exited.connect(_save_lan_profile)
+	_lan_room_name.editable = not OS.has_feature("web")
+	host_row.add_child(_lan_room_name)
+	_lan_room_button = _button("改房间名", PURPLE, 13)
+	_lan_room_button.custom_minimum_size = Vector2(96, 40)
+	_lan_room_button.visible = OS.has_feature("web")
+	_lan_room_button.pressed.connect(_open_room_dialog)
+	host_row.add_child(_lan_room_button)
+	_lan_host_port = LineEdit.new()
+	_lan_host_port.text = "7777"
+	_lan_host_port.custom_minimum_size = Vector2(86, 40)
+	_register_font(_lan_host_port, 15)
+	_lan_host_port.visible = not OS.has_feature("web")
+	host_row.add_child(_lan_host_port)
+	var host_button := _button("创建房间", YELLOW, 16)
+	host_button.custom_minimum_size = Vector2(116, 42)
+	host_button.pressed.connect(_lan_request_host)
+	host_row.add_child(host_button)
+	var join_row := HFlowContainer.new()
+	_lan_join_row = join_row
+	join_row.add_theme_constant_override("separation", 8)
+	join_row.visible = not OS.has_feature("web")
+	stack.add_child(join_row)
+	join_row.add_child(_label("手动 IP", 14, WHITE))
+	_lan_address = LineEdit.new()
+	_lan_address.placeholder_text = "如 192.168.1.10"
+	_lan_address.custom_minimum_size = Vector2(220, 40)
+	_lan_address.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_register_font(_lan_address, 15)
+	_lan_address.text_submitted.connect(func(_text: String): _lan_request_join())
+	join_row.add_child(_lan_address)
+	_lan_join_port = LineEdit.new()
+	_lan_join_port.text = "7777"
+	_lan_join_port.custom_minimum_size = Vector2(86, 40)
+	_register_font(_lan_join_port, 15)
+	_lan_join_port.text_submitted.connect(func(_text: String): _lan_request_join())
+	join_row.add_child(_lan_join_port)
+	var join_button := _button("直接加入", YELLOW, 16)
+	join_button.custom_minimum_size = Vector2(116, 42)
+	join_button.pressed.connect(func(): _lan_request_join())
+	join_row.add_child(join_button)
+	var back := _button("返回", DIM, 15)
+	back.custom_minimum_size = Vector2(96, 42)
+	back.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	back.pressed.connect(func(): lan_cancel_requested.emit())
+	stack.add_child(back)
+	_menu_mode_button = _button("模式选择", YELLOW, 16)
+	_menu_mode_button.custom_minimum_size = Vector2(104, 44)
+	_menu_mode_button.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	_menu_mode_button.pressed.connect(func(): show_entry())
+	_menu_footer.add_child(_menu_mode_button)
+	_load_lan_profile()
+	if OS.has_feature("web"):
+		_setup_web_auth()
+	_lan_overlay.hide()
+
+func _build_entry() -> void:
+	_entry_overlay = _overlay()
+	_entry_overlay.name = "ModeEntryOverlay"
+	_entry_card = _card(_entry_overlay, PURPLE)
+	_entry_card.name = "ModeEntryCard"
+	var stack := VBoxContainer.new()
+	stack.add_theme_constant_override("separation", 14)
+	_entry_card.add_child(_margin(stack, 30, 26))
+	stack.add_child(_center_label("TONIGHT / UNDERGROUND STAGE", 12, YELLOW))
+	stack.add_child(_center_label("决战日不落之巅", 32, WHITE))
+	_entry_notice = _center_label("选择模式，开启今晚的演出", 15, DIM)
+	stack.add_child(_entry_notice)
+	var single := _button("单机模式", PURPLE, 22)
+	single.custom_minimum_size.y = 64
+	single.pressed.connect(show_menu)
+	stack.add_child(single)
+	var online := _button("局域网模式", YELLOW, 22)
+	online.custom_minimum_size.y = 64
+	online.pressed.connect(show_lan_panel)
+	stack.add_child(online)
+	stack.add_child(_center_label("单机：选择角色对战 AI · 浏览器联机：大厅建房/加入 · WebRTC 直连" if OS.has_feature("web") else "单机：选择角色对战 AI · 局域网：同一网段自动发现房间", 13, DIM))
+	_entry_overlay.hide()
+
+func _default_username() -> String:
+	var name := OS.get_environment("USERNAME").strip_edges()
+	if name.is_empty():
+		name = "玩家"
+	name = name.substr(0, 10)
+	return "%s%03d" % [name, randi_range(100, 999)]
+
+func _load_lan_profile() -> void:
+	var name := _default_username()
+	var room := name + " 的房间"
+	var question := ""
+	var cfg := ConfigFile.new()
+	var loaded := cfg.load("user://lan_profile.cfg") == OK
+	if loaded:
+		name = str(cfg.get_value("lan", "username", name)).strip_edges()
+		room = str(cfg.get_value("lan", "room", room)).strip_edges()
+		question = str(cfg.get_value("lan", "question", "")).strip_edges()
+	if name.is_empty():
+		name = _default_username()
+	if room.is_empty():
+		room = name + " 的房间"
+	_lan_username.text = name
+	_lan_room_name.text = room
+	_lan_question = question
+	_lan_authenticated = not question.is_empty()
+	_lan_default_room = name + " 的房间"
+	if not loaded:
+		_save_lan_profile()
+
+func _on_lan_username_changed(_text: String) -> void:
+	var name := _lan_username.text.strip_edges()
+	if name.is_empty():
+		return
+	var next_default := name.substr(0, 16) + " 的房间"
+	if _lan_room_name.text.strip_edges().is_empty() or _lan_room_name.text.strip_edges() == _lan_default_room:
+		_lan_room_name.text = next_default
+	_lan_default_room = next_default
+
+func _save_lan_profile() -> void:
+	var cfg := ConfigFile.new()
+	cfg.set_value("lan", "username", _lan_username_value())
+	var room := _lan_room_name.text.strip_edges()
+	if room.is_empty():
+		room = _lan_username_value() + " 的房间"
+		_lan_room_name.text = room
+	cfg.set_value("lan", "room", room)
+	cfg.set_value("lan", "question", _lan_question)
+	cfg.save("user://lan_profile.cfg")
+
+func _setup_web_auth() -> void:
+	if not OS.has_feature("web"):
+		return
+	_auth_callback = JavaScriptBridge.create_callback(_on_auth_dialog)
+	var available := bool(JavaScriptBridge.eval("typeof window.duelAuthInstall === 'function'"))
+	if available:
+		JavaScriptBridge.get_interface("window").duelAuthInstall(_auth_callback)
+
+func _open_account_dialog() -> void:
+	if not OS.has_feature("web"):
+		return
+	_open_auth_dialog("login" if _lan_authenticated else "register")
+
+func _open_room_dialog() -> void:
+	if not OS.has_feature("web"):
+		return
+	_open_auth_dialog("room")
+
+func _open_auth_dialog(mode: String) -> void:
+	if not OS.has_feature("web"):
+		return
+	var data := JSON.stringify({
+		"mode": mode,
+		"name": _lan_username.text.strip_edges(),
+		"room": _lan_room_name.text.strip_edges(),
+		"question": _lan_question,
+	})
+	JavaScriptBridge.eval("window.DuelAuth && window.DuelAuth.open(%s)" % data)
+
+func _on_auth_dialog(arguments: Array) -> void:
+	if arguments.size() < 2:
+		return
+	var action := str(arguments[0])
+	var data: Variant = JSON.parse_string(str(arguments[1]))
+	if typeof(data) != TYPE_DICTIONARY:
+		return
+	var name := str(data.get("name", "")).strip_edges()
+	var room := str(data.get("room", "")).strip_edges()
+	var question := str(data.get("question", "")).strip_edges()
+	var answer := str(data.get("answer", "")).strip_edges()
+	match action:
+		"room":
+			if room.is_empty():
+				return
+			_lan_room_name.text = room
+			_lan_default_room = name + " 的房间" if not name.is_empty() else _lan_default_room
+			_save_lan_profile()
+			_lan_status.text = "房间名已保存"
+		"register":
+			if name.is_empty() or question.is_empty() or answer.is_empty():
+				return
+			_auth_pending_name = name
+			_auth_pending_room = room
+			_lan_username.text = name
+			if not room.is_empty():
+				_lan_room_name.text = room
+			lan_auth_register.emit(name, question, answer)
+		"login_begin":
+			if name.is_empty():
+				return
+			_auth_pending_name = name
+			_auth_pending_room = room
+			_lan_username.text = name
+			if not room.is_empty():
+				_lan_room_name.text = room
+			lan_auth_login_begin.emit(name)
+		"login_answer":
+			if name.is_empty() or answer.is_empty():
+				return
+			_auth_pending_name = name
+			if not room.is_empty():
+				_lan_room_name.text = room
+			lan_auth_login_answer.emit(name, answer)
+
+func lan_auth_question_received(name: String, question: String) -> void:
+	_auth_pending_name = name
+	_lan_question = question
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.DuelAuth && window.DuelAuth.setQuestion(%s)" % JSON.stringify(question))
+
+func lan_auth_ok(name: String, question: String, wins: int, losses: int) -> void:
+	_lan_username.text = name
+	_lan_question = question
+	_lan_authenticated = true
+	if not _auth_pending_room.is_empty():
+		_lan_room_name.text = _auth_pending_room
+		_lan_default_room = name + " 的房间"
+	_save_lan_profile()
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.DuelAuth && window.DuelAuth.close()")
+	_lan_status.text = "账号已登录 · %s · %d胜 %d负" % [name, wins, losses]
+
+func lan_auth_error(message: String) -> void:
+	_lan_status.text = message
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval("window.DuelAuth && window.DuelAuth.error(%s)" % JSON.stringify(message))
+
+func _lan_username_value() -> String:
+	var name := _lan_username.text.strip_edges()
+	if name.is_empty():
+		name = _default_username()
+		_lan_username.text = name
+	return name
+
+func _lan_port_value(field: LineEdit, fallback: int = 7777) -> int:
+	var port := int(field.text.strip_edges()) if field.text.strip_edges().is_valid_int() else fallback
+	return clampi(port, 1, 65535)
+
+func _lan_request_host() -> void:
+	if OS.has_feature("web") and not _lan_authenticated:
+		_open_auth_dialog("register")
+		return
+	var port := _lan_port_value(_lan_host_port)
+	_lan_host_port.text = str(port)
+	var username := _lan_username_value()
+	var room := _lan_room_name.text.strip_edges()
+	if room.is_empty():
+		room = username + " 的房间"
+		_lan_default_room = room
+	_lan_room_name.text = room
+	_lan_status.text = "正在创建房间…"
+	_save_lan_profile()
+	lan_host_requested.emit(room, port, username)
+
+func _lan_request_join(address: String = "") -> void:
+	if OS.has_feature("web") and not _lan_authenticated:
+		_open_auth_dialog("register")
+		return
+	var target := address.strip_edges() if not address.is_empty() else _lan_address.text.strip_edges()
+	if target.is_empty():
+		_lan_status.text = "请从上方房间列表加入，或输入房主 IP"
+		return
+	var port := _lan_port_value(_lan_join_port)
+	_lan_address.text = target
+	_lan_join_port.text = str(port)
+	_lan_status.text = "正在连接 %s:%d …" % [target, port]
+	var username := _lan_username_value()
+	_save_lan_profile()
+	lan_join_requested.emit(target, port, username)
+
+func _lan_join_discovered(ip: String, port: int) -> void:
+	_lan_join_port.text = str(port)
+	_lan_request_join(ip)
+
+func show_lan_panel() -> void:
+	_clear_touches()
+	_hide_feedback_settings()
+	_entry_open = false
+	_lan_open = true
+	_menu_open = true
+	if is_instance_valid(_entry_overlay):
+		_entry_overlay.hide()
+	if is_instance_valid(_lan_username) and _lan_username.text.strip_edges().is_empty():
+		_lan_username.text = _default_username()
+	if is_instance_valid(_lan_room_name) and _lan_room_name.text.strip_edges().is_empty():
+		_lan_room_name.text = _lan_username_value() + " 的房间"
+	_result_open = false
+	_paused = false
+	_menu_overlay.hide()
+	_result_overlay.hide()
+	_pause_overlay.hide()
+	_lan_overlay.show()
+	_lan_status.text = "正在连接联机大厅…" if OS.has_feature("web") else "正在搜索同一局域网的房间…"
+	set_lan_rooms([])
+	_update_visibility()
+	_queue_overlay_layout()
+	lan_discovery_requested.emit()
+	if OS.has_feature("web") and not _lan_authenticated:
+		_open_auth_dialog("register")
+
+func _close_lan_panel() -> void:
+	if not _lan_open:
+		return
+	_lan_open = false
+	if is_instance_valid(_lan_overlay):
+		_lan_overlay.hide()
+	lan_discovery_stopped.emit()
+
+func lan_status(text: String) -> void:
+	if is_instance_valid(_lan_status):
+		_lan_status.text = text
+
+func set_lan_leaderboard(entries: Array) -> void:
+	if not is_instance_valid(_lan_leaderboard):
+		return
+	if entries.is_empty():
+		_lan_leaderboard.text = "暂无战绩"
+		return
+	var text := ""
+	for i in range(mini(5, entries.size())):
+		var entry: Variant = entries[i]
+		if not entry is Dictionary:
+			continue
+		text += "%d. %s  %d胜 %d负\n" % [i + 1, str(entry.get("name", "玩家")), int(entry.get("wins", 0)), int(entry.get("losses", 0))]
+	_lan_leaderboard.text = text.strip_edges() if not text.is_empty() else "暂无战绩"
+
+func set_lan_rooms(rooms: Array) -> void:
+	if not is_instance_valid(_lan_room_box):
+		return
+	for row: Control in _lan_room_rows:
+		if not is_instance_valid(row):
+			continue
+		for child in row.get_children():
+			if child is Button:
+				_buttons.erase(child)
+			if child is Control:
+				_font_controls.erase(child)
+		if row.get_parent() != null:
+			row.get_parent().remove_child(row)
+		row.queue_free()
+	_lan_room_rows.clear()
+	if rooms.is_empty():
+		_lan_room_hint.text = "未发现房间 · 等待大厅刷新…" if OS.has_feature("web") else "未发现房间 · 仍在搜索同一局域网…（也可直接输入 IP）"
+		return
+	_lan_room_hint.text = "发现 %d 个房间 · 点击加入" % rooms.size()
+	for entry: Dictionary in rooms:
+		var row := HBoxContainer.new()
+		row.add_theme_constant_override("separation", 8)
+		_lan_room_box.add_child(row)
+		var host_name := str(entry.get("host", "")).strip_edges()
+		var label_text := str(entry.get("name", "决斗房间"))
+		if not host_name.is_empty():
+			label_text += "   ·   房主 " + host_name
+		var label := _label(label_text, 14, WHITE)
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		row.add_child(label)
+		var join := _button("加入", YELLOW, 14)
+		join.custom_minimum_size = Vector2(78, 38)
+		join.pressed.connect(_lan_join_discovered.bind(str(entry.get("ip", "")), int(entry.get("port", 7777))))
+		row.add_child(join)
+		_lan_room_rows.append(row)
+
 func _feedback_slider(node_name: String, color: Color) -> HSlider:
 	var slider := HSlider.new()
 	slider.name = node_name
@@ -699,6 +1242,9 @@ func _resize() -> void:
 		choice.custom_minimum_size.y = 52.0 if short_landscape else (58.0 if compact else 100.0 * _scale)
 	_compact_overlay(_result_card, short_landscape, 18, 24, [56.0, 48.0])
 	_compact_overlay(_pause_card, short_landscape, 15, 25, [54.0, 46.0])
+	_compact_overlay(_entry_card, short_landscape, 8, 14, [64.0, 64.0])
+	if is_instance_valid(_entry_notice):
+		_entry_notice.visible = not short_landscape
 	var edge := 9.0 * _scale
 	_match_panel.position = Vector2(edge, edge)
 	_match_panel.size = Vector2(size.x - 2.0 * edge, 0)
@@ -717,16 +1263,31 @@ func _resize() -> void:
 	_fit_card(_menu_card, size, 750.0 * _scale)
 	_fit_card(_result_card, size, 540.0 * _scale)
 	_fit_card(_pause_card, size, 450.0 * _scale)
+	_fit_card(_lan_card, size, 620.0 * _scale)
+	_fit_card(_entry_card, size, 520.0 * _scale)
+	if is_instance_valid(_lan_scroll):
+		_lan_scroll.custom_minimum_size.y = clampf(size.y * 0.22, 90.0, 180.0)
 	_layout_feedback_settings(size)
 	call_deferred("_center_cards")
 
+var _layout_queued := false
+
 func _queue_overlay_layout() -> void:
-	if not get_tree().process_frame.is_connected(_resize):
-		get_tree().process_frame.connect(_resize, CONNECT_ONE_SHOT)
+	if _layout_queued:
+		return
+	_layout_queued = true
+	_refresh_overlay_layout.call_deferred()
+
+func _refresh_overlay_layout() -> void:
+	await get_tree().process_frame
+	_resize()
+	await get_tree().process_frame
+	_resize()
+	_layout_queued = false
 
 func _center_cards() -> void:
 	var size := get_viewport().get_visible_rect().size
-	for card in [_menu_card, _result_card, _pause_card, _settings_card]:
+	for card in [_menu_card, _result_card, _pause_card, _settings_card, _lan_card, _entry_card]:
 		card.position = (size - card.size) / 2.0
 
 func _layout_touch(width: float, height: float) -> void:
@@ -831,13 +1392,16 @@ func set_opponent_choice(choice:int) -> void:
 func _choose(character: int) -> void:
 	_clear_touches()
 	_hide_feedback_settings()
-	_set_fighter_identity(0, character)
+	_set_fighter_identity(local_side, character)
 	set_opponent_choice(opponent_for(character))
 	# Main resolves random once after selected.emit; never draw during UI rendering.
 	_set_special_status(character, 0.0)
 	_menu_open = false
 	_result_open = false
 	_paused = false
+	_entry_open = false
+	if is_instance_valid(_entry_overlay):
+		_entry_overlay.hide()
 	_menu_overlay.hide()
 	_result_overlay.hide()
 	_pause_overlay.hide()
@@ -854,7 +1418,7 @@ func _request_rematch() -> void:
 	rematch_requested.emit()
 
 func _gameplay_controls_active() -> bool:
-	return not desktop_controls() and not _menu_open and not _paused and not _result_open and not _settings_open
+	return not desktop_controls() and not _menu_open and not _paused and not _result_open and not _settings_open and not _lan_open and not _entry_open
 
 func _emit_command(action: String, pressed: bool) -> void:
 	if pressed and not _gameplay_controls_active():
@@ -970,6 +1534,21 @@ func _input(event: InputEvent) -> void:
 		if touch.pressed and not touch.canceled:
 			if _touch_contacts.has(touch.index):
 				_end_touch(touch.index, touch.position, false)
+			if OS.has_feature("web") and _lan_open:
+				if is_instance_valid(_lan_username) and _lan_username.get_global_rect().has_point(touch.position):
+					_open_account_dialog()
+					get_viewport().set_input_as_handled()
+					return
+				if is_instance_valid(_lan_room_name) and _lan_room_name.get_global_rect().has_point(touch.position):
+					_open_room_dialog()
+					get_viewport().set_input_as_handled()
+					return
+			for field: LineEdit in [_lan_username, _lan_room_name, _lan_address, _lan_join_port, _lan_host_port]:
+				if is_instance_valid(field) and field.is_visible_in_tree() and field.get_global_rect().has_point(touch.position):
+					field.grab_focus()
+					field.select_all()
+					get_viewport().set_input_as_handled()
+					return
 			var slider := _settings_slider_at(touch.position)
 			if slider:
 				_touch_contacts[touch.index] = {"kind": "slider", "slider": slider}
@@ -1068,6 +1647,10 @@ func _touch_button_at(position: Vector2) -> Button:
 	var active_root: Control = _root
 	if _settings_open:
 		active_root = _settings_overlay
+	elif _lan_open:
+		active_root = _lan_overlay
+	elif _entry_open:
+		active_root = _entry_overlay
 	elif _menu_open:
 		active_root = _menu_overlay
 	elif _result_open:
@@ -1130,9 +1713,9 @@ func _touch_highlight(button: Button, pressed: bool) -> void:
 	button.add_theme_color_override("font_color", INK if pressed else button.get_meta("normal_font_color"))
 
 func _update_visibility() -> void:
-	_touch_panel.visible = not desktop_controls() and not _menu_open and not _result_open
-	_desktop_help.visible = desktop_controls() and not _menu_open and not _result_open and not _paused
-	_match_panel.visible = not _menu_open
+	_touch_panel.visible = not desktop_controls() and not _menu_open and not _result_open and not _entry_open
+	_desktop_help.visible = desktop_controls() and not _menu_open and not _result_open and not _paused and not _entry_open
+	_match_panel.visible = not _menu_open and not _entry_open
 	_touch_inner.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func _overlay() -> ColorRect:

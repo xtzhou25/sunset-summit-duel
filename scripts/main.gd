@@ -4,6 +4,13 @@ const Characters=preload("res://scripts/characters.gd")
 const AI=preload("res://scripts/ai.gd")
 var sim=Combat.new()
 var brain=AI.new()
+var lan
+var network_active:=false
+var network_in_match:=false
+var network_is_host:=false
+var network_match_over:=false
+var network_result_reported:=false
+var network_result_text:=""
 var hud
 var camera:Camera3D
 var camera_rig=preload("res://scripts/fight_camera.gd").new()
@@ -68,7 +75,7 @@ var demo_elapsed:=0.0
 
 func _ready() -> void:
 	_sync_web_pixel_scale()
-	if OS.has_feature("web"): get_window().size_changed.connect(_sync_web_pixel_scale)
+	if OS.has_feature("web"): get_window().size_changed.connect(_queue_web_pixel_scale)
 	if not OS.has_feature("web") and not OS.has_feature("mobile"):
 		get_window().min_size=Vector2i(960,600)
 	world=Node3D.new(); add_child(world)
@@ -89,12 +96,38 @@ func _ready() -> void:
 	peach_contract=JSON.parse_string(FileAccess.get_file_as_string("res://assets/tao_peach_contract.json"))
 	load_characters()
 	hud=load("res://scripts/hud.gd").new(); add_child(hud)
-	hud.selected.connect(func(kind): start_match(kind,hud.opponent_for(kind)))
+	hud.selected.connect(_on_character_selected)
 	hud.command.connect(on_command)
 	hud.pause_requested.connect(toggle_pause)
-	hud.rematch_requested.connect(func(): start_match(selected,opponent_selection.requested))
-	hud.menu_requested.connect(show_menu)
+	hud.rematch_requested.connect(_on_rematch_requested)
+	hud.menu_requested.connect(_on_menu_requested)
 	hud.mute_requested.connect(toggle_mute)
+	hud.lan_host_requested.connect(_on_lan_host_requested)
+	hud.lan_join_requested.connect(_on_lan_join_requested)
+	hud.lan_cancel_requested.connect(_on_lan_cancel_requested)
+	hud.lan_discovery_requested.connect(_start_lan_discovery)
+	hud.lan_discovery_stopped.connect(_stop_lan_discovery)
+	lan=load("res://scripts/web_lan_network.gd" if OS.has_feature("web") else "res://scripts/lan_network.gd").new()
+	lan.name="LAN"; add_child(lan)
+	lan.lobby_ready.connect(_on_lan_lobby_ready)
+	lan.rooms_changed.connect(hud.set_lan_rooms)
+	lan.selections_changed.connect(_on_lan_selections_changed)
+	lan.choice_rejected.connect(_on_lan_choice_rejected)
+	lan.match_started.connect(_on_lan_match_started)
+	lan.snapshot_received.connect(_on_lan_snapshot)
+	lan.session_closed.connect(_on_lan_session_closed)
+	lan.connection_failed.connect(_on_lan_connection_failed)
+	lan.discovery_failed.connect(_on_lan_discovery_failed)
+	lan.discovery_ready.connect(_on_lan_discovery_ready)
+	lan.leaderboard_changed.connect(hud.set_lan_leaderboard)
+	lan.auth_question.connect(hud.lan_auth_question_received)
+	lan.auth_ok.connect(hud.lan_auth_ok)
+	lan.auth_error.connect(hud.lan_auth_error)
+	hud.lan_auth_register.connect(_on_lan_auth_register)
+	hud.lan_auth_login_begin.connect(_on_lan_auth_login_begin)
+	hud.lan_auth_login_answer.connect(_on_lan_auth_login_answer)
+	lan.pause_requested.connect(_on_lan_pause_requested)
+	lan.rematch_requested.connect(_on_lan_rematch_requested)
 	audio_pool=preload("res://scripts/combat_audio.gd").new(); add_child(audio_pool)
 	combat_audio=audio_pool
 	sound=audio_pool.players[0]; meow_sound=audio_pool.players[6]
@@ -111,16 +144,26 @@ func _ready() -> void:
 		elif arg.begins_with("--screenshot="): screenshot_path=arg.trim_prefix("--screenshot="); screenshot_countdown=2.0
 	render_state(0.0)
 
+func _queue_web_pixel_scale() -> void:
+	call_deferred("_sync_web_pixel_scale")
+
 func _sync_web_pixel_scale() -> void:
 	if not OS.has_feature("web"): return
-	var raw=JavaScriptBridge.eval("window.devicePixelRatio||1")
-	if raw==null: return
-	var dpr:=clampf(float(raw),1.0,WEB_MAX_DPR)
 	var win:=get_window()
-	var logical:=Vector2i(maxi(1,int(round(win.size.x/dpr))),maxi(1,int(round(win.size.y/dpr))))
-	if win.content_scale_mode==Window.CONTENT_SCALE_MODE_CANVAS_ITEMS and win.content_scale_size==logical: return
+	var dpr:=clampf(float(JavaScriptBridge.eval("window.devicePixelRatio||1")),1.0,WEB_MAX_DPR)
+	var logical:=Vector2i.ZERO
+	var canvas_raw:Variant=JavaScriptBridge.eval("(function(){var c=document.getElementById('canvas');return c?[c.width,c.height]:null;})()")
+	if canvas_raw is Array and canvas_raw.size()>=2:
+		# Read the backing buffer directly: the HTML shell may resize it in the
+		# same frame as a CSS page rotation, before Window.size reports the new
+		# value. Using the stale portrait size letterboxes the rotated canvas.
+		logical=Vector2i(maxi(1,int(round(float(canvas_raw[0])/dpr))),maxi(1,int(round(float(canvas_raw[1])/dpr))))
+	else:
+		logical=Vector2i(maxi(1,int(round(win.size.x/dpr))),maxi(1,int(round(win.size.y/dpr))))
+	if win.content_scale_mode==Window.CONTENT_SCALE_MODE_CANVAS_ITEMS and win.content_scale_size==logical and win.content_scale_aspect==Window.CONTENT_SCALE_ASPECT_IGNORE: return
 	win.content_scale_size=logical
 	win.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+	win.content_scale_aspect=Window.CONTENT_SCALE_ASPECT_IGNORE
 
 func load_characters() -> void:
 	var pair:Array=[selected,opponent_selected]
@@ -209,7 +252,230 @@ func update_fight_camera(delta:float,snap:bool=false) -> void:
 		stage.motion_active=playing and not paused
 		stage.update_view(camera,gameplay_height,not shake_enabled)
 
+func _on_character_selected(kind:int) -> void:
+	if lan and lan.active:
+		lan.choose_character(kind)
+		if not lan.is_host and not network_in_match:
+			hud.show_lan_lobby("已选择 %s · 等待确认…" % str(Characters.get_character(kind).name))
+	else:
+		start_match(kind,hud.opponent_for(kind))
+
+func _on_rematch_requested() -> void:
+	if network_active:
+		if network_is_host:
+			if not playing: lan.host_rematch()
+		else:
+			lan.request_rematch()
+	else:
+		start_match(selected,opponent_selection.requested)
+
+func _on_menu_requested() -> void:
+	if network_active:
+		lan.leave("已退出局域网对战")
+	else:
+		show_menu()
+
+func _start_lan_discovery() -> void:
+	if lan: lan.start_discovery()
+
+func _stop_lan_discovery() -> void:
+	if lan: lan.stop_discovery()
+
+func _on_lan_host_requested(room:String,port:int,username:String) -> void:
+	if not lan:
+		hud.lan_status("浏览器版暂不支持局域网直连 · 请使用桌面版")
+		return
+	lan.stop_discovery()
+	if lan.host_room(room,port,username):
+		if OS.has_feature("web"):
+			hud.lan_status("房间已创建 · 昵称 %s · 等待大厅对手加入" % username)
+		else:
+			hud.lan_status("房间已创建 · 昵称 %s · 本机 IP %s · 等待对手加入" % [username,lan.local_ipv4()])
+	else:
+		hud.lan_status("创建失败 · 端口 %d 可能已被占用" % port)
+
+func _on_lan_join_requested(address:String,port:int,username:String) -> void:
+	if not lan:
+		hud.lan_status("浏览器版暂不支持局域网直连 · 请使用桌面版")
+		return
+	if lan.join_room(address,port,username):
+		if OS.has_feature("web"):
+			hud.lan_status("正在加入大厅房间 %s …" % address)
+		else:
+			hud.lan_status("正在连接 %s:%d …" % [address,port])
+	else:
+		hud.lan_status("无法发起连接 · 请检查房间或 IP")
+
+func _on_lan_cancel_requested() -> void:
+	if lan and lan.active:
+		lan.leave("已取消局域网房间")
+	else:
+		hud.show_entry("已返回模式选择")
+
+func _on_lan_lobby_ready(host_side:bool) -> void:
+	network_active=true
+	network_in_match=false
+	network_is_host=host_side
+	network_match_over=false
+	hud.set_local_side(0 if network_is_host else 1)
+	var local_name:String=lan.host_name if network_is_host else lan.local_name
+	hud.show_lan_lobby("你（%s）已连接对手（%s） · 选择角色（双方不能相同）" % [local_name,lan.remote_name()])
+
+func _lan_lobby_text(host_kind:int,guest_kind:int) -> String:
+	var local_kind:int=host_kind if lan.is_host else guest_kind
+	var remote_kind:int=guest_kind if lan.is_host else host_kind
+	var local_name:String=lan.host_name if lan.is_host else lan.local_name
+	var remote_name:String=lan.guest_name if lan.is_host else lan.host_name
+	var parts:Array=[]
+	if local_kind>=0: parts.append("你（%s）：%s" % [local_name,str(Characters.get_character(local_kind).name)])
+	if remote_kind>=0: parts.append("对手（%s）：%s" % [remote_name,str(Characters.get_character(remote_kind).name)])
+	var text:=""
+	for part in parts:
+		if text!="": text+=" · "
+		text+=str(part)
+	if host_kind>=0 and guest_kind>=0 and host_kind!=guest_kind:
+		return text+" · 准备开赛！"
+	if text.is_empty():
+		return "已连接对手 %s · 选择角色（双方不能相同）" % lan.remote_name()
+	return text+" · 等待选择…"
+
+func _on_lan_selections_changed(host_kind:int,guest_kind:int) -> void:
+	if not network_active or network_in_match: return
+	hud.show_lan_lobby(_lan_lobby_text(host_kind,guest_kind))
+
+func _on_lan_choice_rejected(reason:String) -> void:
+	if network_active and not network_in_match:
+		hud.show_lan_lobby(reason)
+
+func _on_lan_match_started(host_kind:int,guest_kind:int) -> void:
+	start_lan_match(host_kind,guest_kind,lan.is_host)
+
+func _on_lan_snapshot(state:Dictionary) -> void:
+	apply_network_snapshot(state)
+
+func _on_lan_session_closed(reason:String) -> void:
+	network_active=false
+	network_in_match=false
+	network_is_host=false
+	network_match_over=false
+	playing=false
+	paused=false
+	if audio_pool: audio_pool.suspend(false)
+	if hud:
+		hud.set_paused(false)
+		hud.show_entry(reason)
+
+func _on_lan_connection_failed(reason:String) -> void:
+	hud.lan_status(reason)
+
+func _on_lan_discovery_failed(reason:String) -> void:
+	hud.lan_status(reason)
+
+func _on_lan_discovery_ready() -> void:
+	if OS.has_feature("web"):
+		hud.lan_status("大厅已连接 · 可创建房间或从列表加入")
+	else:
+		hud.lan_status("局域网搜索已开启 · 可创建房间或手动加入")
+
+func _on_lan_auth_register(username:String,question:String,answer:String) -> void:
+	if lan: lan.auth_register(username,question,answer)
+
+func _on_lan_auth_login_begin(username:String) -> void:
+	if lan: lan.auth_login_begin(username)
+
+func _on_lan_auth_login_answer(username:String,answer:String) -> void:
+	if lan: lan.auth_login_answer(username,answer)
+
+func _on_lan_pause_requested() -> void:
+	if network_active and network_is_host:
+		toggle_pause()
+
+func _on_lan_rematch_requested() -> void:
+	if network_active and network_is_host and not playing:
+		lan.host_rematch()
+
+func start_lan_match(host_kind:int,guest_kind:int,local_is_host:bool) -> void:
+	host_kind=Characters.valid_kind(host_kind)
+	guest_kind=Characters.valid_kind(guest_kind)
+	if host_kind==guest_kind: return
+	network_active=true; network_in_match=true; network_is_host=local_is_host
+	network_match_over=false; network_result_reported=false; network_result_text=""
+	selected=host_kind
+	opponent_selected=guest_kind
+	wins=[0,0]; playing=true; paused=false; round_delay=0.0; hitstop=0.0
+	sim.event_serial=0
+	sim.reset(selected,opponent_selected); brain.reset(); clear_inputs(); clear_feedback(); load_characters()
+	if lan: lan.discard_guest_input()
+	hud.set_local_side(0 if network_is_host else 1)
+	hud.start_lan_match_view()
+	hud.set_paused(false)
+	status_text="第一回合 · 开始！"
+	sound_enabled=true
+	audio_pool.unlock(); audio_pool.suspend(false)
+	ui_serial+=1; audio_pool.play_cue("ui_confirm","ui:"+str(ui_serial))
+	layout_camera()
+
+func _network_state() -> Dictionary:
+	return {
+		"fighters":sim.fighters.duplicate(true),
+		"projectiles":sim.projectiles.duplicate(true),
+		"events":sim.events.duplicate(true),
+		"emitters":emitter_positions.duplicate(true),
+		"time_left":sim.time_left,
+		"round_over":sim.round_over,
+		"winner":sim.winner,
+		"elapsed":sim.elapsed,
+		"wins":wins.duplicate(),
+		"status":status_text,
+		"playing":playing,
+		"paused":paused,
+		"result":network_result_text,
+	}
+
+func apply_network_snapshot(state:Dictionary) -> void:
+	if not network_active or network_is_host or not network_in_match: return
+	var incoming_paused:bool=bool(state.get("paused",false))
+	if incoming_paused!=paused:
+		paused=incoming_paused
+		clear_inputs()
+		hud.set_paused(paused)
+		audio_pool.suspend(paused)
+		if paused: reset_shake()
+	sim.fighters=state.get("fighters",sim.fighters)
+	sim.projectiles=state.get("projectiles",[])
+	sim.time_left=float(state.get("time_left",sim.time_left))
+	sim.round_over=bool(state.get("round_over",false))
+	sim.winner=int(state.get("winner",-2))
+	sim.elapsed=float(state.get("elapsed",sim.elapsed))
+	wins=state.get("wins",[0,0])
+	status_text=str(state.get("status",status_text))
+	var emitters:Variant=state.get("emitters",{})
+	if emitters is Dictionary: emitter_positions=emitters
+	var was_playing:=playing
+	playing=bool(state.get("playing",playing))
+	var events:Array=state.get("events",[])
+	sim.events=events
+	for e:Dictionary in events:
+		var event_id:int=int(e.get("event_id",-1))
+		if event_id>sim.event_serial: sim.event_serial=event_id
+		dispatch_feedback(e)
+	sim.events=[]
+	if not playing and was_playing:
+		network_match_over=true
+		hud.show_result(str(state.get("result","胜负已分")))
+	elif playing and network_match_over:
+		network_match_over=false
+
+func _network_guest_tick(delta:float) -> void:
+	if network_in_match and playing and not paused:
+		lan.send_input(player_command())
+	else:
+		player_command()
+	if hitstop>0.0:
+		hitstop=maxf(0.0,hitstop-delta)
+
 func start_match(kind:int,opponent_kind:int=-1) -> void:
+	network_active=false; network_in_match=false; network_is_host=false; network_match_over=false
 	selected=Characters.valid_kind(kind)
 	opponent_selected=opponent_selection.begin_match(selected,opponent_kind)
 	hud.set_opponent_choice(opponent_selection.requested)
@@ -234,6 +500,9 @@ func toggle_mute() -> void:
 
 func toggle_pause() -> void:
 	if not playing: return
+	if network_active and not network_is_host:
+		lan.request_pause()
+		return
 	paused=not paused; clear_inputs(); hud.set_paused(paused)
 	audio_pool.suspend(paused)
 	if paused: reset_shake()
@@ -302,6 +571,15 @@ func _input(event:InputEvent) -> void:
 				get_window().mode = Window.MODE_WINDOWED if fullscreen else Window.MODE_FULLSCREEN
 			get_viewport().set_input_as_handled()
 			return
+	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_ESCAPE:
+		if hud and hud.lan_panel_open():
+			hud.request_lan_cancel()
+			get_viewport().set_input_as_handled()
+			return
+		if network_active and not network_in_match and not playing:
+			_on_menu_requested()
+			get_viewport().set_input_as_handled()
+			return
 	if hud and hud.feedback_settings_open(): return
 	if event is InputEventKey and not event.echo:
 		if event.physical_keycode in [KEY_F6,KEY_F7,KEY_F10,KEY_F11,KEY_F12] and not OS.is_debug_build(): return
@@ -346,6 +624,9 @@ func _notification(what:int) -> void:
 		clear_inputs()
 		if audio_pool: audio_pool.suspend(true)
 		reset_shake()
+		if network_active and not network_is_host:
+			if audio_pool: audio_pool.suspend(paused)
+			return
 		if playing and not paused:
 			paused=true
 			if hud: hud.set_paused(true)
@@ -358,6 +639,10 @@ func player_command() -> Dictionary:
 func _physics_process(delta:float) -> void:
 	if not hud: return
 	tick_feedback(delta)
+	if network_active and not network_is_host:
+		_network_guest_tick(delta)
+		render_state(delta)
+		return
 	if auto_demo and playing:
 		demo_elapsed+=delta
 		if int(demo_elapsed*2)%3==0: held.right=true; held.left=false
@@ -375,20 +660,34 @@ func _physics_process(delta:float) -> void:
 			if round_delay<=0.0:
 				if wins[0]>=2 or wins[1]>=2:
 					playing=false
-					hud.show_result(str(Characters.get_character(sim.fighters[0 if wins[0]>=2 else 1].kind).name)+" · 演出获胜！")
+					network_result_text=str(Characters.get_character(sim.fighters[0 if wins[0]>=2 else 1].kind).name)+" · 演出获胜！"
+					hud.show_result(network_result_text)
+					if network_active and network_is_host and not network_result_reported and lan:
+						network_result_reported=true
+						lan.report_result("host" if wins[0]>=2 else "guest")
 				else:
 					sim.reset(selected,opponent_selected); brain.reset(); clear_inputs(); clear_feedback(); layout_camera()
+					if network_active: lan.discard_guest_input()
 					status_text="平局重赛 · 开始！" if status_text.begins_with("平局") else "下一回合 · 开始！"
 		elif hitstop>0.0: hitstop-=delta
 		else:
-			sim.step(delta,[player_command(),brain.act(sim,delta)])
+			var opponent_command:Dictionary=lan.consume_guest_command() if network_active else brain.act(sim,delta)
+			sim.step(delta,[player_command(),opponent_command])
 			for e in sim.events:
 				dispatch_feedback(e)
 				if e.type=="round":
 					if e.winner>=0: wins[e.winner]+=1
-					status_text="平局 · 本回合重赛" if e.winner==-1 else ("你拿下一局！" if e.winner==0 else "对手拿下一局")
+					if network_active:
+						status_text="平局 · 本回合重赛" if e.winner==-1 else (str(Characters.get_character(sim.fighters[e.winner].kind).name)+" 拿下一局")
+					else:
+						status_text="平局 · 本回合重赛" if e.winner==-1 else ("你拿下一局！" if e.winner==0 else "对手拿下一局")
 					round_delay=2.4; clear_inputs()
+					if network_active: lan.discard_guest_input()
+	elif network_active and paused and lan:
+		lan.discard_guest_input()
 	render_state(delta)
+	if network_active and network_in_match and network_is_host and lan:
+		lan.send_snapshot(_network_state())
 	if screenshot_countdown>=0.0:
 		screenshot_countdown-=delta
 		if screenshot_countdown<0.0: capture.call_deferred()
@@ -567,7 +866,12 @@ func render_state(_delta:float) -> void:
 	if not sim.round_over:
 		if a.get("down",false): hud_status="倒地中 · 起身后短暂保护"
 		elif b.get("down",false): hud_status="飞踢击倒 · 倒地无法追打"
-	hud.set_match({"special_kind":a.kind,"special_cd":a.get("special_cooldown",0.0),"hp0":a.hp,"hp1":b.hp,"guard0":a.guard,"guard1":b.guard,"wins0":wins[0],"wins1":wins[1],"time":ceili(sim.time_left),"status":hud_status,"kinds":[a.kind,b.kind],"names":[str(Characters.get_character(a.kind).name),str(Characters.get_character(b.kind).name)+" AI"]})
+	var suffix0:String=""
+	var suffix1:String=" AI"
+	if network_active:
+		suffix0="（你）" if network_is_host else "（对手）"
+		suffix1="（对手）" if network_is_host else "（你）"
+	hud.set_match({"special_kind":a.kind,"special_cd":a.get("special_cooldown",0.0),"special_kind0":a.kind,"special_cd0":a.get("special_cooldown",0.0),"special_kind1":b.kind,"special_cd1":b.get("special_cooldown",0.0),"hp0":a.hp,"hp1":b.hp,"guard0":a.guard,"guard1":b.guard,"wins0":wins[0],"wins1":wins[1],"time":ceili(sim.time_left),"status":hud_status,"kinds":[a.kind,b.kind],"names":[str(Characters.get_character(a.kind).name)+suffix0,str(Characters.get_character(b.kind).name)+suffix1]})
 
 func clear_feedback() -> void:
 	for prop in rifle_props:

@@ -39,6 +39,10 @@ for stale in out.glob('*.import'): stale.unlink()
 # Unsupported WebGL is reported honestly, never hidden as success.
 from apply_fullscreen_patch import patch_html
 html = patch_html(html)
+auth_css = (root/'web-ui/duel_auth.css').read_text()
+auth_js = (root/'web-ui/duel_auth.js').read_text()
+html = html.replace('</head>', '<style id="duel-auth-style">\n' + auth_css + '</style>\n</head>', 1)
+html = html.replace('</body>', '<script id="duel-auth-script">\n' + auth_js + '</script>\n</body>', 1)
 (out/'index.html').write_text(html)
 (out/'BUILD.json').write_text(json.dumps({'engine':'Godot4.6.3','threads':False,'wasm_bytes':len(raw),'compressed_bytes':len(compressed),'wasm_sha256':hashlib.sha256(raw).hexdigest()},indent=2))
 print('pack',len(raw),'->',len(compressed),'bytes; maximum file',max(p.stat().st_size for p in out.iterdir()))
