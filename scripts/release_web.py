@@ -26,19 +26,26 @@ SKIP_DIRS = ("deploy/", "dist/", "exports/", ".godot/", "node_modules/")
 SITE_URL = "https://mirugumi.space/minigame/"
 
 
-def changed_files() -> list[str]:
-    """列出和构建机不一致的文件：未提交的改动 + 新增文件。
+def git(*args: str) -> str:
+    r = subprocess.run(["git", "-C", str(ROOT), *args], capture_output=True,
+                       text=True, encoding="utf-8")
+    if r.returncode != 0:
+        raise SystemExit("git %s 执行失败: %s" % (" ".join(args), r.stderr.strip()))
+    return r.stdout
 
-    用 git 判断而不是时间戳，构建机与本地的提交一致时同步量最小。
+
+def changed_files(remote_head: str = "") -> list[str]:
+    """列出需要同步到构建机的文件。
+
+    以构建机当前所在的提交为基线，比较本地工作区：这样既包含已提交但还没
+    同步过去的提交，也包含未提交的改动和新增文件。构建机提交不在本地历史里
+    时（比如对方更新过）退化成同步全部已跟踪文件。
     """
-    def git(*args: str) -> str:
-        r = subprocess.run(["git", "-C", str(ROOT), *args], capture_output=True,
-                           text=True, encoding="utf-8")
-        if r.returncode != 0:
-            raise SystemExit("git %s 执行失败: %s" % (" ".join(args), r.stderr.strip()))
-        return r.stdout
-
-    names = set(git("diff", "--name-only", "HEAD").splitlines())
+    base = remote_head.strip() or "HEAD"
+    try:
+        names = set(git("diff", "--name-only", base).splitlines())
+    except SystemExit:
+        names = set(git("ls-files").splitlines())
     names |= set(git("ls-files", "--others", "--exclude-standard").splitlines())
     names = {n.strip() for n in names if n.strip()}
     return sorted(n for n in names if not n.startswith(SKIP_DIRS))
@@ -67,7 +74,12 @@ def main() -> None:
     except ImportError:
         raise SystemExit("pip install paramiko")
 
-    if not args.host and not args.dry_run:
+    if not args.host:
+        if args.dry_run:
+            print("[基线] 未指定构建机，只列本地未提交的改动")
+            for rel in changed_files():
+                print("   ", rel)
+            return
         raise SystemExit("请用 --host <ip> 或环境变量 RELEASE_HOST 指定构建机")
     password = os.environ.get("SSH_PASSWORD")
     if not args.dry_run and not password and not args.key:
@@ -75,21 +87,25 @@ def main() -> None:
 
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(args.host, username=args.user, password=password, key_filename=args.key,
-                   timeout=30, banner_timeout=60)
+    try:
+        client.connect(args.host, username=args.user, password=password, key_filename=args.key,
+                       timeout=30, banner_timeout=60)
+    except Exception as exc:  # 网络不通、密码错误、指纹异常都在这里收口
+        raise SystemExit("无法连接 %s@%s: %s" % (args.user, args.host, exc))
 
-    changed = []
+    _, head_out, _ = client.exec_command("git -C %s rev-parse HEAD 2>/dev/null" % REMOTE_ROOT, timeout=60)
+    remote_head = head_out.read().decode("utf-8", "replace").strip()
+    print("[基线] 构建机提交 %s" % (remote_head[:12] or "未知"))
+
+    changed = [rel for rel in changed_files(remote_head) if (ROOT / rel).is_file()]
+    print("[同步] %d 个文件需要同步" % len(changed))
+    for rel in changed:
+        print("   ", rel)
+    if args.dry_run:
+        client.close()
+        return
+
     with client.open_sftp() as sftp:
-        for rel in changed_files():
-            local = ROOT / rel
-            if local.is_file() and needs_upload(sftp, rel, local):
-                changed.append(rel)
-        print("[同步] %d/%d 个文件与构建机不同" % (len(changed), len(changed_files())))
-        for rel in changed:
-            print("   ", rel)
-        if args.dry_run:
-            client.close()
-            return
         for rel in changed:
             local = ROOT / rel
             remote = posixpath.join(REMOTE_ROOT, rel)
