@@ -62,14 +62,16 @@
   }
   function fitCanvas(alreadyCanceled) {
     // CSS transforms exchange getBoundingClientRect axes; use UNTRANSFORMED client sizes.
-    const width = Math.floor(frame.clientWidth);
-    const height = Math.floor(frame.clientHeight);
-    if (width < 1 || height < 1) return;
+    if (frame.clientWidth < 1 || frame.clientHeight < 1) return;
+    // 按物理像素渲染，HiDPI 屏幕才不糊；布局尺寸仍以 CSS 像素为准，
+    // 由 main.gd 的 Window.content_scale_size 保持。
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const width = Math.max(1, Math.round(frame.clientWidth * dpr));
+    const height = Math.max(1, Math.round(frame.clientHeight * dpr));
     if (canvas.width === width && canvas.height === height) return;
     if (!alreadyCanceled) { cancelInput(); ++revision; }
-    // Preserve RC5's CSS-pixel viewport at DPR1/2/3 for readable HUD and touch targets.
-    if (canvas.width !== width) canvas.width = width;
-    if (canvas.height !== height) canvas.height = height;
+    canvas.width = width;
+    canvas.height = height;
   }
   function layout(nextMode, forceCancel) {
     const view = viewport();

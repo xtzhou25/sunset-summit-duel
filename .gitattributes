@@ -1,0 +1,24 @@
+# 文本文件在仓库和工作区都统一用 LF，避免 Godot、Python 脚本和编辑器
+# 各自写回不同的换行符，产生“只有换行符不同”的假改动。
+* text=auto eol=lf
+
+# Windows 专用脚本保持 CRLF，保证 cmd.exe / PowerShell 5.1 正常解析。
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# 动捕源数据按原样保存，不做换行转换。
+*.bvh -text
+
+# 二进制文件不做任何处理。
+*.glb binary
+*.otf binary
+*.ttf binary
+*.wav binary
+*.png binary
+*.jpg binary
+*.pck binary
+*.wasm binary
+*.zip binary
+*.tpz binary
+*.exe binary

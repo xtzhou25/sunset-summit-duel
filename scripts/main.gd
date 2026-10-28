@@ -60,12 +60,15 @@ var feedback_floor:=0
 var feedback_watermark:=0
 var ui_serial:=0
 const SETTINGS_PATH="user://feedback.cfg"
+const WEB_MAX_DPR:=2.0
 var screenshot_countdown:=-1.0
 var screenshot_path:=""
 var auto_demo:=false
 var demo_elapsed:=0.0
 
 func _ready() -> void:
+	_sync_web_pixel_scale()
+	if OS.has_feature("web"): get_window().size_changed.connect(_sync_web_pixel_scale)
 	if not OS.has_feature("web") and not OS.has_feature("mobile"):
 		get_window().min_size=Vector2i(960,600)
 	world=Node3D.new(); add_child(world)
@@ -107,6 +110,17 @@ func _ready() -> void:
 		if arg=="--demo": auto_demo=true; hud._choose(0)
 		elif arg.begins_with("--screenshot="): screenshot_path=arg.trim_prefix("--screenshot="); screenshot_countdown=2.0
 	render_state(0.0)
+
+func _sync_web_pixel_scale() -> void:
+	if not OS.has_feature("web"): return
+	var raw=JavaScriptBridge.eval("window.devicePixelRatio||1")
+	if raw==null: return
+	var dpr:=clampf(float(raw),1.0,WEB_MAX_DPR)
+	var win:=get_window()
+	var logical:=Vector2i(maxi(1,int(round(win.size.x/dpr))),maxi(1,int(round(win.size.y/dpr))))
+	if win.content_scale_mode==Window.CONTENT_SCALE_MODE_CANVAS_ITEMS and win.content_scale_size==logical: return
+	win.content_scale_size=logical
+	win.content_scale_mode=Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 
 func load_characters() -> void:
 	var pair:Array=[selected,opponent_selected]
