@@ -89,7 +89,6 @@ node tests/browser_directional_fixture_test.cjs
 - `docs/`：来源、许可、玩法契约与历史验证。
 - `runtime-optimization/`：精简引擎构建配置、溯源与许可。
 
-
 输入归档：`Sunset-Summit-Duel-Desktop-Source.zip`。
 SHA256：`64c567c702c7b62b742f4823ba8cf8b0e4d18c1c3f76d31b0e3fa0e591138988`。
 
