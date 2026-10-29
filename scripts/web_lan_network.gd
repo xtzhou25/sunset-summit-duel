@@ -85,7 +85,7 @@ func _process(delta: float) -> void:
 		if _rtc_pc != null and not _rtc_connected and active:
 			_rtc_wait += delta
 			if _rtc_wait > 12.0 and _rtc_wait < 12.5:
-				status_changed.emit("连接超时 · 请确认两台设备在同一网络")
+				status_changed.emit("连接超时 · 开热点的手机无法参战；请让两台设备连同一个 Wi-Fi")
 		if state == WebRTCPeerConnection.STATE_FAILED and active and not _rtc_connected:
 			_fail("连接失败 · 请确认两台设备在同一网络后重试")
 		elif state == WebRTCPeerConnection.STATE_CLOSED and active and _rtc_connected:
