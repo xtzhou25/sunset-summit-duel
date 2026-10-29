@@ -40,7 +40,7 @@ jobs:
           set -e
           OUT=$(ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
             "$DEPLOY_USER@$DEPLOY_HOST" \
-            "bash -lc 'set -e; cd /home/deploy/build/sunset-summit-duel && git fetch --prune origin && git clean -fd && git reset --hard origin/main && bash scripts/release_web.sh'" 2>&1)
+            "bash -lc 'set -e; cd /home/deploy/build/sunset-summit-duel; git fetch --prune origin; git clean -fd; OLD=\$(git rev-parse HEAD); git reset --hard origin/main; bash scripts/release_web.sh; if git diff --name-only \$OLD HEAD -- server/ | grep -q .; then echo \"[信令] server/ 有改动，重启服务\"; systemctl --user restart duel-signal || echo \"::warning::信令服务重启失败，检查 user unit 是否已安装\"; else echo \"[信令] server/ 无改动，跳过重启\"; fi'" 2>&1)
           printf '%s\n' "$OUT"
           REV=$(printf '%s\n' "$OUT" | sed -n 's/^REVISION=//p' | tail -1)
           if [ -z "$REV" ]; then

@@ -19,8 +19,12 @@ const crypto = require('crypto');
 const fs = require('fs');
 const HOST = process.env.SIGNAL_HOST || '172.17.0.1';
 const PORT = Number(process.env.SIGNAL_PORT || 8899);
-const DATA_DIR = '/home/admin/duel-signal';
-const ACCOUNTS_FILE = DATA_DIR + '/accounts.json';
+const path = require('path');
+const DATA_DIR = process.env.DUEL_DATA_DIR || path.join(process.env.HOME || '.', '.duel-signal');
+const ACCOUNTS_FILE = path.join(DATA_DIR, 'accounts.json');
+try {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+} catch (_) {}
 const GRACE_MS = Number(process.env.SIGNAL_GRACE_MS || 60000);
 const rooms = new Map();
 const sockets = new Set();
