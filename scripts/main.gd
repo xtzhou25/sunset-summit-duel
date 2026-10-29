@@ -117,6 +117,7 @@ func _ready() -> void:
 	lan.snapshot_received.connect(_on_lan_snapshot)
 	lan.session_closed.connect(_on_lan_session_closed)
 	lan.connection_failed.connect(_on_lan_connection_failed)
+	lan.status_changed.connect(func(message:String)->void: hud.lan_status(message))
 	lan.discovery_failed.connect(_on_lan_discovery_failed)
 	lan.discovery_ready.connect(_on_lan_discovery_ready)
 	lan.leaderboard_changed.connect(hud.set_lan_leaderboard)

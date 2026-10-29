@@ -21,6 +21,7 @@ const HOST = process.env.SIGNAL_HOST || '172.17.0.1';
 const PORT = Number(process.env.SIGNAL_PORT || 8899);
 const DATA_DIR = '/home/admin/duel-signal';
 const ACCOUNTS_FILE = DATA_DIR + '/accounts.json';
+const GRACE_MS = Number(process.env.SIGNAL_GRACE_MS || 60000);
 const rooms = new Map();
 const sockets = new Set();
 const accounts = new Map();
@@ -96,8 +97,22 @@ function roomOf(ws) {
 function publicRooms(excludeKey) {
   const list = [];
   for (const [key, room] of rooms) {
-    if (key === excludeKey || room.guest) continue;
-    list.push({ key, name: room.name, host: room.host.name, players: 1 });
+    const guest = room.guest;
+    const hostOnline = !!(room.host && room.host.ws);
+    const guestOnline = !!(guest && guest.ws);
+    let status = 'waiting';
+    if (guest) status = guestOnline && hostOnline ? 'playing' : 'reconnecting';
+    else if (!hostOnline) status = 'reconnecting';
+    list.push({
+      key,
+      name: room.name,
+      host: room.host.name,
+      guest: guest ? guest.name : '',
+      status,
+      players: guest ? 2 : 1,
+      joinable: !guest && hostOnline,
+      mine: key === excludeKey,
+    });
   }
   return list;
 }
@@ -109,15 +124,47 @@ function broadcastRooms() {
   }
 }
 
-function detach(ws) {
+function slotOf(room, role) {
+  return role === 'host' ? room.host : room.guest;
+}
+
+function purgeRoom(room) {
+  if (room.purgeTimer) {
+    clearTimeout(room.purgeTimer);
+    room.purgeTimer = null;
+  }
+  if (!rooms.has(room.key)) return;
+  rooms.delete(room.key);
+  const host = room.host.ws;
+  const guest = room.guest ? room.guest.ws : null;
+  const done = (ws, reason) => {
+    if (!ws) return;
+    ws.roomKey = null;
+    ws.role = null;
+    send(ws, { type: 'session_closed', reason });
+  };
+  done(host, '对手已离开房间');
+  done(guest, '房主已关闭房间');
+  broadcastRooms();
+}
+
+// 信令掉线时先保留房间，给掉线的一方留出重连窗口；超时才真正结束。
+function detach(ws, immediate) {
   const room = roomOf(ws);
   if (room) {
-    if (ws.role === 'host') {
-      if (room.guest) send(room.guest.ws, { type: 'session_closed', reason: '房主已关闭房间' });
-      rooms.delete(room.key);
+    const role = ws.role;
+    const slot = slotOf(room, role);
+    if (slot && slot.ws === ws) slot.ws = null;
+    const other = slotOf(room, role === 'host' ? 'guest' : 'host');
+    if (other && other.ws) send(other.ws, { type: 'peer_offline', role });
+    if (immediate) {
+      purgeRoom(room);
+    } else if (room.host.ws || (room.guest && room.guest.ws)) {
+      // 还有一方在线，等宽限期结束再收尾
+      if (room.purgeTimer) clearTimeout(room.purgeTimer);
+      room.purgeTimer = setTimeout(() => purgeRoom(room), GRACE_MS);
     } else {
-      if (room.host.ws) send(room.host.ws, { type: 'session_closed', reason: '对手已离开房间' });
-      rooms.delete(room.key);
+      purgeRoom(room);
     }
   }
   ws.roomKey = null;
@@ -151,6 +198,10 @@ wss.on('connection', (ws) => {
       message = JSON.parse(raw.toString('utf8'));
     } catch (_) {
       return;
+    }
+    if (process.env.SIGNAL_DEBUG) {
+      var extra = message.type === 'ice' ? JSON.stringify(message.candidate) : (message.room || '');
+      console.log('[msg]', ws.role || '-', ws.name || '-', message.type, extra);
     }
     if (!message || typeof message.type !== 'string') return;
 
@@ -264,6 +315,38 @@ wss.on('connection', (ws) => {
       return;
     }
 
+    if (message.type === 'rejoin') {
+      const key = text(message.room, '', 32);
+      const room = rooms.get(key);
+      if (!room) {
+        send(ws, { type: 'error', message: '房间已结束' });
+        return;
+      }
+      const role = message.role === 'guest' ? 'guest' : 'host';
+      const slot = slotOf(room, role);
+      if (!slot) {
+        send(ws, { type: 'error', message: '房间已结束' });
+        return;
+      }
+      if (slot.ws) {
+        send(ws, { type: 'error', message: '该席位已被占用' });
+        return;
+      }
+      slot.ws = ws;
+      ws.roomKey = key;
+      ws.role = role;
+      ws.name = slot.name;
+      if (room.purgeTimer) {
+        clearTimeout(room.purgeTimer);
+        room.purgeTimer = null;
+      }
+      send(ws, { type: 'rejoined', room: key, role: role, host: room.host.name });
+      const other = slotOf(room, role === 'host' ? 'guest' : 'host');
+      if (other && other.ws) send(other.ws, { type: 'peer_back', role: role });
+      broadcastRooms();
+      return;
+    }
+
     if (message.type === 'offer' || message.type === 'answer' || message.type === 'ice') {
       const room = roomOf(ws);
       if (!room) return;
@@ -286,7 +369,7 @@ wss.on('connection', (ws) => {
     }
 
     if (message.type === 'leave') {
-      detach(ws);
+      detach(ws, true);
       ws.close();
       return;
     }

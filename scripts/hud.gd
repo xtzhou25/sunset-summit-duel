@@ -752,7 +752,7 @@ func _build_lan() -> void:
 	stack.add_theme_constant_override("separation", 10)
 	_lan_card.add_child(_margin(stack, 22, 18))
 	stack.add_child(_center_label("局域网大厅", 26, WHITE))
-	stack.add_child(_center_label("浏览器大厅 · WebRTC 点对点直连 · 信令只负责握手" if OS.has_feature("web") else "同一局域网自动发现 · 房主直接开局，不经任何外部服务器", 13, DIM))
+	stack.add_child(_center_label("同一网络内自动发现房间 · 一台建房、另一台加入即可开打" if OS.has_feature("web") else "同一局域网自动发现 · 房主直接开局，不经任何外部服务器", 13, DIM))
 	var name_row := HFlowContainer.new()
 	name_row.add_theme_constant_override("separation", 8)
 	stack.add_child(name_row)
@@ -873,7 +873,7 @@ func _build_entry() -> void:
 	online.custom_minimum_size.y = 64
 	online.pressed.connect(show_lan_panel)
 	stack.add_child(online)
-	stack.add_child(_center_label("单机：选择角色对战 AI · 浏览器联机：大厅建房/加入 · WebRTC 直连" if OS.has_feature("web") else "单机：选择角色对战 AI · 局域网：同一网段自动发现房间", 13, DIM))
+	stack.add_child(_center_label("单机：选择角色对战 AI · 联机：大厅建房或加入，和好友开打" if OS.has_feature("web") else "单机：选择角色对战 AI · 局域网：同一网段自动发现房间", 13, DIM))
 	_entry_overlay.hide()
 
 func _default_username() -> String:
@@ -1141,21 +1141,32 @@ func set_lan_rooms(rooms: Array) -> void:
 		return
 	_lan_room_hint.text = "发现 %d 个房间 · 点击加入" % rooms.size()
 	for entry: Dictionary in rooms:
+		var mine := bool(entry.get("mine", false))
 		var row := HBoxContainer.new()
 		row.add_theme_constant_override("separation", 8)
 		_lan_room_box.add_child(row)
 		var host_name := str(entry.get("host", "")).strip_edges()
 		var label_text := str(entry.get("name", "决斗房间"))
-		if not host_name.is_empty():
+		if mine:
+			label_text += "   ·   我的房间"
+		elif not host_name.is_empty():
 			label_text += "   ·   房主 " + host_name
-		var label := _label(label_text, 14, WHITE)
+		var label := _label(label_text, 14, DIM if mine else WHITE)
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		row.add_child(label)
-		var join := _button("加入", YELLOW, 14)
-		join.custom_minimum_size = Vector2(78, 38)
-		join.pressed.connect(_lan_join_discovered.bind(str(entry.get("ip", "")), int(entry.get("port", 7777))))
-		row.add_child(join)
+		if mine:
+			# 自己的房间只做展示，不能加入自己
+			var tag := _label("本机", 13, DIM)
+			tag.custom_minimum_size = Vector2(78, 38)
+			tag.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			tag.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+			row.add_child(tag)
+		else:
+			var join := _button("加入", YELLOW, 14)
+			join.custom_minimum_size = Vector2(78, 38)
+			join.pressed.connect(_lan_join_discovered.bind(str(entry.get("ip", "")), int(entry.get("port", 7777))))
+			row.add_child(join)
 		_lan_room_rows.append(row)
 
 func _feedback_slider(node_name: String, color: Color) -> HSlider:

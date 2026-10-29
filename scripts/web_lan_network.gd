@@ -10,6 +10,7 @@ signal match_started(host_kind: int, guest_kind: int)
 signal snapshot_received(state: Dictionary)
 signal session_closed(reason: String)
 signal connection_failed(reason: String)
+signal status_changed(message: String)
 signal discovery_failed(reason: String)
 signal discovery_ready
 signal leaderboard_changed(entries: Array)
@@ -22,6 +23,9 @@ signal rematch_requested
 const SIGNAL_URL := "wss://mirugumi.space/duel-signal"
 const TAP_KEYS := ["jump", "punch", "kick", "heavy", "roundhouse", "special"]
 const PING_INTERVAL := 20.0
+## 对局中大厅断线：静默重连的次数与间隔，全部失败后才提示本局不计入积分榜。
+const RECONNECT_ATTEMPTS := 3
+const RECONNECT_DELAY := 2.0
 
 var active := false
 var is_host := false
@@ -53,6 +57,12 @@ var _started := false
 var _pending_move := 0.0
 var _pending_crouch := false
 var _pending_taps: Dictionary = {}
+var _room_key := ""
+var _signal_url := SIGNAL_URL
+var _reconnect_left := 0
+var _reconnect_timer := 0.0
+var _peer_offline := false
+var _rtc_wait := 0.0
 
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_on_peer_connected)
@@ -60,18 +70,32 @@ func _ready() -> void:
 	multiplayer.connected_to_server.connect(_on_connected_to_server)
 	multiplayer.connection_failed.connect(_on_multiplayer_failed)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
+	if OS.has_feature("web"):
+		# 本地联调：页面可以带 ?signal=ws://<地址>:8899 指向自己的信令服务
+		var override := str(JavaScriptBridge.eval(
+			"(new URLSearchParams(location.search)).get('signal')||''", true))
+		if override.begins_with("ws://") or override.begins_with("wss://"):
+			_signal_url = override
 
 func _process(delta: float) -> void:
 	_poll_signal(delta)
+	_tick_reconnect(delta)
 	if _rtc_pc != null:
 		var state := _rtc_pc.get_connection_state()
+		if _rtc_pc != null and not _rtc_connected and active:
+			_rtc_wait += delta
+			if _rtc_wait > 12.0 and _rtc_wait < 12.5:
+				status_changed.emit("连接超时 · 请确认两台设备在同一网络")
 		if state == WebRTCPeerConnection.STATE_FAILED and active and not _rtc_connected:
-			_fail("WebRTC 连接失败 · 请确认双方网络允许点对点连接")
+			_fail("连接失败 · 请确认两台设备在同一网络后重试")
 		elif state == WebRTCPeerConnection.STATE_CLOSED and active and _rtc_connected:
 			_close_all()
-			session_closed.emit("点对点连接已断开")
+			session_closed.emit("和对手的连接已断开")
 		elif state == WebRTCPeerConnection.STATE_CONNECTED:
-			_rtc_connected = true
+			if not _rtc_connected:
+				_rtc_connected = true
+				_rtc_wait = 0.0
+				status_changed.emit("已连上对手")
 			if is_host and not _welcome_sent:
 				_welcome_sent = true
 				_rpc_welcome.rpc_id(2, local_name, room_name)
@@ -82,8 +106,13 @@ func _process(delta: float) -> void:
 func remote_name() -> String:
 	return guest_name if is_host else host_name
 
+
+## 仅本地测试用：把信令地址指向本机的信令服务。
+func set_signal_url(url: String) -> void:
+	_signal_url = url
+
 func local_ipv4() -> String:
-	return "浏览器 P2P"
+	return "同一网络"
 
 func _clean_name(value: String, fallback: String = "玩家") -> String:
 	var result := value.strip_edges()
@@ -215,9 +244,11 @@ func _connect_signal() -> void:
 			return
 	_ws = WebSocketPeer.new()
 	_ws_open = false
-	var err := _ws.connect_to_url(SIGNAL_URL)
+	var err := _ws.connect_to_url(_signal_url)
 	if err != OK:
 		_ws = null
+		if _reconnect_left > 0 or _reconnect_timer > 0.0:
+			return
 		discovery_failed.emit("无法连接联机大厅 · 请检查网络")
 		if active:
 			_fail("无法连接联机大厅 · 请检查网络")
@@ -241,6 +272,8 @@ func _poll_signal(delta: float) -> void:
 	if state == WebSocketPeer.STATE_OPEN:
 		if not _ws_open:
 			_ws_open = true
+			_reconnect_left = 0
+			_reconnect_timer = 0.0
 			_send_signal({"type": "hello", "name": local_name})
 			discovery_ready.emit()
 			if not _pending_action.is_empty():
@@ -250,18 +283,62 @@ func _poll_signal(delta: float) -> void:
 		if _ping_accum >= PING_INTERVAL:
 			_ping_accum = 0.0
 			_send_signal({"type": "ping"})
-		while _ws.get_available_packet_count() > 0:
+		while _ws != null and _ws.get_available_packet_count() > 0:
 			var packet := _ws.get_packet()
 			_handle_signal(packet.get_string_from_utf8())
 	elif state == WebSocketPeer.STATE_CLOSED:
 		var was_open := _ws_open
 		_ws = null
 		_ws_open = false
-		if active:
+		if active and _started and _rtc_connected:
+			# 对局中掉大厅：先静默重连，战斗本身不受影响。
+			_begin_reconnect()
+		elif active:
 			_close_all()
 			session_closed.emit("联机大厅连接已断开")
 		elif was_open:
 			connection_failed.emit("联机大厅连接已断开")
+
+
+func _begin_reconnect() -> void:
+	if _reconnect_left > 0 or _reconnect_timer > 0.0:
+		return
+	_reconnect_left = RECONNECT_ATTEMPTS
+	_arm_reconnect()
+
+
+func _arm_reconnect() -> void:
+	if _reconnect_left <= 0:
+		_reconnect_exhausted()
+		return
+	_reconnect_timer = RECONNECT_DELAY
+
+
+func _reconnect_exhausted() -> void:
+	_reconnect_timer = 0.0
+	connection_failed.emit("联机大厅已断开，本局继续（胜负不记入积分榜）")
+
+
+func _tick_reconnect(delta: float) -> void:
+	if _reconnect_timer <= 0.0:
+		return
+	if _ws != null:
+		_reconnect_timer = 0.0
+		return
+	_reconnect_timer -= delta
+	if _reconnect_timer > 0.0:
+		return
+	_reconnect_timer = 0.0
+	_reconnect_left -= 1
+	_pending_action = _room_action()
+	_connect_signal()
+	if _ws == null:
+		_arm_reconnect()
+
+
+func _room_action() -> Dictionary:
+	# 重连时按原房间号回到原来的席位，服务端保留一段宽限期
+	return {"type": "rejoin", "room": _room_key, "role": "host" if is_host else "guest", "name": local_name}
 
 func _handle_signal(text: String) -> void:
 	var message: Variant = JSON.parse_string(text)
@@ -282,10 +359,22 @@ func _handle_signal(text: String) -> void:
 			auth_error.emit(str(message.get("message", "账号操作失败")))
 		"created":
 			room_name = str(message.get("room", room_name))
+			_room_key = str(message.get("room", room_name))
 		"joined":
+			_room_key = str(message.get("room", _room_key))
 			host_name = _clean_name(str(message.get("host", "房主")), "房主")
 			guest_name = local_name
 			_setup_rtc(false)
+		"rejoined":
+			# 大厅重连成功，席位恢复，积分照常记录
+			_room_key = str(message.get("room", _room_key))
+			_peer_offline = false
+		"peer_offline":
+			_peer_offline = true
+			connection_failed.emit("对手大厅连接掉线，正在等待重连…")
+		"peer_back":
+			_peer_offline = false
+			connection_failed.emit("对手已重新连上大厅")
 		"peer_joined":
 			guest_name = _clean_name(str(message.get("name", "玩家")))
 			_setup_rtc(true)
@@ -311,7 +400,13 @@ func _handle_signal(text: String) -> void:
 				else:
 					_pending_ice.append(candidate)
 		"error":
-			_fail(str(message.get("message", "大厅操作失败")))
+			var reason := str(message.get("message", "大厅操作失败"))
+			if _reconnect_left > 0 or _reconnect_timer > 0.0:
+				# 重连期间大厅报错：静默当作这次尝试失败，继续下一次
+				_close_signal()
+				_arm_reconnect()
+				return
+			_fail(reason)
 		"session_closed":
 			var reason := str(message.get("reason", "对手已离开房间"))
 			_close_all()
@@ -325,14 +420,13 @@ func _set_rooms(list: Variant) -> void:
 				var key := str(entry.get("key", entry.get("name", "")))
 				if key.is_empty():
 					continue
-				if is_host and active and key == room_name:
-					continue
 				_rooms[key] = {
 					"key": key,
 					"name": str(entry.get("name", key)),
 					"host": str(entry.get("host", "")),
 					"ip": key,
 					"port": 0,
+					"mine": bool(entry.get("mine", false)),
 				}
 	rooms_changed.emit(_room_list())
 
@@ -349,7 +443,7 @@ func _setup_rtc(host_side: bool) -> void:
 	_rtc_pc = WebRTCPeerConnection.new()
 	var err := _rtc_pc.initialize({"iceServers": []})
 	if err != OK:
-		_fail("浏览器 WebRTC 初始化失败")
+		_fail("当前浏览器无法建立连接 · 请换用新版 Safari、Chrome 或 Edge")
 		return
 	_rtc_peer = WebRTCMultiplayerPeer.new()
 	if host_side:
@@ -368,6 +462,8 @@ func _setup_rtc(host_side: bool) -> void:
 	_welcome_sent = false
 	_lobby_announced = false
 	_started = false
+	_rtc_wait = 0.0
+	status_changed.emit("正在连接对手…")
 
 func _on_rtc_session(type: String, sdp: String) -> void:
 	if _rtc_pc == null:
@@ -438,7 +534,7 @@ func _on_connected_to_server() -> void:
 func _on_multiplayer_failed() -> void:
 	if _closing or not active:
 		return
-	_fail("点对点连接失败 · 请重试")
+	_fail("连接失败 · 请重试")
 
 func _on_server_disconnected() -> void:
 	if _closing or not active or is_host:
@@ -485,6 +581,10 @@ func _close_all() -> void:
 	_lobby_announced = false
 	_reset_input()
 	_pending_action = {}
+	_room_key = ""
+	_reconnect_left = 0
+	_reconnect_timer = 0.0
+	_peer_offline = false
 	_close_rtc()
 	_close_signal()
 	_closing = false
