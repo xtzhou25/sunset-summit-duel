@@ -21,7 +21,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-REMOTE_ROOT = "/home/admin/build/sunset-summit-duel"
+REMOTE_ROOT = "/home/deploy/build/sunset-summit-duel"
 SKIP_DIRS = ("deploy/", "dist/", "exports/", ".godot/", "node_modules/")
 SITE_URL = "https://mirugumi.space/minigame/"
 
@@ -63,7 +63,7 @@ def needs_upload(sftp, rel: str, local: Path) -> bool:
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--host", default=os.environ.get("RELEASE_HOST", ""), help="构建机地址，也可用环境变量 RELEASE_HOST")
-    ap.add_argument("--user", default="admin")
+    ap.add_argument("--user", default=os.environ.get("RELEASE_USER", "deploy"))
     ap.add_argument("--key", default=None, help="用私钥代替 SSH_PASSWORD")
     ap.add_argument("--skip-build", action="store_true", help="复用构建机上已有的 dist/")
     ap.add_argument("--dry-run", action="store_true", help="只列出会同步的文件，不做任何改动")

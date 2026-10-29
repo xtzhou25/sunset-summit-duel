@@ -9,10 +9,13 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-GODOT="${GODOT_BIN:-/home/admin/build/tools/Godot_v4.6.3-stable_linux.x86_64}"
-export XDG_DATA_HOME="${XDG_DATA_HOME:-/home/admin/build/xdg/data}"
-export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-/home/admin/build/xdg/config}"
-export XDG_CACHE_HOME="${XDG_CACHE_HOME:-/home/admin/build/xdg/cache}"
+# 构建工具和 XDG 目录放在仓库的上一级（例如 /home/deploy/build/{tools,xdg}），
+# 这样换用户/换机器都不用改脚本。
+BUILD_ROOT="$(dirname "$ROOT")"
+GODOT="${GODOT_BIN:-$BUILD_ROOT/tools/Godot_v4.6.3-stable_linux.x86_64}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$BUILD_ROOT/xdg/data}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$BUILD_ROOT/xdg/config}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$BUILD_ROOT/xdg/cache}"
 export PYTHONUTF8=1
 COSCONF="${COS_CONF:-$HOME/.cos-minigame.conf}"
 BASE_URL="https://mirugumi-space-1382800327.cos.ap-guangzhou.myqcloud.com/minigame/"
@@ -20,6 +23,9 @@ BASE_URL="https://mirugumi-space-1382800327.cos.ap-guangzhou.myqcloud.com/miniga
 cd "$ROOT"
 
 if [ "${SKIP_BUILD:-0}" != "1" ]; then
+  echo "[0/4] 清理旧的构建产物"
+  # export_presets 的 exclude_filter 没有排除 deploy/，残留的旧版本会被打进 pck
+  rm -rf dist exports deploy
   echo "[1/4] 还原模型并导入资源"
   python3 scripts/restore_assets.py >/dev/null
   "$GODOT" --headless --path . --import >/dev/null 2>&1

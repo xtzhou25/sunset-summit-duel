@@ -1,0 +1,64 @@
+name: 部署网页版
+
+# 合入 main 后自动：服务器拉取代码 → 构建 → 上传 COS → 校验线上版本
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-web
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: 准备 SSH
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+        run: |
+          set -e
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          if [ -n "$DEPLOY_KNOWN_HOSTS" ]; then
+            printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          else
+            ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
+          fi
+
+      - name: 服务器拉取并发布
+        id: release
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+        run: |
+          set -e
+          OUT=$(ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
+            "$DEPLOY_USER@$DEPLOY_HOST" \
+            "bash -lc 'set -e; cd /home/deploy/build/sunset-summit-duel && git fetch --prune origin && git clean -fd && git reset --hard origin/main && bash scripts/release_web.sh'" 2>&1)
+          printf '%s\n' "$OUT"
+          REV=$(printf '%s\n' "$OUT" | sed -n 's/^REVISION=//p' | tail -1)
+          if [ -z "$REV" ]; then
+            echo "::error::没有拿到 REVISION，构建或上传失败"
+            exit 1
+          fi
+          echo "revision=$REV" >> "$GITHUB_OUTPUT"
+
+      - name: 校验线上已切换
+        env:
+          REV: ${{ steps.release.outputs.revision }}
+        run: |
+          for i in $(seq 1 10); do
+            if curl -fsS "https://mirugumi.space/minigame/?t=$RANDOM" | grep -q "$REV"; then
+              echo "线上已切到 $REV"
+              exit 0
+            fi
+            sleep 6
+          done
+          echo "::error::线上页面仍未引用 $REV"
+          exit 1
